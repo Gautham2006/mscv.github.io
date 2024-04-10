@@ -665,18 +665,17 @@ Championing climate action with our global carbon commitment                    
 
 <style>
     .tabs {
-        /* Ensures the tabs are clearly visible over the background */
-        background-color: #01193c; /* Semi-transparent white */
+        background-color: #01193c;
         padding: 1em;
     }
 
     .tab-buttons {
         overflow: hidden;
-        background: #0e4177; /* Light grey, to stand out against the semi-transparent background */
+        background: #0e4177;
         border-bottom: 2px solid #ddd;
         display: flex;
         justify-content: space-around;
-        margin-bottom: 1em; /* Adds some space between the buttons and the content */
+        margin-bottom: 1em;
     }
 
     .tab-button {
@@ -686,30 +685,49 @@ Championing climate action with our global carbon commitment                    
         cursor: pointer;
         padding: 14px 16px;
         transition: color 0.3s, background-color 0.3s, transform 0.3s;
-        font-size: 17px;
+        font-size: 17px; /* Default font size */
         color: #fff;
         text-transform: uppercase;
         font-weight: 600;
     }
 
     .tab-button:hover, .tab-button.active {
-        background-color: #0c3663; /* A blue that stands out */
-        color: #fff; /* White text for contrast */
-        transform: translateY(-2px); /* Lifts the button slightly */
+        background-color: #0c3663;
+        color: #fff;
+        transform: translateY(-2px);
     }
 
     .tab-content {
-        display: none; /* Hides non-active tabs */
+        display: none;
         padding: 20px;
-        background: transparent; /* Allows the background image to show through */
-        box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Subtle shadow for depth */
+        background: transparent;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         animation: fadeIn 0.3s ease-in-out;
-        color:#fff;
+        color: #fff;
     }
 
     .tab-content.active {
-        display: block; /* Shows the active tab */
-        
+        display: block;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .tab-button {
+            font-size: 15px; /* Smaller font size for tablets */
+            padding: 12px 14px; /* Adjust padding for smaller screens */
+        }
+    }
+
+    @media (max-width: 480px) {
+        .tab-button {
+            font-size: 13px; /* Even smaller font size for mobile phones */
+            padding: 10px 12px; /* Adjust padding for very small screens */
+        }
     }
 
     @keyframes fadeIn {
