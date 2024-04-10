@@ -1,5 +1,21 @@
 @charset "UTF-8";
 
+/* Adjust for all screens 
+.bpw-widget-btn {
+    right: 10px; /* Adjust as needed 
+    bottom: 10px; /* Adjust as needed 
+    position: fixed; /* Ensuring that it is fixed positioning 
+}
+
+/* Further adjust for small screens with a media query 
+@media screen and (max-width: 400px) {
+    .bpw-widget-btn {
+        right: 10px; /* Adjust as needed for small screens 
+        bottom: 10px; /* Adjust as needed for small screens 
+    }
+}
+*/
+
 .container {
     padding-right: 23px !important;
     padding-left: 23px !important
@@ -13113,6 +13129,13 @@ but if it's required for your layout, you'll have to adjust it accordingly.
 .topnav__logo img{
     max-width: 100%;
     height: auto;
+}
+
+@media(max-width:959px){
+    .topnav__logo img{
+        width: 50%;
+        max-height: 100%;
+    }
 }
 
 .topnav__list {
