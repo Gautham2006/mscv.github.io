@@ -11130,7 +11130,8 @@ p.link-grosvenor a:after {
 }
 
 .footer {
-    background-color: #021430
+    background-color: #021430;
+    height: 100%;
 }
 
 .footer p a {
@@ -11424,7 +11425,9 @@ p.link-grosvenor a:after {
 }
 
 .imageandcontentwidget__inner {
-    display: flex
+    /*display: flex;*/
+    display: flex;
+    flex-wrap:nowrap;
 }
 
 @media (max-width:959.98px) {
@@ -11442,10 +11445,17 @@ p.link-grosvenor a:after {
 
 @media (max-width:959.98px) {
     .imageandcontentwidget__inner__imagecolumn {
-        padding-bottom: 93.335%;
+        /* padding-bottom: 93.335%; */
         width: 100%
     }
 }
+
+/* @media (max-width:959.98px) {
+    .imageandcontentwidget__inner__imagecolumn {
+        padding-bottom: 93.335%;
+        width: 100%
+    }
+} */
 
 /* .imageandcontentwidget__inner__imagecolumn__image {
     background-position: 50%;
@@ -11506,7 +11516,8 @@ p.link-grosvenor a:after {
 .imageandcontentwidget__inner__imagecolumn__image {
     /* Assuming you want the image to keep its own aspect ratio */
     max-width: 100%; /* Limit image width to not exceed its container */
-    max-height: 100%; /* Limit image height to not exceed its container */
+    /* max-height: 100%; Limit image height to not exceed its container */
+    max-height: auto;
 }
 
 /* Optional: if you want to remove the absolute positioning, 
@@ -11601,6 +11612,7 @@ but if it's required for your layout, you'll have to adjust it accordingly.
     -o-object-fit: cover;
     object-fit: cover
 }
+
 
 .imagegallery:hover {
     cursor: pointer
@@ -12300,7 +12312,7 @@ but if it's required for your layout, you'll have to adjust it accordingly.
 }
 
 .offices__card__cta svg {
-    stroke: #000;
+    stroke: #fff;
     width: 23px;
     height: 12px;
     margin-left: 5px
@@ -13094,8 +13106,13 @@ but if it's required for your layout, you'll have to adjust it accordingly.
     display: inline-block;
     background: url(/assets/img/Grosvenor-mark-white.svg) no-repeat;
     background-size: contain;
-    width: 32px;
-    height: 35px
+    /* width: 32px;
+    height: 35px */
+}
+
+.topnav__logo img{
+    max-width: 100%;
+    height: auto;
 }
 
 .topnav__list {
