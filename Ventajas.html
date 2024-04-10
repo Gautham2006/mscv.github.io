@@ -215,7 +215,38 @@
 		
 
 
+<style>
+    /* Default styles for mobile */
+    .landingbanner__background{
+        /*background-image: url('https://cdn-gaden.nitrocdn.com/jeRXLLMZymlAMbVtOsUnCWhDbjNHCnZx/assets/static/optimized/rev-69a8792/wordpress/wp-content/uploads/2021/07/revista-768x1024.jpg'); */
+        background-size: contain;
+        background-position: top; 
+        height: auto; /* Full viewport height */
+        width: 100%; /* Full viewport width */
+    }
 
+    /* Adjustments for screens wider than 959px */
+    @media (min-width: 600px) {
+        .landingbanner__background{
+            background-size: contain;
+            background-position: center; 
+          
+            height:auto;
+            width:100%;
+        }
+    }
+
+    @media (min-width: 959px) {
+        .landingbanner__background{
+            background-size: contain;
+            background-position: center; 
+          
+            height:auto;
+            width:100%;
+        }
+    }
+
+</style>
 
 <div class="landingbanner landingbanner--">
        <div class="landingbanner__item">
@@ -223,9 +254,13 @@
                 </div>
 
 
-            <div class="landingbanner__image landingbanner__image--mobile d-block d-md-none" style="background-image: url(&#39;https://cdn-gaden.nitrocdn.com/jeRXLLMZymlAMbVtOsUnCWhDbjNHCnZx/assets/static/optimized/rev-69a8792/wordpress/wp-content/uploads/2021/07/revista-768x1024.jpg&#39;)">
+            <div class="landingbanner__image landingbanner__image--mobile d-block d-md-none" 
+                style="background-image: url(&#39;https://cdn-gaden.nitrocdn.com/jeRXLLMZymlAMbVtOsUnCWhDbjNHCnZx/assets/static/optimized/rev-69a8792/wordpress/wp-content/uploads/2021/07/revista-768x1024.jpg&#39;);">
             </div>
-
+            <!-- <div class="landingbanner__image landingbanner__image--mobile d-block d-md-none" style="
+                    background-image: url(&#39;https://cdn-gaden.nitrocdn.com/jeRXLLMZymlAMbVtOsUnCWhDbjNHCnZx/assets/static/optimized/rev-69a8792/wordpress/wp-content/uploads/2021/07/revista-768x1024.jpg&#39;); 
+                    background-size:contain;">
+            </div> -->
 
         <div class="landingbanner__content px-lg-0 px-2 px-md-4">
             <div class="container">
