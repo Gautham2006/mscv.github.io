@@ -11941,12 +11941,27 @@ but if it's required for your layout, you'll have to adjust it accordingly.
     max-height: 875px;
     min-height: auto !important
 }
-
+/*****************************************/
 .landingbanner__item {
     position: relative;
-    min-height: 664px
+    /* min-height: 664px */
+    height:auto;
 }
 
+@media (min-width: 320px) {
+    .landingbanner__item {
+        aspect-ratio: 16/9; /* Maintain a 16:9 aspect ratio */
+        
+        height: auto; /* Allow the height to adjust automatically */
+    }
+}
+
+@media (max-width: 959px) {
+    .banner__video {
+        display: block !important; 
+    }
+}
+/*****************************************/
 .landingbanner__item image, .landingbanner__item video {
     width: 100%
 }
@@ -11957,13 +11972,8 @@ but if it's required for your layout, you'll have to adjust it accordingly.
     object-fit: cover
 }
 
-@media (min-width:960px) {
-    .landingbanner__item {
-        aspect-ratio: 16/9;
-        height: 100%;
-        min-height: auto
-    }
-}
+
+
 
 .landingbanner__content {
     padding: 115px 0 0
