@@ -11948,7 +11948,7 @@ but if it's required for your layout, you'll have to adjust it accordingly.
     height:auto;
 }
 
-@media (min-width: 320px) {
+@media (min-width: 288px) {
     .landingbanner__item {
         aspect-ratio: 16/9; /* Maintain a 16:9 aspect ratio */
         
