@@ -224,14 +224,22 @@
         height: auto; /* Full viewport height */
         width: 100%; /* Full viewport width */
     }
-
+    @media (min-width: 288px) {
+        .landingbanner__background{
+            background-size: contain;
+            background-position: center; 
+          
+            height:700px;
+            width:100%;
+        }
+    }
     /* Adjustments for screens wider than 959px */
     @media (min-width: 600px) {
         .landingbanner__background{
             background-size: contain;
             background-position: center; 
           
-            height:auto;
+            height:700px;
             width:100%;
         }
     }
@@ -241,7 +249,7 @@
             background-size: contain;
             background-position: center; 
           
-            height:auto;
+            height:700px;
             width:100%;
         }
     }
@@ -250,12 +258,12 @@
 
 <div class="landingbanner landingbanner--">
        <div class="landingbanner__item">
-                <div class="landingbanner__background d-none d-md-block" style="background-image: url(&#39;https://cdn-gaden.nitrocdn.com/jeRXLLMZymlAMbVtOsUnCWhDbjNHCnZx/assets/static/optimized/rev-69a8792/wordpress/wp-content/uploads/2021/07/revista-768x1024.jpg&#39;)">
+                <div class="landingbanner__background d-none d-md-block" style="background-image: url(&#39;./Images/ventajasfrontimg.webp&#39;);transform:scale(0.8) ;">
                 </div>
 
 
             <div class="landingbanner__image landingbanner__image--mobile d-block d-md-none" 
-                style="background-image: url(&#39;https://cdn-gaden.nitrocdn.com/jeRXLLMZymlAMbVtOsUnCWhDbjNHCnZx/assets/static/optimized/rev-69a8792/wordpress/wp-content/uploads/2021/07/revista-768x1024.jpg&#39;);">
+                style="background-image: url(&#39;./Images/ventajasfrontimg.webp&#39;);">
             </div>
             <!-- <div class="landingbanner__image landingbanner__image--mobile d-block d-md-none" style="
                     background-image: url(&#39;https://cdn-gaden.nitrocdn.com/jeRXLLMZymlAMbVtOsUnCWhDbjNHCnZx/assets/static/optimized/rev-69a8792/wordpress/wp-content/uploads/2021/07/revista-768x1024.jpg&#39;); 
