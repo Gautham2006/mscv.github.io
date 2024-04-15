@@ -215,7 +215,7 @@
 		
 
 
-<style>
+<!-- <style>
     /* Default styles for mobile */
     .landingbanner__background{
         /*background-image: url('https://cdn-gaden.nitrocdn.com/jeRXLLMZymlAMbVtOsUnCWhDbjNHCnZx/assets/static/optimized/rev-69a8792/wordpress/wp-content/uploads/2021/07/revista-768x1024.jpg'); */
@@ -254,43 +254,51 @@
         }
     }
 
+</style> -->
+<style>
+    .landingbanner__background, .landingbanner__image {
+        background-size: contain; /* Ensures the entire image is visible */
+        background-position: center; /* Centers the image in the div */
+        background-repeat: no-repeat; /* Prevents the image from repeating */
+        width: 100%; /* Full width of the container */
+        height: auto; /* Full height of the viewport */
+        display: block; /* Ensures the div is properly displayed */
+    }
 </style>
 
-<div class="landingbanner landingbanner--">
-       <div class="landingbanner__item">
-                <div class="landingbanner__background d-none d-md-block" style="background-image: url(&#39;./Images/ventajasfrontimg.webp&#39;);transform:scale(0.8) ;">
-                </div>
 
+<div class="landingbanner">
+    <div class="landingbanner__item textcolour--white">
+        <!-- Background for desktop and larger tablets -->
+        <div class="landingbanner__background d-none d-md-block" style="background-image: url('./Images/ventajasfrontimg.webp');background-color:#0d3761;">
+        </div>
 
-            <div class="landingbanner__image landingbanner__image--mobile d-block d-md-none" 
-                style="background-image: url(&#39;./Images/ventajasfrontimg.webp&#39;);">
-            </div>
-            <!-- <div class="landingbanner__image landingbanner__image--mobile d-block d-md-none" style="
-                    background-image: url(&#39;https://cdn-gaden.nitrocdn.com/jeRXLLMZymlAMbVtOsUnCWhDbjNHCnZx/assets/static/optimized/rev-69a8792/wordpress/wp-content/uploads/2021/07/revista-768x1024.jpg&#39;); 
-                    background-size:contain;">
-            </div> -->
+        <!-- Background for mobile devices -->
+        <div class="landingbanner__image landingbanner__image--mobile d-block d-md-none" 
+            style="background-image: url('./Images/ventajasfrontimg.webp');background-color:#0d3761;">
+        </div>
 
         <div class="landingbanner__content px-lg-0 px-2 px-md-4">
             <div class="container">
                 <div class="row">
                     <div class="col-md-7 col-12 landingbanner__content__text">
                             <h1>
-                                
+                                Ventajas
                             </h1>
                     </div>
                 </div>
             </div>
         </div>
     </div> 
-    
 </div>
+
 <div id="contentanchor"></div>
 
-<div class="container">
+<!-- <div class="container">
 	<div class="row">
 		<div class="col-12">
 			
-<!-- <div class="breadcrumb">
+ <div class="breadcrumb">
     <ul class="breadcrumb__list">
             <li class="breadcrumb__item">
                 <a href="https://www.grosvenor.com/" class="breadcrumb__link">
@@ -303,11 +311,11 @@
                 </a>
             </li>
     </ul>
-</div> -->
+</div> 
 
 		</div>
 	</div>
-</div>
+</div> -->
 
     <div>
         
@@ -830,7 +838,7 @@ Siguiendo esta filosofía de vida MSC ha superado grandes retos y llegado a mant
       "themeColor": "#2563eb"
   });
 </script>  
-<script>
+<!-- <script>
     document.addEventListener('contextmenu', function(e) {
       e.preventDefault();
     });
@@ -851,6 +859,6 @@ Siguiendo esta filosofía de vida MSC ha superado grandes retos y llegado a mant
         return false;
       }
     };
-    </script>
+    </script> -->
 </body>
 </html>
