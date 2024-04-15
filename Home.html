@@ -233,8 +233,58 @@
 		</div>
 	</div>
 </div> -->
+
+<style>
+    .video-container {
+      width: 100%; /* This will make the container responsive to the width of the device */
+      height: 500px; /* Default height for larger screens */
+      overflow: hidden;
+      position: relative;
+    }
+  
+    .video-container video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  
+   
+  /* Media Query for small devices */
+  @media (min-width: 288px) {
+    .video-container {
+      height: 162px; /* Adjusted height based on common aspect ratios */
+    }
+  }
+
+  /* Media Query for larger devices */
+  @media (min-width: 480px) {
+    .video-container {
+      height: 270px;
+    }
+  }
+
+  /* Media Query for tablets */
+  @media (min-width: 768px) {
+    .video-container {
+      height: 432px;
+    }
+  }
+
+  /* Media Query for small laptops */
+  @media (min-width: 992px) {
+    .video-container {
+      height: 558px;
+    }
+  }
+
+  </style>
+  
 <div class="landingbanner landingbanner--">
-       <div class="landingbanner__item">
+       <div class="landingbanner__item video-container">
                 <!-- <div class="landingbanner__background d-none d-md-block" style="background-image: url(&#39;./Images/msccc.webp&#39;)">
                 </div>
 
@@ -1408,7 +1458,7 @@ Championing climate action with our global carbon commitment                    
       "themeColor": "#2563eb"
   });
 </script>  
-<script>
+<!-- <script>
 document.addEventListener('contextmenu', function(e) {
   e.preventDefault();
 });
@@ -1429,6 +1479,6 @@ document.onkeydown = function(e) {
     return false;
   }
 };
-</script>
+</script> -->
 </body>
 </html>
