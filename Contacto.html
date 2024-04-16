@@ -235,36 +235,49 @@
 		
 
 
-
+<style>
+    .landingbanner__item{
+        height:300px;
+        width:100%;
+    }
+</style>
 
  
 </div>
-<div id="contentanchor"></div>
 
-<div class="container">
-	<div class="row">
-		<div class="col-12">
-			
-<!-- <div class="breadcrumb">
-    <ul class="breadcrumb__list">
-            <li class="breadcrumb__item">
-                <a href="https://www.grosvenor.com/" class="breadcrumb__link">
-                    Grosvenor
-                </a>
-            </li>
-            <li class="breadcrumb__item">
-                <a href="https://www.grosvenor.com/about-us" class="breadcrumb__link">
-                    About us
-                </a>
-            </li>
-    </ul>
-</div> -->
+<div class="landingbanner landingbanner--">
+    <div class="landingbanner__item textcolour--white" >
+                <div class="landingbanner__background d-none d-md-block" style="background-color:#082657">
+                </div>
 
-		</div>
-	</div>
+
+            <div class="landingbanner__image landingbanner__image--mobile d-block d-md-none" style="background-color:#082657">
+            </div>
+
+
+        <div class="landingbanner__content px-lg-0 px-2 px-md-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7 col-12 landingbanner__content__text">
+                            <h1>
+                                Contacto
+                            </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
-    <div style="background-color: #082657;">
+<!-- 
+<div class="container" style="background-color:#082657">
+    <div class="row">
+        <div class="col-md-7 col-12 landingbanner__content__text">
+                <h1>
+                    
+                </h1>
+        </div>
+    </div>
+</div> -->
 
 <style>
     .offices {
@@ -370,7 +383,7 @@ height: 250px; /* Taller height for iframes on larger screens */
             </div> -->
         <!-- </div>  -->
         <div class="col-md-12" style="background-color: #082657;">
-            <div class="offices mb-1" style="background-color: #082657;" > <!--style="background-color: #082657; transform: translateX(10%);-->
+            <div class="offices " style="background-color: #082657;" > <!--style="background-color: #082657; transform: translateX(10%);-->
                 <!-- Row for Mexican Offices -->
                 <div class="row" id="Mexico">
                     <div class="col-18 col-md-3 mb-6" style="">
@@ -805,16 +818,78 @@ height: 250px; /* Taller height for iframes on larger screens */
 
 
 
+<style>
+    /* Aligns the items vertically in the footer */
+.footer .row {
+    display: flex;
+    align-items: center; /* This centers items vertically */
+}
+
+/* Adjusting the column widths to give 'Facilitamos procesos' more space */
+.footer .col-md-6, .footer .col-6 {
+    flex: 0 0 100%; /* On mobile, they take full width */
+    max-width: 100%; /* Prevents constraining the width to less than the container size */
+}
+
+@media (min-width: 768px) {
+    /* On larger screens, we allow columns to take more natural width */
+    .footer .col-md-6 {
+        flex: 0 0 auto;
+        max-width: none;
+    }
+}
+
+/* Additional styles to manage the layout and spacing */
+.topnav__logo img {
+    width: auto; /* Allows the logo to maintain its intrinsic size */
+    height: auto; /* Maintains aspect ratio */
+    max-height: 100px; /* Adjust '100px' as needed to fit the footer's height */
+}
+/* Style adjustments for the footer columns */
+.footer__content {
+    padding: 0 15px; /* Adds padding to prevent text from touching the sides of the screen */
+}
+
+.footer__iconList {
+    list-style-type: none; /* Remove bullets */
+    margin: 0; /* Remove the default margin */
+    padding: 0; /* Remove the default padding */
+    display: flex; /* Use flexbox for inline display */
+    align-items: center; /* Align items vertically */
+    justify-content: flex-start; /* Align items to the left */
+}
+
+.footer__iconList li {
+    margin-right: 10px; /* Add some space between the list items */
+}
+
+.footer__iconList a {
+    text-decoration: none; /* Optional: Remove underline from links */
+    color: inherit; /* Inherit the text color from the parent */
+}
+
+
+@media (min-width: 768px) {
+    .footer__iconList {
+        justify-content: flex-end; /* Align items to the right on larger screens */
+    }
+}
+
+
+</style>
+
     <footer class="footer textcolour--white pt-4 pb-2">
         <div class="container">
-            <div class="col-12 col-md-6 mb-4">
-                <a href="Home.html"  class="topnav__logo">
-                <img 
-                    src="https://cdn-gaden.nitrocdn.com/jeRXLLMZymlAMbVtOsUnCWhDbjNHCnZx/assets/static/optimized/rev-69a8792/wordpress/wp-content/uploads/2021/07/MSC-banner3_SF.png"
-                    style="float:left;"
-                    />
-    
-                </a>
+            <div class="row mb-4">
+                <div class="col-12 col-md-6">
+                    <a href="Home.html"  class="topnav__logo">
+                    <img 
+                        src="https://cdn-gaden.nitrocdn.com/jeRXLLMZymlAMbVtOsUnCWhDbjNHCnZx/assets/static/optimized/rev-69a8792/wordpress/wp-content/uploads/2021/07/MSC-banner3_SF.png"
+                        
+                        />
+        
+                    </a>
+                </div>
             </div>
             <div class="row mb-3">
                 <!-- Declaration Section -->
@@ -823,40 +898,17 @@ height: 250px; /* Taller height for iframes on larger screens */
                     <p>Brindamos la seguridad de que su servicio de importación o exportación serán realizados en forma y tiempo.</p>
                 </div>
                 <!-- Customs Agency Section -->
-                <div class="col-6 order-md-3 footer__content">
+                <div class="col-12 col-md-6 mb-4">
                     <h6 class="text-uppercase font-weight-bold">Agencia Aduanal</h6>
                     <p>Facilitamos procesos aduaneros eficientes y seguros para sus operaciones de comercio internacional.</p>
                 </div>
                 <!-- Social Networks Section -->
-                <div class="col-6 order-md-2 text-right">
-                    <ul class="footer__iconList m-0">
-                        <!-- <li class="footer__iconItem">
-                            <a target="_blank" href="https://www.facebook.com/aamuris/">
-                                <span class="visually-hidden">Facebook</span>
-                               
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#3b5998"><path d=M22.676 0H1.324C.594 0 0 .594 0 1.324v21.352C0 23.406.594 24 1.324 24h11.53v-9.294H9.588V11.47h3.265V8.824c0-3.239 1.98-5.004 4.863-5.004 1.383 0 2.573.103 2.919.148v3.385h-2.002c-1.567 0-1.869.744-1.869 1.836v2.406h3.737l-.487 3.237h-3.25V24h6.378c.729 0 1.324-.594 1.324-1.324V1.324C24 .594 23.406 0 22.676 0z/></svg>
-    
-                            </a>
-                        </li>
-                        <li class="footer__iconItem ml-2">
-                            <a target="_blank" href="https://twitter.com/MurisSalinasSC">
-                                <span class="visually-hidden">Twitter</span>
-                                
-                                <svg style="width: 31px; height: 25px; fill: #fff;"><use xlink:href="#icon-youtube"></use>
-                                </svg>
-                            </a>
-                        </li>
-                        <li class="footer__iconItem ml-2 ml-md-7">
-                            <a target="_blank" href="https://www.youtube.com/@MurisSalinasConsultores">
-                                <span class="visually-hidden">Youtube</span>
-                                 
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FF0000"><path d=M23.499 6.203a3.008 3.008 0 00-2.118-2.115C19.584 3.724 12 3.724 12 3.724s-7.584 0-9.381.364A3.008 3.008 0 00.501 6.203 14.83 14.83 0 000 12a14.83 14.83 0 00.501 5.797 3.008 3.008 0 002.118 2.115c1.797.364 9.381.364 9.381.364s7.584 0 9.381-.364a3.008 3.008 0 002.118-2.115A14.83 14.83 0 0024 12a14.83 14.83 0 00-.501-5.797zM9.545 15.454V8.545l6.909 3.455z/></svg>
-                                
-                            </a>
-                        </li> -->
-                        <li class ="footer__iconItem ml-2 ml-md-7"><a href="https://www.facebook.com/aamuris/" >Facebook</a></li>
-                        <li  class ="footer__iconItem ml-2 ml-md-7"><a href="https://twitter.com/MurisSalinasSC" >Twitter</a></li>
-                        <li  class ="footer__iconItem ml-2 ml-md-7"><a href="https://www.youtube.com/@MurisSalinasConsultores" >Youtube</a></li>
+                <div class="col-12 col-md-6 mb-4">
+                    <h6 class="text-uppercase font-weight-bold">Enlaces</h6>
+                    <ul class="list-inline">
+                        <li><a href="https://www.facebook.com/aamuris/">Facebook</a></li>
+                        <li><a href="https://twitter.com/MurisSalinasSC">Twitter</a></li>
+                        <li><a href="https://www.youtube.com/@MurisSalinasConsultores">Youtube</a></li>
                     </ul>
                 </div>
             </div>
@@ -965,7 +1017,7 @@ height: 250px; /* Taller height for iframes on larger screens */
       "themeColor": "#2563eb"
   });
 </script> 
-<script>
+<!-- <script>
     document.addEventListener('contextmenu', function(e) {
       e.preventDefault();
     });
@@ -986,6 +1038,6 @@ height: 250px; /* Taller height for iframes on larger screens */
         return false;
       }
     };    
-</script> 
+</script>  -->
 </body>
 </html>
