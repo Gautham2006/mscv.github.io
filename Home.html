@@ -277,8 +277,8 @@
         position: absolute; /* Position h1 absolutely within the .landingbanner__content */
         left: 1rem; /* Place it towards the left side of its container */
         top: 50%; /* Center it vertically */
-        transform: translateY(-50%); /* Align it properly on the vertical axis */
-        font-size: 8vw; /* Responsive font size based on viewport width */
+        /*transform: translateY(-50%);  Align it properly on the vertical axis */
+        font-size: 16px; /* Responsive font size based on viewport width */
         z-index: 2; /* Ensure h1 is above the background image */
         color: #FFF; /* Text color white */
         margin: 0; /* Remove any default margin */
@@ -290,21 +290,25 @@
     /* Ensures the font size doesn't get too small on very narrow screens */
     @media (max-width: 400px) {
         .banner__content h1 {
-            font-size: 4vw; /* Minimum font size */
+            font-size: 48px; /* Minimum font size */
         }
     }
-
+    @media (min-width: 400.01px) {
+        .banner__content h1 {
+            font-size: 48px; /* Minimum font size */
+        }
+    }
     /* Adjust font size for medium screens */
     @media (min-width: 768px) {
         .banner__content h1 {
-            font-size: 8vw; /* Slightly larger font size for larger screens */
+            font-size: 64px; /* Slightly larger font size for larger screens */
         }
     }
 
     /* Ensures the font size doesn't get too large on very wide screens */
     @media (min-width: 1200px) {
         .banner__content h1 {
-            font-size: 64px; /* Maximum font size */
+            font-size: 96px; /* Maximum font size */
         }
     }
   </style>
@@ -365,7 +369,7 @@
                                     </picture>
                                 </div>
 
-                                <div class="p   t-5 pr-2 pb-2 pl-3 pt-md-7 pr-md-6 pl-md-6" style="padding-top: 10%;">
+                                <div class="p   t-5 pr-2 pb-2 pl-3 pt-md-7 pr-md-6 pl-md-6" style="padding-top: 46px;">
                                     <h3>
                                         TRÁFICO AÉREO							
                                     </h3>
