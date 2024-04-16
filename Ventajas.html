@@ -255,7 +255,7 @@
     }
 
 </style> -->
-<style>
+<!-- <style>
     .landingbanner__background, .landingbanner__image {
         background-size: contain; /* Ensures the entire image is visible */
         background-position: center; /* Centers the image in the div */
@@ -264,16 +264,86 @@
         height: auto; /* Full height of the viewport */
         display: block; /* Ensures the div is properly displayed */
     }
+</style> -->
+
+<style>
+    .landingbanner__item {
+        display: flex; /* Use flexbox to place text next to the background */
+        align-items: center; /* Center items vertically */
+        justify-content: start; /* Align items to the start of the container */
+        color: #FFF; /* Set text color to white */
+        background-color: #0d3761; /* The blue background color */
+    }
+
+    .landingbanner__background, .landingbanner__image--mobile {
+        flex: 1; /* Allow background image container to grow */
+        display: flex; /* Use flexbox inside the background container */
+        justify-content: center; /* Center the background image */
+        background-size: contain; /* Keep the entire image visible */
+        background-repeat: no-repeat; /* Do not repeat the image */
+        background-position: center center; /* Center the background image */
+    }
+
+    .landingbanner__content {
+        flex: 1; /* Allow text container to grow */
+        display: flex; /* Use flexbox inside the text container */
+        justify-content: center; /* Center the text */
+        align-items: center; /* Align text vertically */
+    }
+
+    /* Ensure the layout is responsive */
+    @media (max-width: 768px) {
+        .landingbanner__item {
+            flex-direction: column; /* Stack background and text vertically on smaller screens */
+        }
+    }
+    
+
+    .landingbanner__content h1 {
+        position: absolute; /* Position h1 absolutely within the .landingbanner__content */
+        left: 1rem; /* Place it towards the left side of its container */
+        top: 50%; /* Center it vertically */
+        transform: translateY(-50%); /* Align it properly on the vertical axis */
+        font-size: 4vw; /* Responsive font size based on viewport width */
+        z-index: 2; /* Ensure h1 is above the background image */
+        color: #FFF; /* Text color white */
+        margin: 0; /* Remove any default margin */
+        padding-left: 5%; /* No padding needed */
+        max-width: calc(100% - 2rem); /* Ensure it doesn't overflow its container */
+        box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    }
+
+    /* Ensures the font size doesn't get too small on very narrow screens */
+    @media (max-width: 400px) {
+        .landingbanner__content h1 {
+            font-size: 16px; /* Minimum font size */
+        }
+    }
+
+    /* Adjust font size for medium screens */
+    @media (min-width: 768px) {
+        .landingbanner__content h1 {
+            font-size: 32px; /* Slightly larger font size for larger screens */
+        }
+    }
+
+    /* Ensures the font size doesn't get too large on very wide screens */
+    @media (min-width: 1200px) {
+        .landingbanner__content h1 {
+            font-size: 64px; /* Maximum font size */
+        }
+    }
 </style>
 
 
-<div class="landingbanner">
+
+<!-- <div class="landingbanner">
     <div class="landingbanner__item textcolour--white">
-        <!-- Background for desktop and larger tablets -->
+        
         <div class="landingbanner__background d-none d-md-block" style="background-image: url('./Images/ventajasfrontimg.webp');background-color:#0d3761;">
         </div>
 
-        <!-- Background for mobile devices -->
+       
         <div class="landingbanner__image landingbanner__image--mobile d-block d-md-none" 
             style="background-image: url('./Images/ventajasfrontimg.webp');background-color:#0d3761;">
         </div>
@@ -290,32 +360,29 @@
             </div>
         </div>
     </div> 
+</div> -->
+<div class="landingbanner">
+    <div class="landingbanner__item textcolour--white">
+        <!-- Background for desktop and larger tablets -->
+        <div class="landingbanner__background d-none d-md-block" style="background-image: url('./Images/ventajasfrontimg.webp');">
+        </div>
+
+        <!-- Background for mobile devices -->
+        <div class="landingbanner__image landingbanner__image--mobile d-block d-md-none" 
+            style="background-image: url('./Images/ventajasfrontimg.webp');">
+        </div>
+
+        <!-- Content -->
+        <div class="landingbanner__content px-lg-0 px-2 px-md-4">
+            <h1>Ventajas</h1>
+        </div>
+    </div> 
 </div>
 
-<div id="contentanchor"></div>
 
-<!-- <div class="container">
-	<div class="row">
-		<div class="col-12">
-			
- <div class="breadcrumb">
-    <ul class="breadcrumb__list">
-            <li class="breadcrumb__item">
-                <a href="https://www.grosvenor.com/" class="breadcrumb__link">
-                    Grosvenor
-                </a>
-            </li>
-            <li class="breadcrumb__item">
-                <a href="https://www.grosvenor.com/about-us" class="breadcrumb__link">
-                    About us
-                </a>
-            </li>
-    </ul>
-</div> 
 
-		</div>
-	</div>
-</div> -->
+
+
 
     <div>
         
