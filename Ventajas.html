@@ -203,7 +203,7 @@
                 
                 </li>
                 <li class="mainnav__item">
-                    <a href="Contacto.html" class="mainnav__link">
+                    <a href="#contact" class="mainnav__link">
                         Contacto
                     </a>
                 </li>
@@ -211,7 +211,28 @@
     </div> 
 		<div class="header__line mx-3 mx-md-4"></div>
 	</header>
-
+    <script>
+        document.getElementById('contactLink').addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent the default anchor behavior
+    
+        // Close the menu or perform other actions
+        closeMenu();
+    
+        // Navigate to the section
+        window.location.hash = 'contact'; // This changes the URL hash and navigates to the section
+        // OR
+        document.getElementById('contact').scrollIntoView({
+            behavior: 'smooth'  // Optional: animate the scroll
+        });
+    });
+    
+    function closeMenu() {
+        // Logic to close your menu
+        // Example: Assuming your menu has a class that shows/hides it
+        document.querySelector('.mainnav').style.display = 'none';
+    }
+    
+    </script>
     
     <!-- <style>
         .landingbanner__background, .landingbanner__image--mobile {
@@ -335,7 +356,7 @@
             background-size: 100% 100%; /* Cover the area of the container */
             background-position: center; /* Center the image */
             background-repeat: no-repeat; /* Do not repeat the image */
-            position: absolute; /* Position it absolutely to overlay */
+            position: relative; /* Position it absolutely to overlay */
             top: 0;
             left: 0;
             right: 0;
@@ -353,7 +374,7 @@
         }
     
         .landingbanner__content h1 {
-            font-size: 16vw; /* Responsive font size */
+            font-size: 8vw; /* Responsive font size */
             text-align: center; /* Center the text */
             color: #FFF; /* Set the text color to white */
         }
@@ -365,7 +386,7 @@
             }
     
             .landingbanner__content h1 {
-                font-size: 32vw; /* Slightly larger font size for readability on small devices */
+                font-size: 8vw; /* Slightly larger font size for readability on small devices */
             }
         }
     
@@ -379,18 +400,35 @@
                 font-size: 10rem; /* Fixed font size for larger screens */
             }
         }
+        @media (min-width: 769px) and (max-width: 959px) {
+        .landingbanner__background, .landingbanner__image--mobile {
+            background-size: cover; /* Change to cover to maintain aspect ratio */
+            height: 100vh; /* Ensures the image takes the full height of the viewport */
+            position: relative; /* Ensures the position is relative as per your requirements */
+        }
+        
+        .landingbanner__content {
+            top: 50%; /* Central vertical alignment */
+            left: 50%; /* Central horizontal alignment */
+            transform: translate(-50%, -50%); /* Ensures the content is centered on the image */
+        }
+
+        .landingbanner__content h1 {
+            font-size: 5vw; /* Adjust the font size to ensure it's visible and appropriate for this screen size */
+        }
+    }
     </style>
-    
+
     
     <div class="landingbanner">
         <div class="landingbanner__item textcolour--white">
             
-            <div class="landingbanner__background d-none d-md-block" style="background-image: url('./Images/ventajasfrontimg.webp');background-color:#0d3761;">
+            <div class="landingbanner__background d-none d-md-block" style="background-image: url('./Images/ventajasfrontimg.webp');background-color:#0d3761;filter: brightness(50%);">
             </div>
     
            
             <div class="landingbanner__image landingbanner__image--mobile d-block d-md-none" 
-                style="background-image: url('./Images/ventajasfrontimg.webp');background-color:#0d3761;">
+                style="background-image: url('./Images/ventajasfrontimg.webp');background-color:#0d3761;;filter: brightness(50%);">
             </div>
             <div class="landingbanner__content px-lg-0 px-2 px-md-4">
                 <h1>Ventajas</h1>
@@ -864,7 +902,7 @@ Siguiendo esta filosofía de vida MSC ha superado grandes retos y llegado a mant
 
     </div>
 		
-
+    <section id="contact" class="shadow-host" style="background-color: #9eaec5;"></section>
     <style>
         /* Aligns the items vertically in the footer */
     .footer .row {
@@ -990,7 +1028,104 @@ Siguiendo esta filosofía de vida MSC ha superado grandes retos y llegado a mant
 <script src="./About us_files/jquery.unobtrusive-ajax.js.download" type="text/javascript"></script>
 <script src="./About us_files/systemFormComponents.min.js.download" type="text/javascript"></script>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const shadowHost = document.getElementById('contact');
+        const shadowRoot = shadowHost.attachShadow({ mode: 'open' });
+    
+        function addStylesheet(href) {
+            const styleLink = document.createElement('link');
+            styleLink.rel = 'stylesheet';
+            styleLink.href = href;
+            shadowRoot.appendChild(styleLink);
+        }
 
+        // Add multiple stylesheets
+        addStylesheet('./Grupo Aduanal Adumex_files/animate.css');
+        addStylesheet('./Grupo Aduanal Adumex_files/tailwind.css');
+        
+        
+        const styleEl = document.createElement('style');
+        styleEl.textContent = `
+            :host, :host * {  
+                font-size: 20px;
+                line-height:35px;
+            }
+        `;
+        shadowRoot.appendChild(styleEl);
+        // Create and append the content of the contact section
+        shadowRoot.innerHTML += `
+        
+        <div class="relative py-20 md:py-[120px]" >
+    <div class="absolute top-0 left-0 z-[-1] h-1/2 w-full bg-[#f3f4fe] lg:h-[45%] xl:h-1/2"></div>
+    <div class="container px-4">
+        <div class="-mx-4 flex flex-wrap">
+            <!-- Contact Title and Description -->
+            <div class="w-full lg:w-7/12 xl:w-8/12 px-4">
+                <div class="ud-contact-content-wrapper">
+                    <div class="ud-contact-title mb-12 lg:mb-[150px]">
+                        <span class="mb-5 text-base font-semibold text-dark">
+                            CONTACTANOS
+                        </span>
+                        <h2 class="text-[35px] font-semibold">
+                            Platiquemos <br>
+                            Nos gustaría saber de ti.
+                        </h2>
+                    </div>
+                    <!-- Email Contact Information -->
+                    <div class="mb-8 flex  max-w-full">
+                        <div class="mr-6 text-[32px] text-primary">
+                            <svg width="34" height="25" viewBox="0 0 34 25" class="fill-current">
+                            <path d="M30.5156 0.960938H3.17188C1.42188 0.960938 0 2.38281 0 4.13281V20.9219C0 22.6719 1.42188 24.0938 3.17188 24.0938H30.5156C32.2656 24.0938 33.6875 22.6719 33.6875 20.9219V4.13281C33.6875 2.38281 32.2656 0.960938 30.5156 0.960938ZM30.5156 2.875C30.7891 2.875 31.0078 2.92969 31.2266 3.09375L17.6094 11.3516C17.1172 11.625 16.5703 11.625 16.0781 11.3516L2.46094 3.09375C2.67969 2.98438 2.89844 2.875 3.17188 2.875H30.5156ZM30.5156 22.125H3.17188C2.51562 22.125 1.91406 21.5781 1.91406 20.8672V5.00781L15.0391 12.9922C15.5859 13.3203 16.1875 13.4844 16.7891 13.4844C17.3906 13.4844 17.9922 13.3203 18.5391 12.9922L31.6641 5.00781V20.8672C31.7734 21.5781 31.1719 22.125 30.5156 22.125Z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h5 class="mb-6 text-lg font-semibold">¿Cómo podemos ayudarte?</h5>
+                            <p class="text-base text-body-color" style="color:black;">ventas@aamuris.com.mx</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form placed to the right -->
+            <div class="w-full lg:w-5/12 xl:w-4/12 px-4">
+                <div class="wow fadeInUp rounded-lg bg-white py-10 px-8 shadow-testimonial sm:py-12 sm:px-10 md:p-[60px] lg:p-10 lg:py-12 lg:px-10 2xl:p-[60px]" style="visibility: visible; animation-delay: 0.1s;">
+                    <h3 class="mb-8 text-2xl font-semibold md:text-[26px]">
+                        Envianos un mensaje
+                    </h3>
+                    <form>
+                        <div class="mb-6">
+                            <label for="fullName" class="block text-xs text-dark">Nombre completo*</label>
+                            <input type="text" name="fullName" placeholder="Nombre y apellido" class="w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none">
+                        </div>
+                        <div class="mb-6">
+                            <label for="email" class="block text-xs text-dark">Email*</label>
+                            <input type="email" name="email" placeholder="example@yourmail.com" class="w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none">
+                        </div>
+                        <div class="mb-6">
+                            <label for="phone" class="block text-xs text-dark">Telefóno*</label>
+                            <input type="text" name="phone" placeholder="+52 55 5555 555" class="w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none">
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-xs text-dark">Mensaje*</label>
+                            <textarea name="message" rows="1" placeholder="escribe tu mensaje aquí" class="w-full resize-none border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none"></textarea>
+                        </div>
+                        <div class="mb-0">
+                            <button type="submit" class="inline-flex items-center justify-center rounded bg-primary py-4 px-6 text-base font-medium text-white transition duration-300 ease-in-out hover:bg-dark">
+                                Enviar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+            
+        `;
+    });
+    </script>
 
 	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="0" height="0" style="position:absolute">
 	
