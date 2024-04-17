@@ -106,13 +106,10 @@
                 </ul> -->
             </section>
             <ul class="topnav__list">
-                <li class="topnav__item">
-                    <!-- <a href="javascript:;" class="topnav__link topnav__searchButton">
-                        <svg class="icon topnav__searchIcon">
-                            <use xlink:href="#icon-search"></use>
-                        </svg>
-                        <span>Search</span>
-                    </a> -->
+                <li class="topnav__item ml-3 ml-md-5">
+                    <a href="#contact" class="topnav__link">
+                        Contacto
+                    </a>
                 </li>
                 <li class="topnav__item ml-3 ml-md-5">
                     <a href="javascript:;" class="topnav__link topnav__menuButton">
@@ -212,38 +209,13 @@
 					</a>
 				
 				</li>
-				<li class="mainnav__item">
-				<a href="#contact" class="mainnav__link">
-					Contacto
-				</a>
-			</li>
+				
 		</ul>
 	</div> 
 		<div class="header__line mx-3 mx-md-4"></div>
 	</header>
 
-    <script>
-        document.getElementById('contactLink').addEventListener('click', function(event) {
-        event.preventDefault(); // Prevent the default anchor behavior
     
-        // Close the menu or perform other actions
-        closeMenu();
-    
-        // Navigate to the section
-        window.location.hash = 'contact'; // This changes the URL hash and navigates to the section
-        // OR
-        document.getElementById('contact').scrollIntoView({
-            behavior: 'smooth'  // Optional: animate the scroll
-        });
-    });
-    
-    function closeMenu() {
-        // Logic to close your menu
-        // Example: Assuming your menu has a class that shows/hides it
-        document.querySelector('.mainnav').style.display = 'none';
-    }
-    
-    </script>
 
 
    
