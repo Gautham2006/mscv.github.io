@@ -269,7 +269,7 @@
  </div> 
  
 </div> -->
-<style>
+<!-- <style>
     .video-container {
         position: relative;
         width: 100%; /* Container takes the full width of its parent */
@@ -325,7 +325,111 @@
             font-size: 5rem; /* Even larger font size for wide screens */
         }
     }
+</style> -->
+<style>
+    .video-container {
+        position: relative;
+        width: 100%; /* Container takes the full width of its parent */
+        /* padding-top: 56.25%; Maintains a 16:9 aspect ratio */
+        /*overflow: hidden;  Clips out anything outside this container */
+        height: 895px;
+      }
+    
+      .video-container video {
+        
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%; /* Sets the width relative to the width of the viewport */
+        /*height: 1080px; /* Height is set based on the aspect ratio to maintain 16:9 */
+        
+        transform: translate(-50%, -50%); /* Centers the video */
+        object-fit: cover; /* Ensure the video covers the full area */
+      }
+
+    .banner__image {
+        display: none; /* Initially hide the image, shown only on mobile */
+    }
+    @media (min-width: 2000px) {
+        .video-container {
+        position: relative;
+        width: 100%; /* Container takes the full width of its parent */
+        /* padding-top: 56.25%; Maintains a 16:9 aspect ratio */
+        /*overflow: hidden;  Clips out anything outside this container */
+        height: 895px;
+      }
+    
+      .video-container video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%; /* Sets the width relative to the width of the viewport */
+        
+        transform: translate(-50%, -50%); /* Centers the video */
+        object-fit: cover; /* Ensure the video covers the full area */
+      }
+        
+    }
+    @media (min-width: 960px) { /* Typically the breakpoint for desktops */
+        .banner__image {
+            display: none; /* Hide the image on desktop */
+        }
+        .video-container video {
+            display: inline-block; /* Only show the video on desktop */
+        }
+        .banner__content{
+            display:none;
+        }
+    }
+
+    @media (max-width: 959px) { /* Typically the breakpoint for tablets and below */
+        .video-container {
+            display: none; /* Hide video on mobile */
+        }
+        .banner__image {
+            display: block; /* Show the image on mobile */
+        }
+        .banner__content{
+            display:block;
+        }
+    }
+    @media(min-width:960px){
+        .banner__item {
+            aspect-ratio:0;
+        }
+    }
+    .banner__content h1 {
+        position: absolute;
+        left: 1rem;
+        top: 50%;
+        /* transform: translateY(-50%); */
+        font-size: 2rem; /* Start with a basic font size */
+        color: #FFF;
+        z-index: 2;
+        /* width: 100%; */
+        text-align: center; /* Center align the text */
+        box-sizing: border-box;
+    }
+
+    @media (max-width: 400px) {
+        .banner__content h1 {
+            font-size: 3rem; /* Larger font size for smaller screens */
+        }
+    }
+
+    @media (min-width: 401px) {
+        .banner__content h1 {
+            font-size: 4rem; /* Adjusted font size for larger screens */
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .banner__content h1 {
+            font-size: 5rem; /* Even larger font size for wide screens */
+        }
+    }
 </style>
+
 <div class="landingbanner landingbanner--">
     <div class="video-container"><video class="banner__video d-md-block d-none" muted autoplay loop playsinline
         src="https://firebasestorage.googleapis.com/v0/b/mscwebsite-c49af.appspot.com/o/videomsc2022.mp4?alt=media&token=66a56a46-666b-4e33-9dfc-08a07560b260"
