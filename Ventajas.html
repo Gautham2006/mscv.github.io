@@ -354,7 +354,7 @@
     
         .landingbanner__background, .landingbanner__image--mobile {
             aspect-ratio: 1.5;
-            background-size: 100% 100%; /* Cover the area of the container */
+            background-size: contain; /* Cover the area of the container */
             background-position: center; /* Center the image */
             background-repeat: no-repeat; /* Do not repeat the image */
             position: relative; /* Position it absolutely to overlay */
@@ -384,6 +384,7 @@
         @media (max-width: 768px) {
             .landingbanner__background, .landingbanner__image--mobile {
                 height: 100vh; /* Full viewport height */
+                background-size: 100% 100%;
             }
     
             .landingbanner__content h1 {
@@ -395,6 +396,7 @@
         @media (min-width: 768px) {
             .landingbanner__background {
                 min-height: 100vh; /* Adjust to desired height */
+                
             }
     
             .landingbanner__content h1 {
@@ -403,7 +405,7 @@
         }
         @media (min-width: 769px) and (max-width: 959px) {
         .landingbanner__background, .landingbanner__image--mobile {
-            background-size: cover; /* Change to cover to maintain aspect ratio */
+            background-size: contain; /* Change to cover to maintain aspect ratio */
             height: 100vh; /* Ensures the image takes the full height of the viewport */
             position: relative; /* Ensures the position is relative as per your requirements */
         }
