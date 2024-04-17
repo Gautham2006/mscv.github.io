@@ -63,7 +63,7 @@
                     </a> -->
                 </li>
                 <li class="topnav__item ml-3 ml-md-5">
-                    <a href="javascript:;" class="topnav__link topnav__menuButton"  >
+                    <a href="javascript:;" class="topnav__link topnav__menuButton">
                         <span>Menu</span>
                         <svg class="icon topnav__menuIcon">
                             <use xlink:href="#icon-menu"></use>
@@ -113,7 +113,7 @@
 		<div class="icon mainnav__chevronDown"></div>
 	</a> -->
     <!--STUFF LISTED UNDER MENU-->
-	<ul class="mainnav__list mx-md-0 pb-7">
+	<ul class="mainnav__list mx-4 mx-md-0 pb-7">
         <li class="mainnav__item">
             <a href="Home.html" class="mainnav__link">
                 Inicio
@@ -162,122 +162,16 @@
 			
 			</li>
 			<li class="mainnav__item">
-                <a href="#contact" id="contactLink" class="mainnav__link">
-                    Contacto
-                </a>
-            </li>
-            
+				<a href="Contacto.html" class="mainnav__link">
+					Contacto
+				</a>
+			</li>
 	</ul>
 </div> 
 	<div class="header__line mx-3 mx-md-4"></div>
 </header>
 
 		
-<!-- 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const contactLink = document.getElementById('contactLink');
-        const menuButton = document.querySelector('.topnav__menuButton');
-        const menu = document.querySelector('.mainnav');
-    
-        // Event listener for the "Contacto" link
-        if (contactLink) {
-            contactLink.addEventListener('click', function(event) {
-                event.preventDefault(); // Prevent the default anchor behavior
-                closeMenu(); // Close the menu
-                // Smoothly scroll to the contact section
-                document.getElementById('contact').scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        }
-    
-        // Event listener for the menu button
-        if (menuButton) {
-            menuButton.addEventListener('click', function() {
-                toggleMenu(); // Toggle the menu on click
-            });
-        }
-    });
-    
-    // Function to toggle the menu visibility based on its current state
-    function toggleMenu() {
-        var menu = document.querySelector('.mainnav');
-        if (menu.style.display === 'none' || menu.style.display === '') {
-            openMenu();
-        } else {
-            closeMenu();
-        }
-    }
-    
-    // Function to open the menu
-    function openMenu() {
-        var menu = document.querySelector('.mainnav');
-        const header = document.querySelector('.header');
-        header.classList.remove('js-is-sticky', 'js-is-sticky--change');
-        menu.style.display = 'block';
-        menu.style.width = '100vw'; // Ensure it spans the full available width
-        menu.style.opacity = '1'; // Fully visible
-    }
-    
-    // Function to close the menu
-    function closeMenu() {
-        var menu = document.querySelector('.mainnav');
-        menu.style.display = 'none';
-        menu.style.width = '0'; // Collapse the menu completely
-        menu.style.opacity = '0'; // Make it fully transparent
-    }
-    </script> -->
-    
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Select the Contacto link and the menu button
-            const contactLink = document.getElementById('contactLink');
-            const menuButton = document.querySelector('.topnav__menuButton');
-        
-            // Function to close the menu
-            function closeMenu() {
-                var menu = document.querySelector('.mainnav');
-                menu.style.width = '0'; // Collapse the menu width
-                menu.style.opacity = '0'; // Reduce opacity to 0
-                setTimeout(() => {
-                    menu.style.display = 'none'; // Hide the menu after the transition
-                }, 300); // Adjust timing to match CSS transitions if any
-            }
-        
-            // If the Contacto link is clicked, close the menu and scroll to the contact section
-            if (contactLink) {
-                contactLink.addEventListener('click', function(event) {
-                    event.preventDefault(); // Prevent default link behavior
-                    closeMenu(); // Close the menu
-                    setTimeout(() => {
-                        // Scroll to the contact section after the menu is fully hidden
-                        document.getElementById('contact').scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }, 310); // Slightly longer than the menu close timeout
-                });
-            }
-        
-            // Toggle the menu when the menu button is clicked
-            if (menuButton) {
-                menuButton.addEventListener('click', function() {
-                    var menu = document.querySelector('.mainnav');
-                    if (menu.style.display === 'none' || menu.style.display === '') {
-                        menu.style.display = 'block';
-                        menu.style.width = '100%'; // Ensure full width
-                        menu.style.opacity = '1'; // Fully visible
-                    } else {
-                        closeMenu(); // Use the closeMenu function to hide it
-                    }
-                });
-            }
-        });
-        </script>
-        
-    
-    
 
 
 
@@ -379,85 +273,29 @@
     min-height: 830px; /* Ensure the video matches the container height */
   }
 }
-.banner__content h1 {
-        position: absolute; /* Position h1 absolutely within the .landingbanner__content */
-        left: 1rem; /* Place it towards the left side of its container */
-        top: 50%; /* Center it vertically */
-        /*transform: translateY(-50%);  Align it properly on the vertical axis */
-        font-size: 16px; /* Responsive font size based on viewport width */
-        z-index: 2; /* Ensure h1 is above the background image */
-        color: #FFF; /* Text color white */
-        margin: 0; /* Remove any default margin */
-        padding: 0; /* No padding needed */
-        max-width: calc(100% - 2rem); /* Ensure it doesn't overflow its container */
-        box-sizing: border-box; /* Include padding and border in the element's total width and height */
-    }
 
-    /* Ensures the font size doesn't get too small on very narrow screens */
-    @media (max-width: 400px) {
-        .banner__content h1 {
-            font-size: 48px; /* Minimum font size */
-        }
-    }
-    @media (min-width: 400.01px) {
-        .banner__content h1 {
-            font-size: 48px; /* Minimum font size */
-        }
-    }
-    /* Adjust font size for medium screens */
-    @media (min-width: 768px) {
-        .banner__content h1 {
-            font-size: 64px; /* Slightly larger font size for larger screens */
-        }
-    }
-
-    /* Ensures the font size doesn't get too large on very wide screens */
-    @media (min-width: 1200px) {
-        .banner__content h1 {
-            font-size: 96px; /* Maximum font size */
-        }
-    }
   </style>
-<div class="banner slick-initialized slick-slider">
-	<div class="slick-list draggable">
-		<div class="slick-track" style="opacity: 1; width: 100%; transform: translate3d(0px, 0px, 0px);">
-			<div class="slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false"
-				style="width: 100%;">
-				<div>
-					<div class="banner__item textcolour--white" style="width: 100%; display: inline-block;">
+<div class="landingbanner landingbanner--">
+       <!-- <div class="landingbanner__item ">
+                <div class="landingbanner__background d-none d-md-block" style="background-image: url(&#39;./Images/msccc.webp&#39;)">
+                </div>
 
-						<video class="banner__video d-md-block d-none" muted="" autoplay="" loop="" 
-                        data-banner-src="https://firebasestorage.googleapis.com/v0/b/mscwebsite-c49af.appspot.com/o/videomsc2022.mp4?alt=media&token=66a56a46-666b-4e33-9dfc-08a07560b260" 
-                        src="https://firebasestorage.googleapis.com/v0/b/mscwebsite-c49af.appspot.com/o/videomsc2022.mp4?alt=media&token=66a56a46-666b-4e33-9dfc-08a07560b260">
-				        </video>
-                        <div class="banner__image d-md-none d-block">
-                            <picture>
-                                <img alt="Welcome to Grosvenor"
-                                    src="./Home_copy2_files/homepage-website-mobile-banner.jpg">
-                            </picture>
-                        </div>
-						<div class="banner__content px-lg-0 px-4">
-							<div class="container">
-								<div class="row">
-									<div class="col-md-7 col-12">
-										<div class="d-md-none ">
-											<h1>
-												Bienvenidos a Muris Salinas Consultores
-											</h1>
 
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+            <div class="landingbanner__image landingbanner__image--mobile d-block d-md-none" style="background-image: url(&#39;./Images/msccc.webp&#39;)">
+            </div> 
+
+            
+        
+    </div>  -->
+    <div class="video-container"><video class="banner__video d-md-block d-none" muted autoplay loop playsinline
+        src="https://firebasestorage.googleapis.com/v0/b/mscwebsite-c49af.appspot.com/o/videomsc2022.mp4?alt=media&token=66a56a46-666b-4e33-9dfc-08a07560b260"
+        type="video/mp4">
+        </video>
+    </div>
+    
 </div>
 
-<!-- <p class="sr-only" id="contentanchor"></p> -->
+<p class="sr-only" id="contentanchor"></p>
 
 <div>
 
@@ -475,7 +313,7 @@
                                     </picture>
                                 </div>
 
-                                <div class="p   t-5 pr-2 pb-2 pl-3 pt-md-7 pr-md-6 pl-md-6" style="padding-top: 46px;">
+                                <div class="p   t-5 pr-2 pb-2 pl-3 pt-md-7 pr-md-6 pl-md-6">
                                     <h3>
                                         TRÁFICO AÉREO							
                                     </h3>
@@ -850,7 +688,7 @@ Championing climate action with our global carbon commitment                    
             </a>
             <script>
                 document.getElementById('requestInfoBtn').addEventListener('click', function() {
-                    window.location.href = '#contact';
+                    window.location.href = 'Contacto.html';
                 });
 
             </script>
@@ -1278,11 +1116,19 @@ Championing climate action with our global carbon commitment                    
 
 
 
-<!-- 
+
     <div class="textcolor--black" style="background-color:  ">
         <div id="contentlisting-6ef6e593-f9a3-4eab-80b2-33c6b2050760" class="contentlisting pb-3 pt-3 pb-md-5 pt-md-5" data-layout="col-md-4" data-loaded="3" data-totalcount="241" data-order="latest" data-numbertoloadondemand="3" data-categorygroup1="" data-categorygroup2="" data-categorygroup3="" data-classname="Grosvenor.NewsArticle;Grosvenor.NewsArticleAlternative" data-excludedpages="">
             <div class="container">
-                    
+                    <!-- <div class="row">
+                        <div class="col-12">
+                            <div class="contentlisting__title">
+                                <h3>
+                                    Latest news
+                                </h3>
+                            </div>
+                        </div>
+                    </div> -->
                 <div class="row js-filterlisting">
                     <div class="col-12 col-md-3 mb-md-7 mb-5">
                         <a href="Contacto.html" class="contentlisting__card textcolor--black">
@@ -1343,7 +1189,24 @@ Championing climate action with our global carbon commitment                    
                             </div>
                             <div class="col-12 col-md-3 mb-md-7 mb-5">
                                 <a class="contentlisting__card textcolor--black">
-                                        
+                                        <!-- <div class="contentlisting__card__image mb-3" style="background-image:url(&#39;https://grosvenorlive.b-cdn.net/live/grosvenor/media/property-uk-images/048_g-sq-consultation-sep22_1166_%C2%A9_thomas_graham.jpg?ext=.jpg&amp;height=290&#39;)">
+                                        </div> -->
+                                    <!-- <div class="contentlisting__card__title">
+                                        <h4>
+                                            Blog: The power of community insight
+                                        </h4>
+                                    </div>
+                                    <div class="contentlisting__card__content">
+                                        <p>
+                                            Community Engagement Lead, Nicola looks at the benefits of increasingly cost effective access to data in enhancing community conversations and insights
+                                        </p>
+                                    </div>
+                                    <div class="contentlisting__card__cta mb-2">
+                                        Read more
+                                        <svg>
+                                            <use xlink:href="#arrow"></use>
+                                        </svg>
+                                    </div> -->
                                     <div class="text-block p-3" style="color: white;">
                                         <h4>PRESENCIA EN ASIA</h4>
                                         <p style="color:rgb(17, 110, 90)">
@@ -1363,136 +1226,93 @@ Championing climate action with our global carbon commitment                    
                     
             </div>
         </div>
-    </div>  -->
+    </div>
 
     
 
 
 
-    <section id="contact" class="shadow-host" style="background-color: #9eaec5;"></section>
 
 
 
-<style>
-    /* Aligns the items vertically in the footer */
-.footer .row {
-    display: flex;
-    align-items: center; /* This centers items vertically */
-}
-
-/* Adjusting the column widths to give 'Facilitamos procesos' more space */
-.footer .col-md-6, .footer .col-6 {
-    flex: 0 0 100%; /* On mobile, they take full width */
-    max-width: 100%; /* Prevents constraining the width to less than the container size */
-}
-
-@media (min-width: 768px) {
-    /* On larger screens, we allow columns to take more natural width */
-    .footer .col-md-6 {
-        flex: 0 0 auto;
-        max-width: none;
-    }
-}
-.topnav__wrap {
-    max-height: 120px;
-}
-
-.mainnav__header {
-    max-height: 120px;
-}
-
-/* Additional styles to manage the layout and spacing */
-.topnav__logo img {
-    width: auto; /* Allows the logo to maintain its intrinsic size */
-    height: auto; /* Maintains aspect ratio */
-    max-height: 100px; /* Adjust as needed to fit the navigation's height */
-}
-
-/* Responsive adjustments for medium screens */
-@media (min-width: 410px) and (max-width: 959px) {
-    .topnav__logo img {
-        max-height: 70px; /* Adjust based on your navbar height */
-        width: auto; /* Scale width automatically */
-    }
-}
-
-/* Style adjustments for the footer columns */
-.footer__content {
-    padding: 0 15px; /* Adds padding to prevent text from touching the sides of the screen */
-}
-
-.footer__iconList {
-    list-style-type: none; /* Remove bullets */
-    margin: 0; /* Remove the default margin */
-    padding: 0; /* Remove the default padding */
-    display: flex; /* Use flexbox for inline display */
-    align-items: center; /* Align items vertically */
-    justify-content: flex-start; /* Align items to the left */
-}
-
-.footer__iconList li {
-    margin-right: 10px; /* Add some space between the list items */
-}
-
-.footer__iconList a {
-    text-decoration: none; /* Optional: Remove underline from links */
-    color: inherit; /* Inherit the text color from the parent */
-}
 
 
-@media (min-width: 768px) {
-    .footer__iconList {
-        justify-content: flex-end; /* Align items to the right on larger screens */
-    }
-}
 
 
-</style>
 
-    <footer class="footer textcolour--white pt-4 pb-2">
-        <div class="container">
-            <div class="row mb-4">
-                <div class="col-12 col-md-6">
-                    <a href="Home.html"  class="topnav__logo">
-                    <img 
-                        src="https://cdn-gaden.nitrocdn.com/jeRXLLMZymlAMbVtOsUnCWhDbjNHCnZx/assets/static/optimized/rev-69a8792/wordpress/wp-content/uploads/2021/07/MSC-banner3_SF.png"
-                        
-                        />
-        
-                    </a>
-                </div>
+
+
+    
+
+
+    </div>
+</div>
+
+<footer class="footer textcolour--white pt-4 pb-2">
+    <div class="container">
+        <div class="col-12 col-md-6 mb-4">
+            <a href="Home.html" class="topnav__logo">
+            <img 
+                src="https://cdn-gaden.nitrocdn.com/jeRXLLMZymlAMbVtOsUnCWhDbjNHCnZx/assets/static/optimized/rev-69a8792/wordpress/wp-content/uploads/2021/07/MSC-banner3_SF.png"
+                style="float:left; transform: translateX(-12%);"
+                />
+
+            </a>
+        </div>
+        <div class="row mb-3">
+            <!-- Declaration Section -->
+            <div class="col-12 col-md-6 mb-4">
+                <h6 class="text-uppercase font-weight-bold">Declaración</h6>
+                <p>Brindamos la seguridad de que su servicio de importación o exportación serán realizados en forma y tiempo.</p>
             </div>
-            <div class="row mb-3">
-                <!-- Declaration Section -->
-                <div class="col-12 col-md-6 mb-4">
-                    <h6 class="text-uppercase font-weight-bold">Declaración</h6>
-                    <p>Brindamos la seguridad de que su servicio de importación o exportación serán realizados en forma y tiempo.</p>
-                </div>
-                <!-- Customs Agency Section -->
-                <div class="col-12 col-md-6 mb-4">
-                    <h6 class="text-uppercase font-weight-bold">Agencia Aduanal</h6>
-                    <p>Facilitamos procesos aduaneros eficientes y seguros para sus operaciones de comercio internacional.</p>
-                </div>
-                <!-- Social Networks Section -->
-                <div class="col-12 col-md-6 mb-4">
-                    <h6 class="text-uppercase font-weight-bold">Enlaces</h6>
-                    <ul class="list-inline">
-                        <li><a href="https://www.facebook.com/aamuris/">Facebook</a></li>
-                        <li><a href="https://twitter.com/MurisSalinasSC">Twitter</a></li>
-                        <li><a href="https://www.youtube.com/@MurisSalinasConsultores">Youtube</a></li>
-                    </ul>
-                </div>
+            <!-- Customs Agency Section -->
+            <div class="col-6 order-md-3 footer__content">
+                <h6 class="text-uppercase font-weight-bold">Agencia Aduanal</h6>
+                <p>Facilitamos procesos aduaneros eficientes y seguros para sus operaciones de comercio internacional.</p>
             </div>
-            <!-- Copyright Line -->
-            <div class="row">
-                <div class="col-12">
-                    <p class="smaller">
-                        Copyright © 2021. Muris Salinas Consultores, SC.
-                    </p>
-                </div>
+            <!-- Social Networks Section -->
+            <div class="col-6 order-md-2 text-right">
+                <ul class="footer__iconList m-0">
+                    <!-- <li class="footer__iconItem">
+                        <a target="_blank" href="https://www.facebook.com/aamuris/">
+                            <span class="visually-hidden">Facebook</span>
+                           
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#3b5998"><path d=M22.676 0H1.324C.594 0 0 .594 0 1.324v21.352C0 23.406.594 24 1.324 24h11.53v-9.294H9.588V11.47h3.265V8.824c0-3.239 1.98-5.004 4.863-5.004 1.383 0 2.573.103 2.919.148v3.385h-2.002c-1.567 0-1.869.744-1.869 1.836v2.406h3.737l-.487 3.237h-3.25V24h6.378c.729 0 1.324-.594 1.324-1.324V1.324C24 .594 23.406 0 22.676 0z/></svg>
+
+                        </a>
+                    </li>
+                    <li class="footer__iconItem ml-2">
+                        <a target="_blank" href="https://twitter.com/MurisSalinasSC">
+                            <span class="visually-hidden">Twitter</span>
+                            
+                            <svg style="width: 31px; height: 25px; fill: #fff;"><use xlink:href="#icon-youtube"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="footer__iconItem ml-2 ml-md-7">
+                        <a target="_blank" href="https://www.youtube.com/@MurisSalinasConsultores">
+                            <span class="visually-hidden">Youtube</span>
+                             
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FF0000"><path d=M23.499 6.203a3.008 3.008 0 00-2.118-2.115C19.584 3.724 12 3.724 12 3.724s-7.584 0-9.381.364A3.008 3.008 0 00.501 6.203 14.83 14.83 0 000 12a14.83 14.83 0 00.501 5.797 3.008 3.008 0 002.118 2.115c1.797.364 9.381.364 9.381.364s7.584 0 9.381-.364a3.008 3.008 0 002.118-2.115A14.83 14.83 0 0024 12a14.83 14.83 0 00-.501-5.797zM9.545 15.454V8.545l6.909 3.455z/></svg>
+                            
+                        </a>
+                    </li> -->
+                    <li class ="footer__iconItem ml-2 ml-md-7"><a href="https://www.facebook.com/aamuris/" >Facebook</a></li>
+                    <li  class ="footer__iconItem ml-2 ml-md-7"><a href="https://twitter.com/MurisSalinasSC" >Twitter</a></li>
+                    <li  class ="footer__iconItem ml-2 ml-md-7"><a href="https://www.youtube.com/@MurisSalinasConsultores" >Youtube</a></li>
+                </ul>
             </div>
         </div>
-    </footer>
+        <!-- Copyright Line -->
+        <div class="row">
+            <div class="col-12">
+                <p class="smaller">
+                    Copyright © 2021. Muris Salinas Consultores, SC.
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
 
 
 
@@ -1503,104 +1323,7 @@ Championing climate action with our global carbon commitment                    
 <script src="./Home_copy2_files/jquery.unobtrusive-ajax.js.download" type="text/javascript"></script>
 <script src="./Home_copy2_files/systemFormComponents.min.js.download" type="text/javascript"></script>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const shadowHost = document.getElementById('contact');
-        const shadowRoot = shadowHost.attachShadow({ mode: 'open' });
-    
-        function addStylesheet(href) {
-            const styleLink = document.createElement('link');
-            styleLink.rel = 'stylesheet';
-            styleLink.href = href;
-            shadowRoot.appendChild(styleLink);
-        }
 
-        // Add multiple stylesheets
-        addStylesheet('./Grupo Aduanal Adumex_files/animate.css');
-        addStylesheet('./Grupo Aduanal Adumex_files/tailwind.css');
-        
-        
-        const styleEl = document.createElement('style');
-        styleEl.textContent = `
-            :host, :host * {  
-                font-size: 20px;
-                line-height:35px;
-            }
-        `;
-        shadowRoot.appendChild(styleEl);
-        // Create and append the content of the contact section
-        shadowRoot.innerHTML += `
-        
-        <div class="relative py-20 md:py-[120px]" >
-    <div class="absolute top-0 left-0 z-[-1] h-1/2 w-full bg-[#f3f4fe] lg:h-[45%] xl:h-1/2"></div>
-    <div class="container px-4">
-        <div class="-mx-4 flex flex-wrap">
-            <!-- Contact Title and Description -->
-            <div class="w-full lg:w-7/12 xl:w-8/12 px-4">
-                <div class="ud-contact-content-wrapper">
-                    <div class="ud-contact-title mb-12 lg:mb-[150px]">
-                        <span class="mb-5 text-base font-semibold text-dark">
-                            CONTACTANOS
-                        </span>
-                        <h2 class="text-[35px] font-semibold">
-                            Platiquemos <br>
-                            Nos gustaría saber de ti.
-                        </h2>
-                    </div>
-                    <!-- Email Contact Information -->
-                    <div class="mb-8 flex  max-w-full">
-                        <div class="mr-6 text-[32px] text-primary">
-                            <svg width="34" height="25" viewBox="0 0 34 25" class="fill-current">
-                            <path d="M30.5156 0.960938H3.17188C1.42188 0.960938 0 2.38281 0 4.13281V20.9219C0 22.6719 1.42188 24.0938 3.17188 24.0938H30.5156C32.2656 24.0938 33.6875 22.6719 33.6875 20.9219V4.13281C33.6875 2.38281 32.2656 0.960938 30.5156 0.960938ZM30.5156 2.875C30.7891 2.875 31.0078 2.92969 31.2266 3.09375L17.6094 11.3516C17.1172 11.625 16.5703 11.625 16.0781 11.3516L2.46094 3.09375C2.67969 2.98438 2.89844 2.875 3.17188 2.875H30.5156ZM30.5156 22.125H3.17188C2.51562 22.125 1.91406 21.5781 1.91406 20.8672V5.00781L15.0391 12.9922C15.5859 13.3203 16.1875 13.4844 16.7891 13.4844C17.3906 13.4844 17.9922 13.3203 18.5391 12.9922L31.6641 5.00781V20.8672C31.7734 21.5781 31.1719 22.125 30.5156 22.125Z"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <h5 class="mb-6 text-lg font-semibold">¿Cómo podemos ayudarte?</h5>
-                            <p class="text-base text-body-color" style="color:black;">ventas@aamuris.com.mx</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Contact Form placed to the right -->
-            <div class="w-full lg:w-5/12 xl:w-4/12 px-4">
-                <div class="wow fadeInUp rounded-lg bg-white py-10 px-8 shadow-testimonial sm:py-12 sm:px-10 md:p-[60px] lg:p-10 lg:py-12 lg:px-10 2xl:p-[60px]" style="visibility: visible; animation-delay: 0.1s;">
-                    <h3 class="mb-8 text-2xl font-semibold md:text-[26px]">
-                        Envianos un mensaje
-                    </h3>
-                    <form>
-                        <div class="mb-6">
-                            <label for="fullName" class="block text-xs text-dark">Nombre completo*</label>
-                            <input type="text" name="fullName" placeholder="Nombre y apellido" class="w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none">
-                        </div>
-                        <div class="mb-6">
-                            <label for="email" class="block text-xs text-dark">Email*</label>
-                            <input type="email" name="email" placeholder="example@yourmail.com" class="w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none">
-                        </div>
-                        <div class="mb-6">
-                            <label for="phone" class="block text-xs text-dark">Telefóno*</label>
-                            <input type="text" name="phone" placeholder="+52 55 5555 555" class="w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none">
-                        </div>
-                        <div class="mb-6">
-                            <label for="message" class="block text-xs text-dark">Mensaje*</label>
-                            <textarea name="message" rows="1" placeholder="escribe tu mensaje aquí" class="w-full resize-none border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none"></textarea>
-                        </div>
-                        <div class="mb-0">
-                            <button type="submit" class="inline-flex items-center justify-center rounded bg-primary py-4 px-6 text-base font-medium text-white transition duration-300 ease-in-out hover:bg-dark">
-                                Enviar
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        `;
-    });
-    </script>
 
 	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="0" height="0" style="position:absolute">
 	
@@ -1666,10 +1389,6 @@ Championing climate action with our global carbon commitment                    
       });
       
 </script>
-
-
-    
-
 <script>
     function openTab(evt, tabName) {
         // Declare all variables
@@ -1695,6 +1414,7 @@ Championing climate action with our global carbon commitment                    
       // Initially open the general info tab
       document.getElementById("general").style.display = "block";
 </script>
+<!-- <img id="CookiebotSessionPixel" src="./Rural Estates_files/1.gif" alt="Cookiebot session tracker icon loaded" data-cookieconsent="ignore" style="display: none;"><div><div dir="ltr" id="CookiebotWidget" lang="en"><button class="CookiebotWidget-logo" aria-label="Open widget" lang="en"><svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill-rule="evenodd"><circle cx="12" cy="12" r="12"></circle><path d="M15.094 13.978c-1.146 0-1.946-.813-1.946-1.978s.8-1.978 1.946-1.978c1.145 0 1.945.813 1.945 1.978s-.8 1.978-1.945 1.978M9.07 10.022h3.883l-.094.09c-.537.515-.844 1.203-.844 1.888 0 1.738 1.294 3 3.079 3 1.786 0 3.082-1.262 3.082-3s-1.296-3-3.082-3H9.079C7.295 9 6 10.262 6 12s1.295 3 3.079 3h2.144v-1.022H9.07c-1.136 0-1.932-.813-1.937-1.978 0-1.146.815-1.978 1.937-1.978" fill="#000"></path></g></svg></button><div id="CookiebotWidget-widgetContent"></div></div><div id="CookiebotWidgetUnderlay"></div></div><style id="CookiebotWidgetStylesheet">@keyframes CookiebotWidgetFadeIn{0%{opacity:0}to{opacity:1}}#CookiebotWidget{word-wrap:break-word;left:10px;bottom:10px;animation:CookiebotWidgetFadeIn .3s ease-in;background-color:#141414;border-radius:40px;box-shadow:0 4px 16px rgba(0,0,0,.15);font-family:Helvetica,Arial,sans-serif;line-height:1.5;min-height:48px;min-width:48px;opacity:0;pointer-events:none;position:fixed;transition:all .2s ease-in;word-break:break-word;z-index:2147483631}#CookiebotWidget,#CookiebotWidget *{background:transparent;box-sizing:border-box;color:#FFFFFF;font-size:15px;letter-spacing:.1px;margin:0;outline:0;padding:0}#CookiebotWidget *{font-family:inherit}#CookiebotWidget button,#CookiebotWidget li,#CookiebotWidget strong,#CookiebotWidget svg,#CookiebotWidget ul{border:none;cursor:inherit;font-weight:inherit;line-height:1.5}#CookiebotWidget:not(.CookiebotWidget-inactive){opacity:1;pointer-events:all;transition:opacity .3s ease-in,border-radius .2s ease-in}#CookiebotWidget.CookiebotWidget-open{overflow:hidden}#CookiebotWidget:not(.CookiebotWidget-open):hover{box-shadow:0 4px 18px rgba(0,0,0,.3)}#CookiebotWidget+#CookiebotWidgetUnderlay{background:#000;height:100vh;left:0;opacity:0;pointer-events:none;position:fixed;top:0;visibility:hidden;width:100vw;z-index:2147483630}#CookiebotWidget:not(.CookiebotWidget-open) .CookiebotWidget-logo{cursor:pointer}#CookiebotWidget .CookiebotWidget-logo{display:block;transition:opacity .3s,transform .3s}#CookiebotWidget .CookiebotWidget-logo svg{display:block;height:44px;transition:all .3s;width:44px}#CookiebotWidget:not(.CookiebotWidget-open) button.CookiebotWidget-logo svg{height:48px;transition:all 0s ease;transition-delay:.2s;width:48px}#CookiebotWidget .CookiebotWidget-logo svg circle{fill:#141414}#CookiebotWidget .CookiebotWidget-logo svg path{fill:#FFFFFF}#CookiebotWidget #CookiebotWidget-widgetContent{display:flex;max-height:0;max-width:0;overflow:hidden;transition:all .2s ease-in}#CookiebotWidget.CookiebotWidget-open #CookiebotWidget-widgetContent{max-height:1000px;max-width:1000px}#CookiebotWidget.CookiebotWidget-open .CookiebotWidget-contents{max-height:calc(100vh - 10px);min-height:360px}#CookiebotWidget :focus-visible,#CookiebotWidget:not(.CookiebotWidget-open) .Cookiebotwidget-logo{outline:2px solid #1032CF;outline-offset:1px}@media screen and (max-width:600px){#CookiebotWidget:not(.CookiebotWidget-inactive){bottom:10px;left:10px}#CookiebotWidget :focus-visible,#CookiebotWidget:not(.CookiebotWidget-open) .Cookiebotwidget-logo{outline:0}}@media screen and (min-width:601px){#CookiebotWidget+#CookiebotWidgetUnderlay{display:none}}</style> -->
 
 
 <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
