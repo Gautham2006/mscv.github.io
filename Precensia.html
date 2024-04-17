@@ -262,11 +262,12 @@ function closeMenu() {
 
 <style>
     .landingbanner__item {
-        position: relative; /* Ensure this container is positioned for absolute children */
+        position: relative; 
         color: #FFF; /* Text color to white */
     }
 
     .landingbanner__background, .landingbanner__image--mobile {
+        aspect-ratio: 1;
         background-size: 100% 100%; /* Cover the area of the container */
         background-position: center; /* Center the image */
         background-repeat: no-repeat; /* Do not repeat the image */
@@ -276,6 +277,7 @@ function closeMenu() {
         right: 0;
         bottom: 0; /* Stretch to cover the parent container */
         z-index: 1; /* Lower z-index to be behind content */
+        
     }
 
     .landingbanner__content {

@@ -234,7 +234,7 @@
 	</div>
 </div> -->
 
-<style>
+<!-- <style>
     .video-container {
       position: relative;
       width: 100%; /* Container takes the full width of its parent */
@@ -272,30 +272,192 @@
   .video-container video {
     min-height: 830px; /* Ensure the video matches the container height */
   }
+  .banner__content h1 {
+    position: absolute; /* Position h1 absolutely within the .landingbanner__content */
+    left: 1rem; /* Place it towards the left side of its container */
+    top: 50%; /* Center it vertically */
+    /*transform: translateY(-50%);  Align it properly on the vertical axis */
+    font-size: 16px; /* Responsive font size based on viewport width */
+    z-index: 2; /* Ensure h1 is above the background image */
+    color: #FFF; /* Text color white */
+    margin: 0; /* Remove any default margin */
+    padding: 0; /* No padding needed */
+    max-width: calc(100% - 2rem); /* Ensure it doesn't overflow its container */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
-  </style>
-<div class="landingbanner landingbanner--">
-       <!-- <div class="landingbanner__item ">
-                <div class="landingbanner__background d-none d-md-block" style="background-image: url(&#39;./Images/msccc.webp&#39;)">
-                </div>
+    /* Ensures the font size doesn't get too small on very narrow screens */
+    @media (max-width: 400px) {
+        .banner__content h1 {
+            font-size: 48px; /* Minimum font size */
+        }
+    }
+    @media (min-width: 400.01px) {
+        .banner__content h1 {
+            font-size: 48px; /* Minimum font size */
+        }
+    }
+    /* Adjust font size for medium screens */
+    @media (min-width: 768px) {
+        .banner__content h1 {
+            font-size: 64px; /* Slightly larger font size for larger screens */
+        }
+    }
+
+    /* Ensures the font size doesn't get too large on very wide screens */
+    @media (min-width: 1200px) {
+        .banner__content h1 {
+            font-size: 96px; /* Maximum font size */
+        }
+    }
+}
+
+  </style> -->
 
 
-            <div class="landingbanner__image landingbanner__image--mobile d-block d-md-none" style="background-image: url(&#39;./Images/msccc.webp&#39;)">
-            </div> 
+  <style>
+    .video-container {
+        position: relative;
+        width: 100%; /* Container takes the full width of its parent */
+        /* padding-top: 56.25%; Maintains a 16:9 aspect ratio */
+        /*overflow: hidden;  Clips out anything outside this container */
+        height: 895px;
+      }
+    
+      .video-container video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%; /* Sets the width relative to the width of the viewport */
+        height: 1080px; /* Height is set based on the aspect ratio to maintain 16:9 */
+        min-height: 100vh; /* Minimum height to cover the viewport height */
+        min-width: 177.77vh; /* Minimum width to cover the viewport width if height is 100vh */
+        transform: translate(-50%, -50%); /* Centers the video */
+        object-fit: cover; /* Ensure the video covers the full area */
+      }
+
+    .banner__image {
+        display: none; /* Initially hide the image, shown only on mobile */
+    }
+
+    @media (min-width: 960px) { /* Typically the breakpoint for desktops */
+        .banner__image {
+            display: none; /* Hide the image on desktop */
+        }
+        .video-container video {
+            display: inline-block; /* Only show the video on desktop */
+        }
+        .banner__content{
+            display:none;
+        }
+    }
+
+    @media (max-width: 959px) { /* Typically the breakpoint for tablets and below */
+        .video-container {
+            display: none; /* Hide video on mobile */
+        }
+        .banner__image {
+            display: block; /* Show the image on mobile */
+        }
+        .banner__content{
+            display:block;
+        }
+    }
+
+    .banner__content h1 {
+        position: absolute;
+        left: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 2rem; /* Start with a basic font size */
+        color: #FFF;
+        z-index: 2;
+        width: 100%;
+        text-align: center; /* Center align the text */
+        box-sizing: border-box;
+    }
+
+    @media (max-width: 400px) {
+        .banner__content h1 {
+            font-size: 3rem; /* Larger font size for smaller screens */
+        }
+    }
+
+    @media (min-width: 401px) {
+        .banner__content h1 {
+            font-size: 4rem; /* Adjusted font size for larger screens */
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .banner__content h1 {
+            font-size: 5rem; /* Even larger font size for wide screens */
+        }
+    }
+</style>
+
+  <!-- <div class="landingbanner landingbanner--">
+       <div class="landingbanner__item ">
+               
+
+        <div class="banner__image d-md-none d-block">
+            <picture>
+                <img alt="Welcome to Grosvenor"
+                    src="./Home_copy2_files/homepage-website-mobile-banner.jpg">
+            </picture>
+        </div> 
 
             
         
-    </div>  -->
+    </div> 
     <div class="video-container"><video class="banner__video d-md-block d-none" muted autoplay loop playsinline
         src="https://firebasestorage.googleapis.com/v0/b/mscwebsite-c49af.appspot.com/o/videomsc2022.mp4?alt=media&token=66a56a46-666b-4e33-9dfc-08a07560b260"
         type="video/mp4">
         </video>
     </div>
     
-</div>
+</div> -->
 
-<p class="sr-only" id="contentanchor"></p>
+<div class="banner slick-initialized slick-slider">
+	<div class="slick-list draggable">
+		<div class="slick-track" style="opacity: 1; width: 100%; transform: translate3d(0px, 0px, 0px);">
+			<div class="slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false"
+				style="width: 100%;">
+				<div>
+					<div class="banner__item textcolour--white" style="width: 100%; display: inline-block;">
+
+						<div class="video-container">
+                            <video class="banner__video d-md-block d-none" muted="" autoplay="" loop="" 
+                        data-banner-src="https://firebasestorage.googleapis.com/v0/b/mscwebsite-c49af.appspot.com/o/videomsc2022.mp4?alt=media&token=66a56a46-666b-4e33-9dfc-08a07560b260" 
+                        src="https://firebasestorage.googleapis.com/v0/b/mscwebsite-c49af.appspot.com/o/videomsc2022.mp4?alt=media&token=66a56a46-666b-4e33-9dfc-08a07560b260">
+				        </video>
+                        </div>
+                        <div class="banner__image d-md-none d-block">
+                            <picture>
+                                <img alt="Welcome to Grosvenor"
+                                    src="./Home_copy2_files/homepage-website-mobile-banner.jpg">
+                            </picture>
+                        </div>
+						<div class="banner__content px-lg-0 px-4">
+							<div class="container">
+								<div class="row">
+									<div class="col-md-7 col-12">
+										<div class="d-md-none ">
+											<h1>
+												Bienvenidos a Muris Salinas Consultores
+											</h1>
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div> 
 
 <div>
 
@@ -313,7 +475,8 @@
                                     </picture>
                                 </div>
 
-                                <div class="p   t-5 pr-2 pb-2 pl-3 pt-md-7 pr-md-6 pl-md-6">
+                                <div class="p t-5 pr-2 pb-2 pl-3 pt-md-7 pr-md-6 pl-md-6"
+                                    style="padding-top:46px;">
                                     <h3>
                                         TRÁFICO AÉREO							
                                     </h3>
@@ -1117,18 +1280,10 @@ Championing climate action with our global carbon commitment                    
 
 
 
-    <div class="textcolor--black" style="background-color:  ">
+    <!-- <div class="textcolor--black" style="background-color:  ">
         <div id="contentlisting-6ef6e593-f9a3-4eab-80b2-33c6b2050760" class="contentlisting pb-3 pt-3 pb-md-5 pt-md-5" data-layout="col-md-4" data-loaded="3" data-totalcount="241" data-order="latest" data-numbertoloadondemand="3" data-categorygroup1="" data-categorygroup2="" data-categorygroup3="" data-classname="Grosvenor.NewsArticle;Grosvenor.NewsArticleAlternative" data-excludedpages="">
             <div class="container">
-                    <!-- <div class="row">
-                        <div class="col-12">
-                            <div class="contentlisting__title">
-                                <h3>
-                                    Latest news
-                                </h3>
-                            </div>
-                        </div>
-                    </div> -->
+                    
                 <div class="row js-filterlisting">
                     <div class="col-12 col-md-3 mb-md-7 mb-5">
                         <a href="Contacto.html" class="contentlisting__card textcolor--black">
@@ -1189,24 +1344,7 @@ Championing climate action with our global carbon commitment                    
                             </div>
                             <div class="col-12 col-md-3 mb-md-7 mb-5">
                                 <a class="contentlisting__card textcolor--black">
-                                        <!-- <div class="contentlisting__card__image mb-3" style="background-image:url(&#39;https://grosvenorlive.b-cdn.net/live/grosvenor/media/property-uk-images/048_g-sq-consultation-sep22_1166_%C2%A9_thomas_graham.jpg?ext=.jpg&amp;height=290&#39;)">
-                                        </div> -->
-                                    <!-- <div class="contentlisting__card__title">
-                                        <h4>
-                                            Blog: The power of community insight
-                                        </h4>
-                                    </div>
-                                    <div class="contentlisting__card__content">
-                                        <p>
-                                            Community Engagement Lead, Nicola looks at the benefits of increasingly cost effective access to data in enhancing community conversations and insights
-                                        </p>
-                                    </div>
-                                    <div class="contentlisting__card__cta mb-2">
-                                        Read more
-                                        <svg>
-                                            <use xlink:href="#arrow"></use>
-                                        </svg>
-                                    </div> -->
+                                        
                                     <div class="text-block p-3" style="color: white;">
                                         <h4>PRESENCIA EN ASIA</h4>
                                         <p style="color:rgb(17, 110, 90)">
@@ -1226,7 +1364,7 @@ Championing climate action with our global carbon commitment                    
                     
             </div>
         </div>
-    </div>
+    </div> -->
 
     
 
@@ -1247,7 +1385,7 @@ Championing climate action with our global carbon commitment                    
 
     </div>
 </div>
-
+<section id="contact" class="shadow-host" style="background-color: #9eaec5;"></section>
 <footer class="footer textcolour--white pt-4 pb-2">
     <div class="container">
         <div class="col-12 col-md-6 mb-4">
@@ -1324,6 +1462,104 @@ Championing climate action with our global carbon commitment                    
 <script src="./Home_copy2_files/systemFormComponents.min.js.download" type="text/javascript"></script>
 
 
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const shadowHost = document.getElementById('contact');
+        const shadowRoot = shadowHost.attachShadow({ mode: 'open' });
+    
+        function addStylesheet(href) {
+            const styleLink = document.createElement('link');
+            styleLink.rel = 'stylesheet';
+            styleLink.href = href;
+            shadowRoot.appendChild(styleLink);
+        }
+
+        // Add multiple stylesheets
+        addStylesheet('./Grupo Aduanal Adumex_files/animate.css');
+        addStylesheet('./Grupo Aduanal Adumex_files/tailwind.css');
+        
+        
+        const styleEl = document.createElement('style');
+        styleEl.textContent = `
+            :host, :host * {  
+                font-size: 20px;
+                line-height:35px;
+            }
+        `;
+        shadowRoot.appendChild(styleEl);
+        // Create and append the content of the contact section
+        shadowRoot.innerHTML += `
+        
+        <div class="relative py-20 md:py-[120px]" >
+    <div class="absolute top-0 left-0 z-[-1] h-1/2 w-full bg-[#f3f4fe] lg:h-[45%] xl:h-1/2"></div>
+    <div class="container px-4">
+        <div class="-mx-4 flex flex-wrap">
+            <!-- Contact Title and Description -->
+            <div class="w-full lg:w-7/12 xl:w-8/12 px-4">
+                <div class="ud-contact-content-wrapper">
+                    <div class="ud-contact-title mb-12 lg:mb-[150px]">
+                        <span class="mb-5 text-base font-semibold text-dark">
+                            CONTACTANOS
+                        </span>
+                        <h2 class="text-[35px] font-semibold">
+                            Platiquemos <br>
+                            Nos gustaría saber de ti.
+                        </h2>
+                    </div>
+                    <!-- Email Contact Information -->
+                    <div class="mb-8 flex  max-w-full">
+                        <div class="mr-6 text-[32px] text-primary">
+                            <svg width="34" height="25" viewBox="0 0 34 25" class="fill-current">
+                            <path d="M30.5156 0.960938H3.17188C1.42188 0.960938 0 2.38281 0 4.13281V20.9219C0 22.6719 1.42188 24.0938 3.17188 24.0938H30.5156C32.2656 24.0938 33.6875 22.6719 33.6875 20.9219V4.13281C33.6875 2.38281 32.2656 0.960938 30.5156 0.960938ZM30.5156 2.875C30.7891 2.875 31.0078 2.92969 31.2266 3.09375L17.6094 11.3516C17.1172 11.625 16.5703 11.625 16.0781 11.3516L2.46094 3.09375C2.67969 2.98438 2.89844 2.875 3.17188 2.875H30.5156ZM30.5156 22.125H3.17188C2.51562 22.125 1.91406 21.5781 1.91406 20.8672V5.00781L15.0391 12.9922C15.5859 13.3203 16.1875 13.4844 16.7891 13.4844C17.3906 13.4844 17.9922 13.3203 18.5391 12.9922L31.6641 5.00781V20.8672C31.7734 21.5781 31.1719 22.125 30.5156 22.125Z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h5 class="mb-6 text-lg font-semibold">¿Cómo podemos ayudarte?</h5>
+                            <p class="text-base text-body-color" style="color:black;">ventas@aamuris.com.mx</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form placed to the right -->
+            <div class="w-full lg:w-5/12 xl:w-4/12 px-4">
+                <div class="wow fadeInUp rounded-lg bg-white py-10 px-8 shadow-testimonial sm:py-12 sm:px-10 md:p-[60px] lg:p-10 lg:py-12 lg:px-10 2xl:p-[60px]" style="visibility: visible; animation-delay: 0.1s;">
+                    <h3 class="mb-8 text-2xl font-semibold md:text-[26px]">
+                        Envianos un mensaje
+                    </h3>
+                    <form>
+                        <div class="mb-6">
+                            <label for="fullName" class="block text-xs text-dark">Nombre completo*</label>
+                            <input type="text" name="fullName" placeholder="Nombre y apellido" class="w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none">
+                        </div>
+                        <div class="mb-6">
+                            <label for="email" class="block text-xs text-dark">Email*</label>
+                            <input type="email" name="email" placeholder="example@yourmail.com" class="w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none">
+                        </div>
+                        <div class="mb-6">
+                            <label for="phone" class="block text-xs text-dark">Telefóno*</label>
+                            <input type="text" name="phone" placeholder="+52 55 5555 555" class="w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none">
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-xs text-dark">Mensaje*</label>
+                            <textarea name="message" rows="1" placeholder="escribe tu mensaje aquí" class="w-full resize-none border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none"></textarea>
+                        </div>
+                        <div class="mb-0">
+                            <button type="submit" class="inline-flex items-center justify-center rounded bg-primary py-4 px-6 text-base font-medium text-white transition duration-300 ease-in-out hover:bg-dark">
+                                Enviar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+            
+        `;
+    });
+    </script>
 
 	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="0" height="0" style="position:absolute">
 	
