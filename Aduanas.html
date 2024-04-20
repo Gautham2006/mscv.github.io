@@ -308,10 +308,10 @@
         
             .landingbanner__background, .landingbanner__image--mobile {
                 aspect-ratio: 1.5;
-                /* background-size: 100% 100%; Cover the area of the container */
-                background-position: center; /* Center the image */
+                background-size: cover; /* Maintain aspect ratio while covering the area */
+                background-position: center; /* Center the image by default */
                 background-repeat: no-repeat; /* Do not repeat the image */
-                position: relative; /* Position it absolutely to overlay */
+                position: relative; /* Position it relative to overlay */
                 top: 0;
                 left: 0;
                 right: 0;
@@ -337,6 +337,8 @@
             /* Mobile Styles */
             @media (max-width: 768px) {
                 .landingbanner__background, .landingbanner__image--mobile {
+                    background-size: cover; /* Keep aspect ratio but cover the area */
+                    background-position: 5% 50%; /* Change to focus on a specific part of the image */
                     height: 100vh; /* Full viewport height */
                 }
         
@@ -355,23 +357,23 @@
                     font-size: 10rem; /* Fixed font size for larger screens */
                 }
             }
-            @media (min-width: 769px) and (max-width: 959px) {
-            .landingbanner__background, .landingbanner__image--mobile {
-                background-size: cover; /* Change to cover to maintain aspect ratio */
-                height: 100vh; /* Ensures the image takes the full height of the viewport */
-                position: relative; /* Ensures the position is relative as per your requirements */
-            }
-            
-            .landingbanner__content {
-                top: 50%; /* Central vertical alignment */
-                left: 50%; /* Central horizontal alignment */
-                transform: translate(-50%, -50%); /* Ensures the content is centered on the image */
-            }
         
-            .landingbanner__content h1 {
-                font-size: 5vw; /* Adjust the font size to ensure it's visible and appropriate for this screen size */
+            @media (min-width: 769px) and (max-width: 959px) {
+                .landingbanner__background, .landingbanner__image--mobile {
+                    background-size: cover; /* Change to cover to maintain aspect ratio */
+                    height: 100vh; /* Ensures the image takes the full height of the viewport */
+                }
+        
+                .landingbanner__content {
+                    top: 50%; /* Central vertical alignment */
+                    left: 50%; /* Central horizontal alignment */
+                    transform: translate(-50%, -50%); /* Ensures the content is centered on the image */
+                }
+        
+                .landingbanner__content h1 {
+                    font-size: 5vw; /* Adjust the font size to ensure it's visible and appropriate for this screen size */
+                }
             }
-        }
         </style>
         
         

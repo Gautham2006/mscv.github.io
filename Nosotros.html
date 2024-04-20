@@ -273,79 +273,82 @@
     
 
 
-<style>
-    .landingbanner__item {
-        position: relative; /* Ensure this container is positioned for absolute children */
-        color: #FFF; /* Text color to white */
-    }
-
-    .landingbanner__background, .landingbanner__image--mobile {
-        aspect-ratio: 1.5;
-        /*background-size: 100% 100%;  Cover the area of the container */
-        background-position: center; /* Center the image */
-        background-repeat: no-repeat; /* Do not repeat the image */
-        position: relative; /* Position it absolutely to overlay */
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0; /* Stretch to cover the parent container */
-        z-index: 1; /* Lower z-index to be behind content */
-    }
-
-    .landingbanner__content {
-        position: absolute;
-        top: 50%; /* Adjust this value as needed */
-        left: 50%; /* Center the content horizontally */
-        transform: translate(-50%, -50%); /* Offset the content by half its width and height to center it */
-        width: 100%; /* Make sure the container spans the full width */
-        z-index: 2; /* Ensure the content is above the background image */
-    }
-
-    .landingbanner__content h1 {
-        font-size: 8vw; /* Responsive font size */
-        text-align: center; /* Center the text */
-        color: #FFF; /* Set the text color to white */
-    }
-
-    /* Mobile Styles */
-    @media (max-width: 768px) {
-        .landingbanner__background, .landingbanner__image--mobile {
-            height: 100vh; /* Full viewport height */
-        }
-
-        .landingbanner__content h1 {
-            font-size: 8vw; /* Slightly larger font size for readability on small devices */
-        }
-    }
-
-    /* Desktop and Larger Screens Styles */
-    @media (min-width: 768px) {
-        .landingbanner__background {
-            min-height: 100vh; /* Adjust to desired height */
-        }
-
-        .landingbanner__content h1 {
-            font-size: 10rem; /* Fixed font size for larger screens */
-        }
-    }
-    @media (min-width: 769px) and (max-width: 959px) {
-    .landingbanner__background, .landingbanner__image--mobile {
-        background-size: cover; /* Change to cover to maintain aspect ratio */
-        height: 100vh; /* Ensures the image takes the full height of the viewport */
-        position: relative; /* Ensures the position is relative as per your requirements */
-    }
-    
-    .landingbanner__content {
-        top: 50%; /* Central vertical alignment */
-        left: 50%; /* Central horizontal alignment */
-        transform: translate(-50%, -50%); /* Ensures the content is centered on the image */
-    }
-
-    .landingbanner__content h1 {
-        font-size: 5vw; /* Adjust the font size to ensure it's visible and appropriate for this screen size */
-    }
-}
-</style>
+        <style>
+            .landingbanner__item {
+                position: relative; /* Ensure this container is positioned for absolute children */
+                color: #FFF; /* Text color to white */
+            }
+        
+            .landingbanner__background, .landingbanner__image--mobile {
+                aspect-ratio: 1.5;
+                background-size: cover; /* Maintain aspect ratio while covering the area */
+                background-position: center; /* Center the image by default */
+                background-repeat: no-repeat; /* Do not repeat the image */
+                position: relative; /* Position it relative to overlay */
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0; /* Stretch to cover the parent container */
+                z-index: 1; /* Lower z-index to be behind content */
+            }
+        
+            .landingbanner__content {
+                position: absolute;
+                top: 50%; /* Adjust this value as needed */
+                left: 50%; /* Center the content horizontally */
+                transform: translate(-50%, -50%); /* Offset the content by half its width and height to center it */
+                width: 100%; /* Make sure the container spans the full width */
+                z-index: 2; /* Ensure the content is above the background image */
+            }
+        
+            .landingbanner__content h1 {
+                font-size: 8vw; /* Responsive font size */
+                text-align: center; /* Center the text */
+                color: #FFF; /* Set the text color to white */
+            }
+        
+            /* Mobile Styles */
+            @media (max-width: 768px) {
+                .landingbanner__background, .landingbanner__image--mobile {
+                    background-size: cover; /* Keep aspect ratio but cover the area */
+                    background-position: 15% 50%; /* Change to focus on a specific part of the image */
+                    height: 100vh; /* Full viewport height */
+                }
+        
+                .landingbanner__content h1 {
+                    font-size: 8vw; /* Slightly larger font size for readability on small devices */
+                }
+            }
+        
+            /* Desktop and Larger Screens Styles */
+            @media (min-width: 768px) {
+                .landingbanner__background {
+                    min-height: 100vh; /* Adjust to desired height */
+                }
+        
+                .landingbanner__content h1 {
+                    font-size: 10rem; /* Fixed font size for larger screens */
+                }
+            }
+        
+            @media (min-width: 769px) and (max-width: 959px) {
+                .landingbanner__background, .landingbanner__image--mobile {
+                    background-size: cover; /* Change to cover to maintain aspect ratio */
+                    height: 100vh; /* Ensures the image takes the full height of the viewport */
+                }
+        
+                .landingbanner__content {
+                    top: 50%; /* Central vertical alignment */
+                    left: 50%; /* Central horizontal alignment */
+                    transform: translate(-50%, -50%); /* Ensures the content is centered on the image */
+                }
+        
+                .landingbanner__content h1 {
+                    font-size: 5vw; /* Adjust the font size to ensure it's visible and appropriate for this screen size */
+                }
+            }
+        </style>
+        
 
 
 <div class="landingbanner">
@@ -671,7 +674,7 @@ line-height: calc(16px + (20 * ((100vw - 288px) / 1612)));">
 			<div class="imageandcontentwidget__inner__imagecolumn" >
 				<div class="imageandcontentwidget__inner__imagecolumn__image" style="border-radius: 0%;">
 					<picture >
-						<img style="transform: scale(1, 2);
+						<img style="transform: scale(2, 2);
                         transform-origin: top left;" alt="cargo" src="./Images/cargogen.webp">
 						
 					</picture>
@@ -684,7 +687,7 @@ line-height: calc(16px + (20 * ((100vw - 288px) / 1612)));">
 				</div>
 				<div class="imageandcontentwidget__inner__content__text" style="max-width: 100%;">
 
-					<h3>Operaciones Maritimas</h3>
+					Operacion<h3>es Maritimas</h3>
 
                     <p style="font-size: calc(16px + (20 * ((100vw - 288px) / 1612))); 
                     line-height: calc(16px + (20 * ((100vw - 288px) / 1612)));">
