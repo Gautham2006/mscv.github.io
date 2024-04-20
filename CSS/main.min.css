@@ -12129,10 +12129,10 @@ but if it's required for your layout, you'll have to adjust it accordingly.
     width: 32px;
     height: 35px
 }
-
-.mainnav__closeButton {
+/*CHANGEDON 4-20-24*/
+/* .mainnav__closeButton {
     display: none
-}
+} */
 
 .mainnav__closeIcon {
     stroke: #fff

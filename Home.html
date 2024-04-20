@@ -106,9 +106,9 @@
                 />
 
         </a>
-		<a href="https://grosvenor.com/?_gl=1*1fjz113*_up*MQ..*_ga*MTE1MTEzODUzOC4xNzExNDc1NTcx*_ga_86R3F7B84Y*MTcxMTQ3NTU3MC4xLjEuMTcxMTQ3NjUzMy4wLjAuMA..*_ga_9B5D7GH3D5*MTcxMTQ3NTU3MC4xLjEuMTcxMTQ3NjUzMy4wLjAuMA.." class="mainnav__closeButton">
+		<a href="#" class="mainnav__closeButton">
 			<span class="visually-hidden">Close</span>
-			<svg class="icon mainnav__closeIcon">
+			<svg class="icon mainnav__closeIcon" style="width:13px;height:13px;display:block">
 				<use xlink:href="#icon-close"></use>
 			</svg>
 		</a>
@@ -169,7 +169,7 @@
 			
 			</li>
 			<li class="mainnav__item">
-				<a  id="contactLink" href="#contact" class="mainnav__link">
+				<a id="contactLink" href="#contact" class="mainnav__link">
 					Contacto
 				</a>
 			</li>
@@ -1308,6 +1308,13 @@ Championing climate action with our global carbon commitment                    
         max-width: none;
     }
 }
+/* @media(max-width:959px){
+    .mainnav__closeButton{
+        width:13px;
+        height:13px;
+        display:block;
+    }
+} */
 .topnav__wrap {
     max-height: 120px;
 }
@@ -1320,13 +1327,13 @@ Championing climate action with our global carbon commitment                    
 .topnav__logo img {
     width: auto; /* Allows the logo to maintain its intrinsic size */
     height: auto; /* Maintains aspect ratio */
-    max-height: 100px; /* Adjust as needed to fit the navigation's height */
+    max-height: 35px; /* Adjust as needed to fit the navigation's height */
 }
 
 /* Responsive adjustments for medium screens */
 @media (min-width: 410px) and (max-width: 959px) {
     .topnav__logo img {
-        max-height: 70px; /* Adjust based on your navbar height */
+        max-height: 40px; /* Adjust based on your navbar height */
         width: auto; /* Scale width automatically */
     }
 }

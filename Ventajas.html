@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- saved from url=(0030)https://grosvenor.com/about-us -->
-<html lang="en"><head style=""><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="en"><head ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<script async="" src="./About us_files/panorama.js.download"></script><iframe id="pxcelframe" title="pxcelframe" src="./About us_files/t_.html" style="display: none;"></iframe><script type="text/javascript" async="" src="./About us_files/analytics.js.download" nonce=""></script><script type="text/javascript" async="" src="./About us_files/js" nonce=""></script><script type="text/javascript" async="" src="./About us_files/js(1)" nonce=""></script><script type="text/javascript" charset="UTF-8" async="" src="./About us_files/widgetIcon.min.js.download"></script><script async="" src="./About us_files/6102cd45fd98ad0012a29d14.js.download"></script><script async="" src="./About us_files/gtm.js.download"></script><script type="text/javascript" charset="UTF-8" async="" src="./About us_files/state.js.download"></script><script type="text/javascript" charset="UTF-8" src="./About us_files/configuration.js.download"></script><script id="Cookiebot" src="./About us_files/uc.js.download" data-cbid="1c001ef0-9c81-46d8-b688-c621986a541d" data-blockingmode="auto" type="text/javascript" nonce=""></script><style type="text/css" id="CookieConsentStateDisplayStyles">.cookieconsent-optin-preferences,.cookieconsent-optin-statistics,.cookieconsent-optin-marketing,.cookieconsent-optin{display:none;}.cookieconsent-optout-preferences,.cookieconsent-optout-statistics,.cookieconsent-optout-marketing,.cookieconsent-optout{display:block;display:initial;}</style>
 	
 
@@ -134,9 +134,9 @@
                     />
     
             </a>
-            <a href="https://grosvenor.com/?_gl=1*1fjz113*_up*MQ..*_ga*MTE1MTEzODUzOC4xNzExNDc1NTcx*_ga_86R3F7B84Y*MTcxMTQ3NTU3MC4xLjEuMTcxMTQ3NjUzMy4wLjAuMA..*_ga_9B5D7GH3D5*MTcxMTQ3NTU3MC4xLjEuMTcxMTQ3NjUzMy4wLjAuMA.." class="mainnav__closeButton">
+            <a href="#" class="mainnav__closeButton">
                 <span class="visually-hidden">Close</span>
-                <svg class="icon mainnav__closeIcon">
+                <svg class="icon mainnav__closeIcon" style="width:13px;height:13px;display:block">
                     <use xlink:href="#icon-close"></use>
                 </svg>
             </a>
@@ -196,14 +196,71 @@
                 
                 </li>
                 <li class="mainnav__item">
-                    <a href="Contacto.html" class="mainnav__link">
+                    <a id="contactLink" href="#contact" class="mainnav__link">
                         Contacto
                     </a>
                 </li>
         </ul>
     </div> 
-		<div class="header__line mx-3 mx-md-4"></div>
-	</header>
+        <div class="header__line mx-3 mx-md-4"></div>
+    </header>
+    
+            
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactLink = document.getElementById('contactLink');
+            const menuButton = document.querySelector('.topnav__menuButton');
+            const menu = document.querySelector('.mainnav');
+        
+            // Event listener for the "Contacto" link
+            if (contactLink) {
+                contactLink.addEventListener('click', function(event) {
+                    event.preventDefault(); // Prevent the default anchor behavior
+                    closeMenu(); // Close the menu
+                    // Smoothly scroll to the contact section
+                    document.getElementById('contact').scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            }
+        
+            // Event listener for the menu button
+            if (menuButton) {
+                menuButton.addEventListener('click', function() {
+                    toggleMenu(); // Toggle the menu on click
+                });
+            }
+        });
+        
+        // Function to toggle the menu visibility based on its current state
+        function toggleMenu() {
+            var menu = document.querySelector('.mainnav');
+            if (menu.style.display === 'none' || menu.style.display === '') {
+                openMenu();
+            } else {
+                closeMenu();
+            }
+        }
+        
+        // Function to open the menu
+        function openMenu() {
+            var menu = document.querySelector('.mainnav');
+            const header = document.querySelector('.header');
+            header.classList.remove('js-is-sticky', 'js-is-sticky--change');
+            menu.style.display = 'block';
+            menu.style.width = '100vw'; // Ensure it spans the full available width
+            menu.style.opacity = '1'; // Fully visible
+        }
+        
+        // Function to close the menu
+        function closeMenu() {
+            var menu = document.querySelector('.mainnav');
+            menu.style.display = 'none';
+            menu.style.width = '0'; // Collapse the menu completely
+            menu.style.opacity = '0'; // Make it fully transparent
+        }
+        </script>
+    
     
     
     <!-- <style>
@@ -445,14 +502,13 @@
 		<div class="grosvenorrichtext fr-view mt-md-5 mt-3 mb-3 mt-md-5">
 			<div class="container">
 				<div class="row">
-					<div class="col-12 col-md-8 pr-md-6">
+					<div class="col-12 ">
 						<div class="OutlineElement Ltr BCX8 SCXW260282758">
 							<h4 class="Paragraph SCXW260282758 BCX8">
 								<span class="TextRun SCXW260282758 BCX8" data-contrast="none" lang="ES">
 									Filosofía y Liderazgo
 								</span>
 							</h4>
-
 							<p class="Paragraph SCXW260282758 BCX8">
                                 En MURIS SALINAS CONSULTORES, S.C. nos preparamos para enfrentar estos retos mediante la mística del elemento humano, la filosofía innovadora y la tecnología.
                                 Damos un servicio de calidad en todo el flujo de nuestro proceso.
@@ -790,8 +846,21 @@ Siguiendo esta filosofía de vida MSC ha superado grandes retos y llegado a mant
 <div class="contentlisting pb-3 pt-3 pb-md-5 pt-md-5 textcolour--white" style="background-color:#031b41">
     <div class="container">
 	<div class="row">
+        <div class="col-12  mb-md-7 mb-5 col-md-1 ">
+						<div class="" >
+
+
+								<!-- <div class="contentlisting__card__image mb-3" >
+								</div>
+ -->
+
+					
+						
+							
+						</div>
+                    </div>
 			<div class="col-12  mb-md-7 mb-5 col-md-2 ">
-						<div class="contentlisting__card" style="">
+						<div class="contentlisting__card" >
 
 
 								<div class="contentlisting__card__image mb-3" style="background-image:url(&#39;./Images/inspection.png&#39;)">
@@ -813,7 +882,7 @@ Siguiendo esta filosofía de vida MSC ha superado grandes retos y llegado a mant
 			</div>
 
 			<div class="col-12  mb-md-7 mb-5 col-md-2 ">
-						<div class="contentlisting__card" style="">
+						<div class="contentlisting__card" >
 
 
 								<div class="contentlisting__card__image mb-3" style="background-image:url(&#39;./Images/personalizo.webp&#39;)">
@@ -835,7 +904,7 @@ Siguiendo esta filosofía de vida MSC ha superado grandes retos y llegado a mant
                         
 			</div>
             <!-- <div class="col-12  mb-md-7 mb-5 col-md-3 ">
-                <div class="contentlisting__card" style="">
+                <div class="contentlisting__card" >
 
 
                         <div class="contentlisting__card__image mb-3" style="background-image:url(&#39;./Images/inspection.webp&#39;)">
@@ -856,7 +925,7 @@ Siguiendo esta filosofía de vida MSC ha superado grandes retos y llegado a mant
                 </div>
                     </div> -->
                     <div class="col-12  mb-md-7 mb-5 col-md-2 ">
-                        <div class="contentlisting__card" style="">
+                        <div class="contentlisting__card" >
                                 <div class="contentlisting__card__image mb-3" style="background-image:url(&#39;./Images/control-de-inventario-4.jpg&#39;)">
                                 </div>
                                     <div class="contentlisting__card__title">
@@ -874,22 +943,10 @@ Siguiendo esta filosofía de vida MSC ha superado grandes retos y llegado a mant
                                 </div>
                     </div>
 
-                    <!-- <div class="col-12  mb-md-7 mb-5 col-md-3 ">
-						<div class="" style="">
-
-
-								<div class="contentlisting__card__image mb-3" style="">
-								</div>
-
-
-					
-						
-							
-						</div>
-                    </div> -->
+                    
 
                     <div class="col-12  mb-md-7 mb-5 col-md-2 ">
-						<div class="contentlisting__card" style="">
+						<div class="contentlisting__card" >
 
 
 								<div class="contentlisting__card__image mb-3" style="background-image:url(&#39;./Images/safeandrelship.jpg&#39;)">
@@ -910,7 +967,7 @@ Siguiendo esta filosofía de vida MSC ha superado grandes retos y llegado a mant
 						</div>
                     </div>
                     <div class="col-12  mb-md-7 mb-5 col-md-2 ">
-                        <div class="contentlisting__card" style="">
+                        <div class="contentlisting__card" >
         
         
                                 <div class="contentlisting__card__image mb-3" style="background-image:url(&#39;./Images/trackingsafe.webp&#39;)">
@@ -930,9 +987,7 @@ Siguiendo esta filosofía de vida MSC ha superado grandes retos y llegado a mant
                             
                         </div>
             </div>
-
-
-			
+            
 	</div>
 	</div>
     </div>
@@ -940,7 +995,9 @@ Siguiendo esta filosofía de vida MSC ha superado grandes retos y llegado a mant
 
 <div class="contentlisting pb-3 pt-3 pb-md-5 pt-md-5 textcolour--white" style="background-color:#031b41">
     <div class="container">
-        <div class="row">
+        <div class="row" style="text-align: justify;
+        padding-left: 50px;
+        padding-right: 50px;">
             <div class="col-12 mb-md-7 mb-5 col-md-4">
                 <div class="contentlisting__card">
                     <div class="contentlisting__card__title">
@@ -1038,13 +1095,13 @@ Siguiendo esta filosofía de vida MSC ha superado grandes retos y llegado a mant
 .topnav__logo img {
     width: auto; /* Allows the logo to maintain its intrinsic size */
     height: auto; /* Maintains aspect ratio */
-    max-height: 100px; /* Adjust as needed to fit the navigation's height */
+    max-height: 35px; /* Adjust as needed to fit the navigation's height */
 }
 
 /* Responsive adjustments for medium screens */
 @media (min-width: 410px) and (max-width: 959px) {
     .topnav__logo img {
-        max-height: 70px; /* Adjust based on your navbar height */
+        max-height: 40px; /* Adjust based on your navbar height */
         width: auto; /* Scale width automatically */
     }
 }
