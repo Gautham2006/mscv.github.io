@@ -728,10 +728,16 @@ Siguiendo esta filosofía de vida MSC ha superado grandes retos y llegado a mant
             const width = window.innerWidth;
     
             let fontSize, lineHeight;
-            if (width >= 960 && width <= 1600) {
-                fontSize = '14px';
-                lineHeight = '12px';
-            } else {
+            if (width > 990 && width <= 1600) {
+                fontSize = '20px';
+                lineHeight = '16px';
+            }
+            else if (width >= 960 && width <= 990) {
+                fontSize = '16px';
+                lineHeight = '16px';
+            } 
+            
+            else {
                 const minWidth = 288;
                 const range = 1612;
                 const baseFontSize = 16;
