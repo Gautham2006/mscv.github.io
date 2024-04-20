@@ -591,7 +591,63 @@ Siguiendo esta filosofía de vida MSC ha superado grandes retos y llegado a mant
     .imageandcontentwidget__inner__imagecolumn__image {
         border-radius: 0%;
         padding-bottom: 85%;
+        
     }
+    .imageandcontentwidget__inner__imagecolumn__image img {
+        transform-origin: top left;
+        transform: scale(1.0, 1.2); /* Default scale for smallest screens */
+    }
+
+    /* Small screens, typically phones */
+    @media (min-width: 288px) and (max-width: 479px) {
+        .imageandcontentwidget__inner__imagecolumn__image img {
+            transform: scale(0.95,1.2);
+        }
+    }
+
+    /* Medium-small screens, larger phones to small tablets */
+    @media (min-width: 480px) and (max-width: 767px) {
+        .imageandcontentwidget__inner__imagecolumn__image img {
+            transform: scale(0.95, 1.2);
+        }
+    }
+
+    /* Tablets */
+    @media (min-width: 768px) and (max-width: 1023px) {
+        .imageandcontentwidget__inner__imagecolumn__image img {
+            transform: scale(0.95, 1.2);
+        }
+    }
+
+    /* Small laptops / large tablets */
+    @media (min-width: 1024px) and (max-width: 1089px) {
+        .imageandcontentwidget__inner__imagecolumn__image img {
+            transform: scale(0.95, 1.2);
+        }
+    }
+
+    /* Typical desktop screens */
+    @media (min-width: 1090px) and (max-width: 1439px) {
+        .imageandcontentwidget__inner__imagecolumn__image img {
+            transform: scale(.95,1.2);
+        }
+    }
+
+    /* Larger screens */
+    @media (min-width: 1440px) and (max-width: 1899px) {
+        .imageandcontentwidget__inner__imagecolumn__image img {
+            transform: scale(.95,1.2);
+        }
+    }
+
+    /* Very large screens */
+    @media (min-width: 1900px) {
+        .imageandcontentwidget__inner__imagecolumn__image img {
+            transform: scale(.95,1.2);
+        }
+    }
+
+
     .imageandcontentwidget__inner__content {
         
         padding-top:23px;
@@ -604,15 +660,34 @@ Siguiendo esta filosofía de vida MSC ha superado grandes retos y llegado a mant
             padding-left: 23px;
         }
     }
+    .imageandcontentwidget__inner {
+        display: flex;
+        /* height:500px; */
+        align-items: stretch; /* This ensures that the content area stretches to match the height of the image */
+    }
+
+    /* .imageandcontentwidget__inner__content__text a,p{
+        font-size: calc(16px + (20 * ((100vw - 288px) / 1612))); 
+        line-height: calc(20px + (20 * ((100vw - 288px) / 1612))); 
+    }
+
+    .imageandcontentwidget__inner__content__text h3 {
+        font-size: calc(24px + (26 * ((100vw - 288px) / 1612)));
+        line-height: calc(28px + (26 * ((100vw - 288px) / 1612))); 
+    } */
+
+
 </style>
-<a class="imageandcontentwidget textcolour--white imageandcontentwidget--standard imageandcontentwidget--fiftyfifty">
+
+<a id="a-responsive-content" class="imageandcontentwidget textcolour--white imageandcontentwidget--standard imageandcontentwidget--fiftyfifty"
+    style="font-size: calc(16px + (20 * ((100vw - 288px) / 1612))); 
+    line-height: calc(20px + (20 * ((100vw - 288px) / 1612)));">
 	<div class="site-container" style="background-color:rgb(24,63,136);">
 		<div class="imageandcontentwidget__inner">
 			<div class="imageandcontentwidget__inner__imagecolumn">
 				<div class="imageandcontentwidget__inner__imagecolumn__image" style="border-radius: 0%;background-color:rgb(24,116,193)">
                     <picture>
-                        <img style="transform: scale(1.1);transform-origin: top left;transform: scale(1.0,1.2);" 
-                        alt="ventajas" src="./Images/ventajathing1.png">
+                        <img alt="ventajas" src="./Images/ventajathing1.png">
                     </picture>
                 </div>
 			</div>
@@ -624,20 +699,18 @@ Siguiendo esta filosofía de vida MSC ha superado grandes retos y llegado a mant
 
 					<h3>
                         Descubre cuales son nuestras Ventajas</h3>
-                        <h7>En MSC tratamos de ofrecer todos los servicios posibles</h7>
+                        <h7 style="font-size: calc(16px + (10 * ((100vw - 288px) / 1612)));line-height: inherit;">En MSC tratamos de ofrecer todos los servicios posibles</h7>
 
                     <div class="OutlineElement Ltr  BCX8 SCXW5752884">
-                        <p>
+                        <p id="p-responsive-content" style="font-size: calc(16px + (20 * ((100vw - 288px) / 1612))); 
+                        line-height: calc(20px + (20 * ((100vw - 288px) / 1612)));">
                             <strong>COMERCIO INTERNACIONAL</strong> <br>
                             Somos un socio comercial clave en su cadena de suministros <br><br>
                             Ofrecemos: Atención personalizada de un ejecutivo de cuenta, clasificación de sus mercancías, contrato de transporte mexicano y americano, marcar y etiquetar mercancías, a prueba de errores, asesoría clara y oportuna en cualquier operación.
                         </p>
                         
                     </div>
-                    <!-- <div class="OutlineElement Ltr  BCX8 SCXW5752884"><br></div>
-					<hr>
-						
-					</div> -->
+                    
 				</div>
 		</div>
 	</div>
@@ -647,8 +720,39 @@ Siguiendo esta filosofía de vida MSC ha superado grandes retos y llegado a mant
 
 
 
-
-
+<script>
+    window.onload = function() {
+        function resize() {
+            const acontent = document.getElementById('a-responsive-content');
+            const pcontent = document.getElementById('p-responsive-content');
+            const width = window.innerWidth;
+    
+            let fontSize, lineHeight;
+            if (width >= 960 && width <= 1600) {
+                fontSize = '14px';
+                lineHeight = '12px';
+            } else {
+                const minWidth = 288;
+                const range = 1612;
+                const baseFontSize = 16;
+                const lineHeightIncrement = 20;
+                const sizeIncrement = 20;
+    
+                fontSize = `${baseFontSize + (sizeIncrement * ((Math.max(width, minWidth) - minWidth) / range))}px`;
+                lineHeight = `${lineHeightIncrement + (sizeIncrement * ((Math.max(width, minWidth) - minWidth) / range))}px`;
+            }
+    
+            acontent.style.fontSize = fontSize;
+            acontent.style.lineHeight = lineHeight;
+            pcontent.style.fontSize = fontSize;
+            pcontent.style.lineHeight = lineHeight;
+        }
+    
+        window.onresize = resize;
+        resize(); // Initial call to set the styles
+    };
+    </script>
+    
 
 
 
