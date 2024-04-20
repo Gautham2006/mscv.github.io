@@ -206,56 +206,65 @@
                     
             <script>
                 document.addEventListener('DOMContentLoaded', function() {
-                    const contactLink = document.getElementById('contactLink');
                     const menuButton = document.querySelector('.topnav__menuButton');
+                    const closeButton = document.querySelector('.mainnav__closeButton'); // Assuming there's a close button in your HTML
                     const menu = document.querySelector('.mainnav');
-                
-                    // Event listener for the "Contacto" link
+            
+                    // Initialize menu to be definitely closed on page load
+                    menu.classList.remove('is-open');
+                    menu.style.display = 'none';
+                    menu.style.width = '0';
+                    menu.style.opacity = '0';
+            
+                    menuButton.addEventListener('click', function() {
+                        toggleMenu();
+                    });
+            
+                    if (closeButton) {
+                        closeButton.addEventListener('click', function() {
+                            closeMenu();
+                        });
+                    }
+                    const contactLink = document.getElementById('contactLink');
                     if (contactLink) {
                         contactLink.addEventListener('click', function(event) {
                             event.preventDefault(); // Prevent the default anchor behavior
+                            event.stopPropagation(); // Stop the event from bubbling up
                             closeMenu(); // Close the menu
                             // Smoothly scroll to the contact section
                             document.getElementById('contact').scrollIntoView({
                                 behavior: 'smooth'
                             });
                         });
+                    } else {
+                        console.log('Contact link not found');
                     }
-                
-                    // Event listener for the menu button
-                    if (menuButton) {
-                        menuButton.addEventListener('click', function() {
-                            toggleMenu(); // Toggle the menu on click
-                        });
-                    }
+            
                 });
                 
-                // Function to toggle the menu visibility based on its current state
-                function toggleMenu() {
+                    function toggleMenu() {
                     var menu = document.querySelector('.mainnav');
-                    if (menu.style.display === 'none' || menu.style.display === '') {
-                        openMenu();
-                    } else {
+                    if (menu.classList.contains('is-open')) {
                         closeMenu();
+                    } else {
+                        openMenu();
                     }
                 }
-                
-                // Function to open the menu
+            
                 function openMenu() {
                     var menu = document.querySelector('.mainnav');
-                    const header = document.querySelector('.header');
-                    header.classList.remove('js-is-sticky', 'js-is-sticky--change');
                     menu.style.display = 'block';
                     menu.style.width = '100vw'; // Ensure it spans the full available width
-                    menu.style.opacity = '1'; // Fully visible
+                    menu.style.opacity = '1';
+                    menu.classList.add('is-open');
                 }
-                
-                // Function to close the menu
+            
                 function closeMenu() {
                     var menu = document.querySelector('.mainnav');
                     menu.style.display = 'none';
-                    menu.style.width = '0'; // Collapse the menu completely
-                    menu.style.opacity = '0'; // Make it fully transparent
+                    menu.style.width = '0';
+                    menu.style.opacity = '0';
+                    menu.classList.remove('is-open');
                 }
                 </script>
 
@@ -808,9 +817,9 @@
 
 
 	
-	<script src="./Property_files/main.min.js.download" nonce="" type="text/javascript"></script>
-	<!-- share this -->
-	<script type="text/javascript" src="./Property_files/sharethis.js.download" async="async" nonce=""></script>
+<script src="./Home_copy2_files/main.min.js" nonce="" type="text/javascript"></script>
+<!-- share this -->
+<script type="text/javascript" src="./Home_copy2_files/sharethis.js.download" async="async" nonce=""></script>
 
 <iframe name="__uspapiLocator" tabindex="-1" role="presentation" aria-hidden="true" title="Blank" style="display: none; position: absolute; width: 1px; height: 1px; top: -9999px;" src="./Property_files/saved_resource.html"></iframe><iframe tabindex="-1" role="presentation" aria-hidden="true" title="Blank" src="./Property_files/bc-v4.min.html" style="position: absolute; width: 1px; height: 1px; top: -9999px;"></iframe>
 
