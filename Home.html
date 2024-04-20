@@ -201,6 +201,21 @@
                 closeMenu();
             });
         }
+        const contactLink = document.getElementById('contactLink');
+        if (contactLink) {
+            contactLink.addEventListener('click', function(event) {
+                event.preventDefault(); // Prevent the default anchor behavior
+                event.stopPropagation(); // Stop the event from bubbling up
+                closeMenu(); // Close the menu
+                // Smoothly scroll to the contact section
+                document.getElementById('contact').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        } else {
+            console.log('Contact link not found');
+        }
+
     });
     
         function toggleMenu() {
