@@ -34,6 +34,8 @@
             }
         </style>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
     </head>
 	
 	
@@ -1086,59 +1088,66 @@ Championing climate action with our global carbon commitment                    
 
 
 <script>
-    const ctx = document.getElementById('currencyChart').getContext('2d');
-    let currencyChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: [], // Empty array for labels which will hold the timestamps
-            datasets: [{
-                label: 'MXN to USD Exchange Rate',
-                data: [], // Empty data array which will hold the exchange rates
-                borderColor: 'rgba(54, 162, 235, 1)',
-                backgroundColor: 'rgba(54, 162, 235, 0.2)',
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: false
+    document.addEventListener('DOMContentLoaded', function() {
+        const ctx = document.getElementById('currencyChart').getContext('2d');
+        let currencyChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'MXN to USD Exchange Rate',
+                    data: [],
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: false
+                    },
+                    x: {
+                        type: 'time',
+                        time: {
+                            unit: 'day',
+                            tooltipFormat: 'MM/DD/YYYY'
+                        },
+                        title: {
+                            display: true,
+                            text: 'Date'
+                        }
+                    }
                 }
             }
-        }
-    });
-    
-    async function updateExchangeRates() {
-        const endpoint = 'https://api.exchangerate-api.com/v4/latest/MXN';
-        try {
-            const response = await fetch(endpoint);
-            const data = await response.json();
-            const rateUSD = data.rates.USD;
-            const currentTime = new Date().toLocaleTimeString();
-    
-            // Add the current time and rate to the chart data
-            currencyChart.data.labels.push(currentTime);
-            currencyChart.data.datasets[0].data.push(rateUSD);
-    
-            // Remove old data to keep the chart clean and readable
-            if (currencyChart.data.labels.length > 100) { // Limit to last 20 data points
-                currencyChart.data.labels.shift();
-                currencyChart.data.datasets[0].data.shift();
+        });
+
+        async function updateExchangeRates() {
+            const endpoint = 'https://v6.exchangerate-api.com/v6/2133991ff81fb225575774e0/latest/MXN';
+            try {
+                const response = await fetch(endpoint);
+                const data = await response.json();
+                console.log(data);
+                const rateUSD = data.conversion_rates.USD;
+                
+                const currentDate = new Date().toLocaleDateString();
+                
+                currencyChart.data.labels.push(currentDate);
+                currencyChart.data.datasets[0].data.push(rateUSD);
+
+                if (currencyChart.data.labels.length > 365) {
+                    currencyChart.data.labels.shift();
+                    currencyChart.data.datasets[0].data.shift();
+                }
+
+                currencyChart.update();
+            } catch (error) {
+                console.error('Failed to fetch exchange rate:', error);
             }
-    
-            currencyChart.update();
-        } catch (error) {
-            console.error('Failed to fetch exchange rate:', error);
         }
-    }
-    
-    // Update chart every 5 minutes
-    setInterval(updateExchangeRates, 10000);
-    
-    // Initial update when the page loads
-    document.addEventListener('DOMContentLoaded', updateExchangeRates);
-    </script>
-    
-    
+
+        updateExchangeRates();
+    });
+</script>
     
 
 
@@ -1179,9 +1188,7 @@ Championing climate action with our global carbon commitment                    
                         </div>
                         
                         <div id="general" class="tab-content active" >
-                            <div id="currency-chart-container">
-                                <canvas id="currencyChart"></canvas>
-                            </div>
+                            <canvas id="currencyChart"></canvas>
                             <!-- <div class="tab-background-image">
                                 <img src="https://cdn-gaden.nitrocdn.com/jeRXLLMZymlAMbVtOsUnCWhDbjNHCnZx/assets/static/optimized/rev-69a8792/wordpress/wp-content/uploads/2017/02/Franchise1.png" alt="trucks" >
                             </div> -->
