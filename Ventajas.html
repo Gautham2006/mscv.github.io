@@ -651,14 +651,7 @@ Siguiendo esta filosofía de vida MSC ha superado grandes retos y llegado a mant
     </div>
 </div>
     
-
-<style>
-    .imageandcontentwidget__inner__imagecolumn__image {
-        border-radius: 0%;
-        padding-bottom: 85%;
-        
-    }
-    .imageandcontentwidget__inner__imagecolumn__image img {
+<!--.imageandcontentwidget__inner__imagecolumn__image img {
         transform-origin: top left;
         transform: scale(1.0, 1.2); /* Default scale for smallest screens */
     }
@@ -666,53 +659,62 @@ Siguiendo esta filosofía de vida MSC ha superado grandes retos y llegado a mant
     /* Small screens, typically phones */
     @media (min-width: 288px) and (max-width: 479px) {
         .imageandcontentwidget__inner__imagecolumn__image img {
-            transform: scale(0.95,1.2);
+            transform: scale(1.0,0.95);
         }
     }
 
     /* Medium-small screens, larger phones to small tablets */
     @media (min-width: 480px) and (max-width: 767px) {
         .imageandcontentwidget__inner__imagecolumn__image img {
-            transform: scale(0.95, 1.2);
+            transform: scale(1.0,0.95);
         }
     }
 
     /* Tablets */
     @media (min-width: 768px) and (max-width: 1023px) {
         .imageandcontentwidget__inner__imagecolumn__image img {
-            transform: scale(0.95, 1.2);
+            transform: scale(1.0,0.95);
         }
     }
 
     /* Small laptops / large tablets */
     @media (min-width: 1024px) and (max-width: 1089px) {
         .imageandcontentwidget__inner__imagecolumn__image img {
-            transform: scale(0.95, 1.2);
+            transform: scale(1.0,0.95);
         }
     }
 
     /* Typical desktop screens */
     @media (min-width: 1090px) and (max-width: 1439px) {
         .imageandcontentwidget__inner__imagecolumn__image img {
-            transform: scale(.95,1.2);
+            transform: scale(1.0,0.95);
         }
     }
 
     /* Larger screens */
     @media (min-width: 1440px) and (max-width: 1899px) {
         .imageandcontentwidget__inner__imagecolumn__image img {
-            transform: scale(.95,1.2);
+            transform: scale(1.0,0.95);
         }
     }
 
     /* Very large screens */
     @media (min-width: 1900px) {
         .imageandcontentwidget__inner__imagecolumn__image img {
-            transform: scale(.95,1.2);
+            transform: scale(1.0,0.95);
         }
+    }-->
+<style>
+    .imageandcontentwidget__inner__imagecolumn__image {
+        border-radius: 0%;
+        padding-bottom: 85%;
+        
     }
-
-
+    
+    .imageandcontentwidget__inner__imagecolumn__image img {
+        transform-origin: top;
+        transform: scale(0.83);
+    }
     .imageandcontentwidget__inner__content {
         
         padding-top:23px;
@@ -752,8 +754,9 @@ Siguiendo esta filosofía de vida MSC ha superado grandes retos y llegado a mant
 			<div class="imageandcontentwidget__inner__imagecolumn">
 				<div class="imageandcontentwidget__inner__imagecolumn__image" style="border-radius: 0%;background-color:rgb(24,116,193)">
                     <picture>
-                        <img alt="ventajas" src="./Images/ventajathing1.png">
+                        <img alt="ventajas" src="./Images/upscaled_ventajathing.png">
                     </picture>
+                    <!-- <img alt="ventajas" src="./Images/ventajathing1.png"> -->
                 </div>
 			</div>
 			<div class="imageandcontentwidget__inner__content">
