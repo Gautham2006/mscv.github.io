@@ -15,7 +15,12 @@
     
             async function fetchNews() {
                 try {
-                    const response = await fetch(url);
+                    // Setting up the headers
+                    const headers = new Headers();
+                    headers.set("ngrok-skip-browser-warning", "true");  // Setting the custom header
+
+                    // Fetch request with custom headers
+                    const response = await fetch(url, { headers: headers });
                     const data = await response.json();
                     if (data.status === 'ok') {
                         displayNews(data.articles);
