@@ -3,42 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News Feed</title>
-    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-remote-config-compat.js"></script>
-    
+    <title>Latest News</title>
 </head>
 <body>
-    <h1>Latest News</h1>
+    <h1>News Feed</h1>
     <div id="news-container"></div>
 
     <script>
-        async function fetchNews() {
-            const api_key = `f09fcd4ec096415f92e5be805a248f70`;
-            const url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${api_key}`;
-            try {
-                const response = await fetch(url);
-                const data = await response.json();
-                displayNews(data.articles);
-            } catch (error) {
-                console.error('Failed to fetch news:', error);
+        document.addEventListener('DOMContentLoaded', function() {
+            const url = `http://34.94.131.252:8080/news`;  // Pointing to your VM
+    
+            async function fetchNews() {
+                try {
+                    const response = await fetch(url);
+                    const data = await response.json();
+                    if (data.status === 'ok') {
+                        displayNews(data.articles);
+                    } else {
+                        console.error('NewsAPI Error:', data.message);
+                        document.getElementById('news-container').innerHTML = `<p>Error: ${data.message}</p>`;
+                    }
+                } catch (error) {
+                    console.error('Fetch Error:', error);
+                    document.getElementById('news-container').innerHTML = '<p>Failed to fetch news.</p>';
+                }
             }
-        }
-
-        function displayNews(articles) {
-            const container = document.getElementById('news-container');
-            container.innerHTML = '';
-            articles.forEach(article => {
-                const articleDiv = document.createElement('div');
-                articleDiv.innerHTML = `
-                    <h2><a href="${article.url}" target="_blank">${article.title}</a></h2>
-                    <p>${article.description}</p>
-                `;
-                container.appendChild(articleDiv);
-            });
-        }
-        fetchNews();
-        
+    
+            function displayNews(articles) {
+                const container = document.getElementById('news-container');
+                container.innerHTML = '';  // Clear previous contents
+                articles.forEach(article => {
+                    const articleDiv = document.createElement('div');
+                    articleDiv.innerHTML = `
+                        <h2><a href="${article.url}" target="_blank">${article.title}</a></h2>
+                        <img src="${article.urlToImage}" alt="Article Image" style="width:100%;height:auto;">
+                        <p>${article.description}</p>
+                        <p><small>Published at: ${new Date(article.publishedAt).toLocaleString()}</small></p>
+                    `;
+                    container.appendChild(articleDiv);
+                });
+            }
+    
+            fetchNews();
+        });
     </script>
+    
 </body>
 </html>
