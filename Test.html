@@ -1,38 +1,44 @@
-<script>
-    async function fetchNews() {
-        const apiKey = 'f09fcd4ec096415f92e5be805a248f70'; // Replace with your actual News API key
-        const url = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=${apiKey}`;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Feed</title>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-remote-config-compat.js"></script>
+    
+</head>
+<body>
+    <h1>Latest News</h1>
+    <div id="news-container"></div>
 
-        try {
-            const response = await fetch(url);
-            const data = await response.json();
-            if (data.articles && data.articles.length > 0) {
+    <script>
+        async function fetchNews() {
+            const api_key = `f09fcd4ec096415f92e5be805a248f70`;
+            const url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${api_key}`;
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
                 displayNews(data.articles);
-            } else {
-                // Handle no data or error state
-                document.getElementById('news-container').innerHTML = '<p>No news available or access denied.</p>';
+            } catch (error) {
+                console.error('Failed to fetch news:', error);
             }
-        } catch (error) {
-            console.error('Failed to fetch news:', error);
-            document.getElementById('news-container').innerHTML = '<p>Error loading news.</p>';
         }
-    }
 
-    function displayNews(articles) {
-        const newsContainer = document.getElementById('news-container');
-        newsContainer.innerHTML = ''; // Clear existing news
-
-        articles.forEach(article => {
-            const articleHTML = `
-                <div class="news-article">
+        function displayNews(articles) {
+            const container = document.getElementById('news-container');
+            container.innerHTML = '';
+            articles.forEach(article => {
+                const articleDiv = document.createElement('div');
+                articleDiv.innerHTML = `
                     <h2><a href="${article.url}" target="_blank">${article.title}</a></h2>
-                    <img src="${article.urlToImage}" alt="Article Image">
-                    <p>${article.description || ''}</p>
-                </div>
-            `;
-            newsContainer.innerHTML += articleHTML;
-        });
-    }
-
-    fetchNews();
-</script>
+                    <p>${article.description}</p>
+                `;
+                container.appendChild(articleDiv);
+            });
+        }
+        fetchNews();
+        
+    </script>
+</body>
+</html>
