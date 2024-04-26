@@ -1,74 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exchange Rate Chart</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
-</head>
-<body>
-    <canvas id="currencyChart"></canvas>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const ctx = document.getElementById('currencyChart').getContext('2d');
-            let currencyChart = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: [],
-                    datasets: [{
-                        label: 'MXN to USD Exchange Rate',
-                        data: [],
-                        borderColor: 'rgba(54, 162, 235, 1)',
-                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                    }]
-                },
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: false
-                        },
-                        x: {
-                            type: 'time',
-                            time: {
-                                unit: 'day',
-                                tooltipFormat: 'MM/DD/YYYY'
-                            },
-                            title: {
-                                display: true,
-                                text: 'Date'
-                            }
-                        }
-                    }
-                }
-            });
+<script>
+    async function fetchNews() {
+        const apiKey = 'f09fcd4ec096415f92e5be805a248f70'; // Replace with your actual News API key
+        const url = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=${apiKey}`;
 
-            async function updateExchangeRates() {
-                const endpoint = 'https://v6.exchangerate-api.com/v6/2133991ff81fb225575774e0/latest/MXN';
-                try {
-                    const response = await fetch(endpoint);
-                    const data = await response.json();
-                    console.log(data);
-                    const rateUSD = data.conversion_rates.USD;
-                    
-                    const currentDate = new Date().toLocaleDateString();
-                    
-                    currencyChart.data.labels.push(currentDate);
-                    currencyChart.data.datasets[0].data.push(rateUSD);
-    
-                    if (currencyChart.data.labels.length > 365) {
-                        currencyChart.data.labels.shift();
-                        currencyChart.data.datasets[0].data.shift();
-                    }
-    
-                    currencyChart.update();
-                } catch (error) {
-                    console.error('Failed to fetch exchange rate:', error);
-                }
+        try {
+            const response = await fetch(url);
+            const data = await response.json();
+            if (data.articles && data.articles.length > 0) {
+                displayNews(data.articles);
+            } else {
+                // Handle no data or error state
+                document.getElementById('news-container').innerHTML = '<p>No news available or access denied.</p>';
             }
+        } catch (error) {
+            console.error('Failed to fetch news:', error);
+            document.getElementById('news-container').innerHTML = '<p>Error loading news.</p>';
+        }
+    }
 
-            updateExchangeRates();
+    function displayNews(articles) {
+        const newsContainer = document.getElementById('news-container');
+        newsContainer.innerHTML = ''; // Clear existing news
+
+        articles.forEach(article => {
+            const articleHTML = `
+                <div class="news-article">
+                    <h2><a href="${article.url}" target="_blank">${article.title}</a></h2>
+                    <img src="${article.urlToImage}" alt="Article Image">
+                    <p>${article.description || ''}</p>
+                </div>
+            `;
+            newsContainer.innerHTML += articleHTML;
         });
-    </script>
-</body>
-</html>
+    }
+
+    fetchNews();
+</script>

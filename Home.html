@@ -15,8 +15,8 @@
         <script async="" src="./Home_copy2_files/6102cd45fd98ad0012a29d14.js.download"></script>
         <script async="" src="./Home_copy2_files/gtm.js.download"></script>
         <script type="text/javascript" charset="UTF-8" src="./Home_copy2_files/configuration.js.download"></script>
-        <script id="Cookiebot" src="./Home_copy2_files/uc.js.download" data-cbid="1c001ef0-9c81-46d8-b688-c621986a541d"
-            data-blockingmode="auto" type="text/javascript" nonce=""></script>
+        <!-- <script id="Cookiebot" src="./Home_copy2_files/uc.js.download" data-cbid="1c001ef0-9c81-46d8-b688-c621986a541d"
+            data-blockingmode="auto" type="text/javascript" nonce=""></script> -->
         <style type="text/css" id="CookieConsentStateDisplayStyles">
             .cookieconsent-optin-preferences,
             .cookieconsent-optin-statistics,
@@ -1079,18 +1079,18 @@ Championing climate action with our global carbon commitment                    
         align-items: center;
         flex-direction: column;
         width: 100%;
-        max-width: 400px; /* Adjusted for better fit */
+        max-width: 800px; /* Adjusted for better fit */
         margin: 2rem auto;
         padding: 1rem;
         background-color: #123456; /* Dark blue background */
         border-radius: 20px;
-        box-shadow: 0 12px 25px -5px #000000;
+        /*box-shadow: 0 12px 25px -5px #000000;*/
         transition: all 0.3s ease-in-out;
     }
 
     #currency-chart-container:hover {
         transform: translateY(-5px);
-        box-shadow: 0 15px 30px -5px #000000;
+        /*box-shadow: 0 15px 30px -5px #000000;*/
     }
 
     #currencyChart {
@@ -1112,22 +1112,28 @@ Championing climate action with our global carbon commitment                    
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+        Chart.defaults.global.defaultFontColor = '#FFFFFF'; // Sets global font color
+        Chart.defaults.global.defaultColor = '#FFFFFF'; // Sets default color for lines and points
+        Chart.defaults.global.defaultFontColor = '#FFFFFF'; // Sets the default font color to white
+        Chart.defaults.global.defaultFontFamily = 'Arial, sans-serif'; // Sets a default font family
+        Chart.defaults.global.defaultFontSize = 14; // Sets a default font size
+        Chart.defaults.global.defaultFontStyle = 'normal'; // Sets the font weight to normal (less bold)
+
         const ctx = document.getElementById('currencyChart').getContext('2d');
         let currencyChart = new Chart(ctx, {
             type: 'line',
             data: {
                 labels: [],
                 datasets: [{
-                    label: 'MXN to USD Exchange Rate',
+                    label: 'Tipo de Cambio MXN (Peso) a USD',
                     data: [],
-                    borderColor: '#2D86FF', /* Choose a color that stands out */
-                    backgroundColor: 'rgba(0, 123, 255, 0.2)', /* Slightly transparent */
-                    pointBorderColor: '#007bff', /* Same as line or different for contrast */
-                    pointBackgroundColor: '#fff', /* White for visibility on any line color */
+                    borderColor: '#2D86FF', /* A vivid blue for visibility */
+                    backgroundColor: 'rgba(0, 123, 255, 0.2)', /* Slightly transparent blue */
+                    pointBorderColor: '#007bff', /* Vivid blue for contrast */
+                    pointBackgroundColor: '#fff', /* White for visibility against any line color */
                     pointBorderWidth: 2, /* Defines the border thickness of points */
                 }]
             },
-            // Inside your Chart.js configuration
             options: {
                 responsive: true,
                 maintainAspectRatio: true,
@@ -1152,14 +1158,14 @@ Championing climate action with our global carbon commitment                    
                     y: {
                         beginAtZero: false,
                         grid: {
-                            color: "#4f6d7a", // A medium dark shade for grid lines
+                            color: "#FFFFFF", // White grid lines
                             lineWidth: 1,
                             drawBorder: true,
                         },
                         ticks: {
                             color: "#FFFFFF", // White text for visibility
                             font: {
-                                size: 14, // Larger font for readability
+                                size: 12, // Larger font for readability
                             },
                             // Including a currency symbol
                             callback: function(value, index, values) {
@@ -1169,7 +1175,7 @@ Championing climate action with our global carbon commitment                    
                     },
                     x: {
                         grid: {
-                            color: "#4f6d7a", // Same as Y axis grid color
+                            color: "#FFFFFF", // White grid lines
                             lineWidth: 1,
                             drawBorder: true,
                         },
@@ -1179,7 +1185,7 @@ Championing climate action with our global carbon commitment                    
                                 size: 14,
                             },
                             maxRotation: 0, // Prevents text rotation for a cleaner look
-                            autoSkipPadding: 20, // Space between labels
+                            autoSkipPadding: 20, // Adequate space between labels
                         },
                         type: 'time',
                         time: {
@@ -1202,9 +1208,9 @@ Championing climate action with our global carbon commitment                    
                     },
                     tooltip: {
                         enabled: true,
-                        backgroundColor: 'rgba(0, 0, 0, 0.8)', // Dark tooltip background
-                        titleColor: '#FFC107', // Amber text for the title
-                        bodyColor: '#FFFFFF', // White for the body
+                        backgroundColor: 'rgba(0, 0, 0, 0.8)', // Dark tooltip background for contrast
+                        titleColor: '#FFFFFF', // White text for the title for consistency
+                        bodyColor: '#FFFFFF', // White for the body text
                         borderColor: '#FFC107', // Amber border for consistency
                         borderWidth: 2,
                         cornerRadius: 6, // Rounded corners for the tooltip
@@ -1234,7 +1240,6 @@ Championing climate action with our global carbon commitment                    
                     }
                 }
             }
-
         });
 
         // async function updateExchangeRates() {
@@ -1261,7 +1266,7 @@ Championing climate action with our global carbon commitment                    
         //     }
         // }
         async function updateExchangeRates() {
-            const endpoint = 'https://script.google.com/macros/s/AKfycbzz3qSc8i_JRbX5jxiygr-oCNi1GzSC1JzFtVeNK-fLX8JzELDHvmyzGnbu1mMCCA5H/exec';
+            const endpoint = 'https://script.google.com/macros/s/AKfycbxK6bMAo6FOXxjN3S9OqMqS4e7lsJ3aDjIv2ilkC-NHhVKR9Xg8u4tzgBHjHn3B8ND9/exec';
             try {
                 const response = await fetch(endpoint);
                 const data = await response.json();
@@ -1336,10 +1341,13 @@ updateExchangeRates();
                         </div>
                         
                         <div id="general" class="tab-content active" >
-                            <canvas id="currencyChart"></canvas>
+                            <div id="currency-chart-container">
+                                <canvas id="currencyChart"></canvas>
+                            </div>
                             <!-- <div class="tab-background-image">
                                 <img src="https://cdn-gaden.nitrocdn.com/jeRXLLMZymlAMbVtOsUnCWhDbjNHCnZx/assets/static/optimized/rev-69a8792/wordpress/wp-content/uploads/2017/02/Franchise1.png" alt="trucks" >
                             </div> -->
+                            <div style="padding-top:25px"></div>
                             <h4 style="color:white;">Información General</h4>
                             <p style="color:white;">
                             
