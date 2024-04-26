@@ -1074,21 +1074,38 @@ Championing climate action with our global carbon commitment                    
     }
 
     #currency-chart-container {
-    width: 100%;
-    max-width: 600px;
-    margin: auto;
-    padding: 50px;
-    padding-bottom:40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        max-width: 400px; /* Adjusted for better fit */
+        margin: 2rem auto;
+        padding: 1rem;
+        background-color: #123456; /* Dark blue background */
+        border-radius: 20px;
+        box-shadow: 0 12px 25px -5px #000000;
+        transition: all 0.3s ease-in-out;
     }
+
+    #currency-chart-container:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px -5px #000000;
+    }
+
     #currencyChart {
         width: 100%;
-        height: 400px;
-        border-radius: 15px; /* Rounded corners */
-        background-color: #f5f5f5; /* Light grey background */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a shadow for depth */
-        padding: 10px;
-        
+        height: auto; /* Adjusted to auto for automatic height based on width */
+        aspect-ratio: 16 / 9; /* Aspect ratio for widescreen */
+        border-radius: 20px;
+        background-color: #123456; /* Match the container background */
+        box-shadow: inset 0 0 10px #000000; /* Inner shadow for depth */
+        padding: 20px;
+        color: #ffffff; /* For any text inside the canvas */
     }
+
+
+
 
 </style>
 
@@ -1103,54 +1120,164 @@ Championing climate action with our global carbon commitment                    
                 datasets: [{
                     label: 'MXN to USD Exchange Rate',
                     data: [],
-                    borderColor: '#000000', /* Choose a color that stands out */
+                    borderColor: '#2D86FF', /* Choose a color that stands out */
                     backgroundColor: 'rgba(0, 123, 255, 0.2)', /* Slightly transparent */
                     pointBorderColor: '#007bff', /* Same as line or different for contrast */
                     pointBackgroundColor: '#fff', /* White for visibility on any line color */
                     pointBorderWidth: 2, /* Defines the border thickness of points */
                 }]
             },
+            // Inside your Chart.js configuration
             options: {
+                responsive: true,
+                maintainAspectRatio: true,
                 elements: {
                     line: {
-                        tension: 0.4 /* Optional: Adds slight curvature to lines */
+                        tension: 0.4,
+                        borderWidth: 4,
+                        borderColor: '#FFC107', // Using a bold amber for visibility
+                        backgroundColor: 'rgba(255, 193, 7, 0.2)', // Light amber background beneath the line
                     },
                     point: {
-                        radius: 5 /* Size of the points on the line */
+                        radius: 3,
+                        pointStyle: 'circle',
+                        backgroundColor: '#FFC107',
+                        borderColor: '#FFFFFF',
+                        borderWidth: 2,
+                        hoverRadius: 9,
+                        hoverBorderWidth: 3,
                     }
                 },
                 scales: {
                     y: {
-                        beginAtZero: false
+                        beginAtZero: false,
+                        grid: {
+                            color: "#4f6d7a", // A medium dark shade for grid lines
+                            lineWidth: 1,
+                            drawBorder: true,
+                        },
+                        ticks: {
+                            color: "#FFFFFF", // White text for visibility
+                            font: {
+                                size: 14, // Larger font for readability
+                            },
+                            // Including a currency symbol
+                            callback: function(value, index, values) {
+                                return '$' + value.toFixed(2);
+                            }
+                        }
                     },
                     x: {
+                        grid: {
+                            color: "#4f6d7a", // Same as Y axis grid color
+                            lineWidth: 1,
+                            drawBorder: true,
+                        },
+                        ticks: {
+                            color: "#FFFFFF", // White text for visibility
+                            font: {
+                                size: 14,
+                            },
+                            maxRotation: 0, // Prevents text rotation for a cleaner look
+                            autoSkipPadding: 20, // Space between labels
+                        },
                         type: 'time',
                         time: {
-                            unit: 'day',
-                            tooltipFormat: 'MM/DD/YYYY',
-                            
+                            unit: 'month',
+                            displayFormats: {
+                                month: 'MMM YY'
+                            },
                         },
-                        title: {
-                            display: true,
-                            text: 'Date'
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: true,
+                        labels: {
+                            color: '#FFFFFF', // White text for the legend
+                            font: {
+                                size: 16, // Larger font for the legend
+                            },
                         }
+                    },
+                    tooltip: {
+                        enabled: true,
+                        backgroundColor: 'rgba(0, 0, 0, 0.8)', // Dark tooltip background
+                        titleColor: '#FFC107', // Amber text for the title
+                        bodyColor: '#FFFFFF', // White for the body
+                        borderColor: '#FFC107', // Amber border for consistency
+                        borderWidth: 2,
+                        cornerRadius: 6, // Rounded corners for the tooltip
+                        titleFont: {
+                            size: 16,
+                        },
+                        bodyFont: {
+                            size: 14,
+                        },
+                        mode: 'index',
+                        intersect: false,
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed.y !== null) {
+                                    label += new Intl.NumberFormat('en-US', {
+                                        style: 'currency',
+                                        currency: 'USD',
+                                    }).format(context.parsed.y);
+                                }
+                                return label;
+                            },
+                        },
                     }
                 }
             }
+
         });
 
+        // async function updateExchangeRates() {
+        //     const endpoint = 'https://v6.exchangerate-api.com/v6/2133991ff81fb225575774e0/latest/MXN';
+        //     try {
+        //         const response = await fetch(endpoint);
+        //         const data = await response.json();
+        //         console.log(data);
+        //         const rateUSD = data.conversion_rates.USD;
+                
+        //         const currentDate = new Date().toLocaleDateString();
+                
+        //         currencyChart.data.labels.push(currentDate);
+        //         currencyChart.data.datasets[0].data.push(rateUSD);
+
+        //         if (currencyChart.data.labels.length > 365) {
+        //             currencyChart.data.labels.shift();
+        //             currencyChart.data.datasets[0].data.shift();
+        //         }
+
+        //         currencyChart.update();
+        //     } catch (error) {
+        //         console.error('Failed to fetch exchange rate:', error);
+        //     }
+        // }
         async function updateExchangeRates() {
-            const endpoint = 'https://v6.exchangerate-api.com/v6/2133991ff81fb225575774e0/latest/MXN';
+            const endpoint = 'https://script.google.com/macros/s/AKfycbweDJrpluGW5rrXOSqXW3fBVTwMyH5IIkuF4RPojgOHBDSdxN7GNaPqtgtz2pxIN_Ay/exec';
             try {
                 const response = await fetch(endpoint);
                 const data = await response.json();
-                console.log(data);
-                const rateUSD = data.conversion_rates.USD;
                 
-                const currentDate = new Date().toLocaleDateString();
                 
-                currencyChart.data.labels.push(currentDate);
-                currencyChart.data.datasets[0].data.push(rateUSD);
+                const rates = data.map(entry => {
+                    
+                    return { date: entry['date'].substring(0,entry['date'].indexOf('T')), rate: entry['rate'] };
+                });
+                
+
+                rates.forEach(rate => {
+                   
+                    currencyChart.data.labels.push(rate.date);
+                    currencyChart.data.datasets[0].data.push(rate.rate);
+                });
 
                 if (currencyChart.data.labels.length > 365) {
                     currencyChart.data.labels.shift();
@@ -1163,7 +1290,10 @@ Championing climate action with our global carbon commitment                    
             }
         }
 
-        updateExchangeRates();
+updateExchangeRates(); 
+
+            
+        updateExchangeRates(); 
     });
 </script>
     
@@ -1206,7 +1336,7 @@ Championing climate action with our global carbon commitment                    
                         </div>
                         
                         <div id="general" class="tab-content active" >
-                            <canvas id="currencyChart" style="background-color: #2c5746;"></canvas>
+                            <canvas id="currencyChart"></canvas>
                             <!-- <div class="tab-background-image">
                                 <img src="https://cdn-gaden.nitrocdn.com/jeRXLLMZymlAMbVtOsUnCWhDbjNHCnZx/assets/static/optimized/rev-69a8792/wordpress/wp-content/uploads/2017/02/Franchise1.png" alt="trucks" >
                             </div> -->
@@ -1268,10 +1398,11 @@ Championing climate action with our global carbon commitment                    
                 
 
 
-                <a  class="twobyonewidget__box textcolour--white">
+                <a  class="twobyonewidget__box textcolour--white" style="filter: brightness(0.7);">
                             <div class="twobyonewidget__box__image twobyonewidget__box__image--centeralign
 						      
-						      twobyonewidget__box__image--overlay" style="background-image: url(&#39;https://img.freepik.com/free-photo/close-up-warehouse-view_23-2148923142.jpg;);">
+						      twobyonewidget__box__image--overlay" style="background-image: url(&#39;https://img.freepik.com/free-photo/close-up-warehouse-view_23-2148923142.jpg;);"
+                              style=" filter:brightness(10%)">
                             </div>
                 <div class="pt-2 pr-2 pb-6 pl-3 pb-md-2 pt-md-4 px-md-7 twobyonewidget__box__text">
                     <h3>
