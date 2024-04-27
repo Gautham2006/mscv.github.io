@@ -11,16 +11,12 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const url = `https://0792-34-94-131-252.ngrok-free.app/news`;  // Pointing to your VM
+            const url = `https://17f8-34-94-131-252.ngrok-free.app/news`;  // Pointing to your VM
     
             async function fetchNews() {
                 try {
-                    // Setting up the headers
-                    const headers = new Headers();
-                    headers.set("ngrok-skip-browser-warning", "true");  // Setting the custom header
-
-                    // Fetch request with custom headers
-                    const response = await fetch(url, { headers: headers });
+                    
+                    const response = await fetch(url);
                     const data = await response.json();
                     if (data.status === 'ok') {
                         displayNews(data.articles);
