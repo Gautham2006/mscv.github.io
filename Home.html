@@ -206,11 +206,11 @@
 					Contacto
 				</a>
 			</li>
-            <li class="mainnav__item">
+            <!-- <li class="mainnav__item">
 				<a href="Test.html" class="mainnav__link">
 					Test
 				</a>
-			</li>
+			</li> -->
 	</ul>
 </div> 
 	<div class="header__line mx-3 mx-md-4"></div>
@@ -1018,7 +1018,10 @@ Championing climate action with our global carbon commitment                    
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
   animation: fadeIn 0.3s ease-in-out;
   color: #fff;
+  height:600px;
+  overflow-y:auto;
 }
+
 
 .tab-content.active {
   display: block;
@@ -1247,29 +1250,7 @@ Championing climate action with our global carbon commitment                    
             }
         });
 
-        // async function updateExchangeRates() {
-        //     const endpoint = 'https://v6.exchangerate-api.com/v6/2133991ff81fb225575774e0/latest/MXN';
-        //     try {
-        //         const response = await fetch(endpoint);
-        //         const data = await response.json();
-        //         console.log(data);
-        //         const rateUSD = data.conversion_rates.USD;
-                
-        //         const currentDate = new Date().toLocaleDateString();
-                
-        //         currencyChart.data.labels.push(currentDate);
-        //         currencyChart.data.datasets[0].data.push(rateUSD);
-
-        //         if (currencyChart.data.labels.length > 365) {
-        //             currencyChart.data.labels.shift();
-        //             currencyChart.data.datasets[0].data.shift();
-        //         }
-
-        //         currencyChart.update();
-        //     } catch (error) {
-        //         console.error('Failed to fetch exchange rate:', error);
-        //     }
-        // }
+        
         async function updateExchangeRates() {
             const endpoint = 'https://script.google.com/macros/s/AKfycbxK6bMAo6FOXxjN3S9OqMqS4e7lsJ3aDjIv2ilkC-NHhVKR9Xg8u4tzgBHjHn3B8ND9/exec';
             try {
@@ -1307,9 +1288,79 @@ updateExchangeRates();
     });
 </script>
     
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const rssUrl = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent('https://news.google.com/rss/search?q=mexican+business+regulations&hl=en-US&gl=US&ceid=US:en');
+        
+        fetch(rssUrl)
+            .then(response => response.json())
+            .then(data => {
+                const articles = data.items;
+                const container = document.getElementById('news-container');
+                container.innerHTML = '';
 
+                articles.forEach(article => {
+                    // Fetch metadata using Microlink API
+                    fetch(`https://api.microlink.io?url=${encodeURIComponent(article.link)}`)
+                        .then(response => response.json())
+                        .then(metadata => {
+                            const imageUrl = metadata.data.image.url;
+                            const element = document.createElement('div');
+                            element.innerHTML = `
+                                <h4>${article.title}</h4>
+                                <p>${article.description}</p>
+                                <img src="${imageUrl}" alt="Article Image" style="width:100%; max-width:300px;">
+                                <br/>
+                                <a href="${article.link}" target="_blank">Read more</a>
+                            `;
+                            container.appendChild(element);
+                        })
+                        .catch(error => console.error('Error fetching metadata:', error));
+                });
+            })
+            .catch(error => {
+                document.getElementById('news-container').innerHTML = `<p>Error loading news: ${error.message}</p>`;
+                console.error('Error fetching news:', error);
+            });
+    });
+</script>
 
+<style>
+    #news-container div, 
+    #news-container h1, 
+    #news-container h2, 
+    #news-container h3, 
+    #news-container h4, 
+    #news-container h5, 
+    #news-container h6, 
+    #news-container a, 
+    #news-container p {
+        color: white;
+    }
+    /* Styles the entire scrollbar */
+    .tab-content::-webkit-scrollbar {
+        width: 10px;  /* for vertical scrollbars */
+        height: 10px; /* for horizontal scrollbars */
+    }
 
+    /* Styles the track (part the thumb slides within) */
+    .tab-content::-webkit-scrollbar-track {
+        background: #4f8ace; 
+        border-radius: 10px;  /* Adds rounded corners to the track */
+    }
+
+    /* Styles the thumb (draggable part of the scrollbar) */
+    .tab-content::-webkit-scrollbar-thumb {
+        background-color: white;    /* Color of the thumb */
+        border-radius: 10px;  /* Rounded corners on the thumb */
+        border: 2px solid white;  /* Creates a border around the thumb */
+    }
+
+    /* Styles the thumb when hovering or active */
+    .tab-content::-webkit-scrollbar-thumb:hover {
+        background-color: white; 
+    }
+</style>
 <div class="twobyonewidget">
     <div class="site-container">
         <div class="twobyonewidget__wrap">
@@ -1342,7 +1393,7 @@ updateExchangeRates();
                             
                             <!-- <button class="tab-button" onclick="openTab(event, 'vision')">Filosofia</button> -->
                             <button class="tab-button active" onclick="openTab(event, 'general')">Información General</button>
-                            <button class="tab-button" onclick="openTab(event, 'customs')">Aduanas</button>
+                            <button class="tab-button" onclick="openTab(event, 'news-container')">Noticias</button>
                         </div>
                         
                         <div id="general" class="tab-content active" >
@@ -1366,6 +1417,9 @@ updateExchangeRates();
                     
                             <!-- También continuamos enfocados por la protección renovando nuestras certificaciones OEA, ISO 9001-2015, OLA, NMX-R-026-SCFI-2016 las cuales facilitan, simplifican y minimizan los riesgos en las operaciones de comercio internacional y garantiza la seguridad y protección de la cadena logística. -->
                             </p>
+                        </div>
+                        <div id="news-container" class="tab-content">
+                            Cargando Noticias...
                         </div>
                         <div id="vision" class="tab-content">
                             <!-- <div class="tab-background-image">
