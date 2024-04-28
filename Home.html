@@ -1095,7 +1095,7 @@ Championing climate action with our global carbon commitment                    
         /*box-shadow: 0 12px 25px -5px #000000;*/
         transition: all 0.3s ease-in-out;
     }
-
+    
     #currency-chart-container:hover {
         transform: translateY(-5px);
         /*box-shadow: 0 15px 30px -5px #000000;*/
@@ -1124,9 +1124,15 @@ Championing climate action with our global carbon commitment                    
         Chart.defaults.global.defaultColor = '#FFFFFF'; // Sets default color for lines and points
         Chart.defaults.global.defaultFontColor = '#FFFFFF'; // Sets the default font color to white
         Chart.defaults.global.defaultFontFamily = 'Arial, sans-serif'; // Sets a default font family
-        Chart.defaults.global.defaultFontSize = 14; // Sets a default font size
+        //Chart.defaults.global.defaultFontSize = 14; // Sets a default font size
         Chart.defaults.global.defaultFontStyle = 'normal'; // Sets the font weight to normal (less bold)
-
+        function getFontSize() {
+            if (window.innerWidth < 480) {  // Example breakpoint for mobile devices
+                return 1;  // Smaller font size for mobile
+            } else {
+                return 3;  // Larger font size for desktop
+            }
+        }
         const ctx = document.getElementById('currencyChart').getContext('2d');
         let currencyChart = new Chart(ctx, {
             type: 'line',
@@ -1173,7 +1179,7 @@ Championing climate action with our global carbon commitment                    
                         ticks: {
                             color: "#FFFFFF", // White text for visibility
                             font: {
-                                size: 12, // Larger font for readability
+                                size: getFontSize(), // Larger font for readability
                             },
                             // Including a currency symbol
                             callback: function(value, index, values) {
@@ -1190,7 +1196,7 @@ Championing climate action with our global carbon commitment                    
                         ticks: {
                             color: "#FFFFFF", // White text for visibility
                             font: {
-                                size: 14,
+                                size: getFontSize(),
                             },
                             maxRotation: 0, // Prevents text rotation for a cleaner look
                             autoSkipPadding: 20, // Adequate space between labels
@@ -1210,7 +1216,7 @@ Championing climate action with our global carbon commitment                    
                         labels: {
                             color: '#FFFFFF', // White text for the legend
                             font: {
-                                size: 16, // Larger font for the legend
+                                size: getFontSize(), // Larger font for the legend
                             },
                         }
                     },
@@ -1223,10 +1229,10 @@ Championing climate action with our global carbon commitment                    
                         borderWidth: 2,
                         cornerRadius: 6, // Rounded corners for the tooltip
                         titleFont: {
-                            size: 16,
+                            size: getFontSize(),
                         },
                         bodyFont: {
-                            size: 14,
+                            size: getFontSize(),
                         },
                         mode: 'index',
                         intersect: false,
@@ -1281,8 +1287,7 @@ Championing climate action with our global carbon commitment                    
             }
         }
 
-updateExchangeRates(); 
-
+       
             
         updateExchangeRates(); 
     });
@@ -1360,6 +1365,8 @@ updateExchangeRates();
     .tab-content::-webkit-scrollbar-thumb:hover {
         background-color: white; 
     }
+
+    
 </style>
 <div class="twobyonewidget">
     <div class="site-container">
