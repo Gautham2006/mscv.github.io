@@ -872,108 +872,8 @@ Championing climate action with our global carbon commitment                    
 
 
 
-<!-- <style>
-    .tabs {
-        background-color: #01193c;
-        padding: 1em;
-        font-family:Grosvenor Headline;
-    }
 
-    .tab-buttons {
-        overflow: hidden;
-        background: #0e4177;
-        /*border-bottom: 2px solid #ddd;*/
-        display: flex;
-        justify-content: space-around;
-        margin-bottom: 1em;
-        font-family: Grosvenor Headline;
-    }
-
-    .tab-button {
-        background-color: inherit;
-        border: none;
-        outline: none;
-        cursor: pointer;
-        padding: 14px 16px;
-        transition: color 0.3s, background-color 0.3s, transform 0.3s;
-        font-size: 20px; /* Default font size */
-        color: #fff;
-        /* text-transform: uppercase; */
-        font-weight: 500;
-        font-family: Grosvenor Headline;
-    }
-
-    .tab-button:hover, .tab-button.active {
-        background-color: #0c3663;
-        color: #fff;
-        transform: translateY(-2px);
-        font-family: Grosvenor Headline;
-    }
-
-    .tab-content {
-        display: none;
-        padding: 20px;
-        background: transparent;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        animation: fadeIn 0.3s ease-in-out;
-        color: #fff;
-        font-family: Grosvenor Headline;
-    }
-
-    .tab-content.active {
-        display: block;
-        font-family: Grosvenor Headline;
-    }
-
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-        .tab-button {
-            font-size: 15px; /* Smaller font size for tablets */
-            padding: 12px 14px; /* Adjust padding for smaller screens */
-            font-family: Grosvenor Headline;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .tab-button {
-            font-size: 13px; /* Even smaller font size for mobile phones */
-            padding: 10px 12px; /* Adjust padding for very small screens */
-            font-family: Grosvenor Headline;
-        }
-    }
-
-    @media (max-width: 288px) {
-        .tab-button {
-            font-size: 11px; /* Even smaller font size for mobile phones */
-            padding: 8px 10px; /* Adjust padding for very small screens */
-            font-family: Grosvenor Headline;
-        }
-    }
-
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
-
-    /* Additional styles to ensure the clickable area and content are visually integrated */
-    .twobyonewidget__box {
-        position: relative;
-        
-    }
-
-    .twobyonewidget__box__cta {
-        position: absolute;
-        bottom: 20px;
-        right: 20px;
-        /* Ensures the call to action is clickable */
-        pointer-events: auto; 
-    }
-</style> -->
+   
  
 <style>
  .tabs {
@@ -1082,36 +982,76 @@ Championing climate action with our global carbon commitment                    
         pointer-events: auto; 
     }
 
-    #currency-chart-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        width: 100%;
-        max-width: 800px; /* Adjusted for better fit */
-        margin: 2rem auto;
-        padding: 1rem;
-        background-color: #123456; /* Dark blue background */
-        border-radius: 20px;
-        /*box-shadow: 0 12px 25px -5px #000000;*/
-        transition: all 0.3s ease-in-out;
-    }
-    
-    #currency-chart-container:hover {
-        transform: translateY(-5px);
-        /*box-shadow: 0 15px 30px -5px #000000;*/
-    }
+    .transparent-red-button {
+    position: absolute;
+    top: 100px; /* Adjust the distance from the top */
+    left: 100px; /* Adjust the distance from the left */
+    padding: 10px 20px;
+    background-color: transparent;
+    color: red;
+    border: 2px solid red;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
-    #currencyChart {
-        width: 100%;
-        height: auto; /* Adjusted to auto for automatic height based on width */
-        
-        border-radius: 20px;
-        background-color: #123456; /* Match the container background */
-        box-shadow: inset 0 0 10px #000000; /* Inner shadow for depth */
-        padding: 20px;
-        color: #ffffff; /* For any text inside the canvas */
+@media(min-width:500px){
+    .transparent-red-button {
+    position: absolute;
+    top: 100px; /* Adjust the distance from the top */
+    left: 300px; /* Adjust the distance from the left */
+    padding: 10px 20px;
+    background-color: transparent;
+    color: red;
+    border: 2px solid red;
+    border-radius: 5px;
+    cursor: pointer;
     }
+}
+
+#currency-chart-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: #123456;
+    border-radius: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+#currency-chart-container:hover {
+    transform: translateY(-5px);
+}
+
+
+        
+
+        /* Chart canvas styles */
+        #currencyChart {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            background-color: #123456;
+            box-shadow: inset 0 0 10px #000000;
+            padding: 20px;
+            color: #ffffff;
+        }
+
+        /* Button styles */
+        #latest-rate-button {
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background-color: rgba(255, 0, 0, 0.5); /* Transparent red */
+            border: none;
+            border-radius: 5px;
+            color: #ffffff;
+            font-size: 10px;
+            cursor: pointer;
+        }
+
+        #latest-rate-button:hover {
+            background-color: rgba(255, 0, 0, 0.8); /* Darker red on hover */
+        }
 
 
 
@@ -1257,7 +1197,10 @@ Championing climate action with our global carbon commitment                    
             }
         });
 
-        
+        window.addEventListener('resize', function() {
+            currencyChart.update();
+        });
+
         async function updateExchangeRates() {
             const endpoint = 'https://script.google.com/macros/s/AKfycbxK6bMAo6FOXxjN3S9OqMqS4e7lsJ3aDjIv2ilkC-NHhVKR9Xg8u4tzgBHjHn3B8ND9/exec';
             try {
@@ -1277,12 +1220,17 @@ Championing climate action with our global carbon commitment                    
                     currencyChart.data.datasets[0].data.push(rate.rate);
                 });
 
-                if (currencyChart.data.labels.length > 365) {
+                if (currencyChart.data.labels.length > 14) {
                     currencyChart.data.labels.shift();
                     currencyChart.data.datasets[0].data.shift();
                 }
 
                 currencyChart.update();
+                const latestRate = rates[rates.length - 1].rate;
+                const latestDate = rates[rates.length - 1].date;
+                const button = document.getElementById('latest-rate-button');
+                button.textContent = `1 MXN = ${latestRate.toFixed(5)} USD (${latestDate})`;
+                
             } catch (error) {
                 console.error('Failed to fetch exchange rate:', error);
             }
@@ -1407,8 +1355,10 @@ Championing climate action with our global carbon commitment                    
                         
                         <div id="general" class="tab-content active" >
                             <div id="currency-chart-container">
+                                <button id="latest-rate-button" class="transparent-red-button">Latest Exchange Rate</button>
                                 <canvas id="currencyChart"></canvas>
                             </div>
+                            
                             <!-- <div class="tab-background-image">
                                 <img src="https://cdn-gaden.nitrocdn.com/jeRXLLMZymlAMbVtOsUnCWhDbjNHCnZx/assets/static/optimized/rev-69a8792/wordpress/wp-content/uploads/2017/02/Franchise1.png" alt="trucks" >
                             </div> -->
