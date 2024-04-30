@@ -148,7 +148,7 @@
                     <div class="icon mainnav__chevronDown"></div>
                 </a> -->
                 <!--STUFF LISTED UNDER MENU-->
-                <ul class="mainnav__list mx-4 mx-md-0 pb-7">
+                <ul class="mainnav__list mx-4 mx-md-0 pb-7" style="margin-top:10px !important; margin-left:0 !important">
                     <li class="mainnav__item">
                         <a href="Home.html" class="mainnav__link">
                             Inicio
@@ -688,40 +688,104 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        const shadowHost = document.getElementById('contact');
-        const shadowRoot = shadowHost.attachShadow({ mode: 'open' });
-    
-        function addStylesheet(href) {
-            const styleLink = document.createElement('link');
-            styleLink.rel = 'stylesheet';
-            styleLink.href = href;
-            shadowRoot.appendChild(styleLink);
-        }
+    const shadowHost = document.getElementById('contact');
+    const shadowRoot = shadowHost.attachShadow({ mode: 'open' });
 
-        // Add multiple stylesheets
-        addStylesheet('./Grupo Aduanal Adumex_files/animate.css');
-        addStylesheet('./Grupo Aduanal Adumex_files/tailwind.css');
+    function addStylesheet(href) {
+        const styleLink = document.createElement('link');
+        styleLink.rel = 'stylesheet';
+        styleLink.href = href;
+        shadowRoot.appendChild(styleLink);
+    }
+
+    // Add stylesheets
+    addStylesheet('./Grupo Aduanal Adumex_files/animate.css');
+    addStylesheet('./Grupo Aduanal Adumex_files/tailwind.css');
+    
+    const styleEl = document.createElement('style');
+    styleEl.textContent = `
+    /* Styles for extra small devices (phones, less than 600px) */
+:host, :host * {
+    font-size: 14px;  /* Smaller font size for small devices */
+    line-height: 22px;
+}
+
+/* Styles for small devices (phones, 600px and up) */
+@media (min-width: 600px) {
+    :host, :host * {
+        font-size: 16px;
+        line-height: 26px;
+    }
+}
+
+/* Styles for medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    :host, :host * {
+        font-size: 18px;
+        line-height: 30px;
+    }
+}
+
+/* Styles for large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    :host, :host * {
+        font-size: 20px;
+        line-height: 35px;
+    }
+}
+
+/* Styles for extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    :host, :host * {
+        font-size: 22px; /* Larger font size for large screens */
+        line-height: 38px;
+    }
+}
+
+/* Styles for very large devices (extra large desktops, 1600px and up) */
+@media (min-width: 1600px) {
+    :host, :host * {
+        font-size: 24px; /* Even larger font size for very large screens */
+        line-height: 40px;
+    }
+}
+
         
-        
-        const styleEl = document.createElement('style');
-        styleEl.textContent = `
-            :host, :host * {  
-                font-size: 20px;
-                line-height:35px;
-            }
-        `;
-        shadowRoot.appendChild(styleEl);
+        :host h2, :host h5 {
+            margin-bottom: 10px; // Reduced margin for headers on mobile
+        }
+        :host svg {
+            width: 40px; // Larger icons for better touch interaction
+            height: auto;
+        }
+        :host input[type='text'], :host input[type='email'], :host textarea {
+            width: calc(100% - 20px); // Full-width inputs with padding
+            padding: 10px; // Padding inside inputs for easier interaction
+            margin-bottom: 10px; // Space between form elements
+            border-radius: 5px; // Rounded borders for aesthetic touch
+            border: 1px solid #ccc; // Subtle border for inputs
+        }
+        :host button {
+            width: 100%; // Full-width button
+            padding: 12px; // Taller button for easier tapping
+            background-color: #2259ad; // Button color
+            border-radius: 5px; // Rounded button edges
+            color: white; // Button text color
+            font-size: 18px; // Larger font size for button text
+        }
+    `;
+    shadowRoot.appendChild(styleEl);
         // Create and append the content of the contact section
         shadowRoot.innerHTML += `
         
         <div class="relative py-20 md:py-[120px]" >
     <div class="absolute top-0 left-0 z-[-1] h-1/2 w-full bg-[#f3f4fe] lg:h-[45%] xl:h-1/2"></div>
     <div class="container px-4">
-        <div class="-mx-4 flex flex-wrap">
+        <div class="-mx-4 flex flex-wrap" style=" width: 95%; margin: 0 auto;">
             <!-- Contact Title and Description -->
-            <div class="w-full lg:w-7/12 xl:w-8/12 px-4" style="padding:2rem; background-color:#2259ad; border-radius:10%;">
-                <div class="ud-contact-content-wrapper" style="margin-bottom:90px; padding: 20px;">
-                    <div class="ud-contact-title mb-12 lg:mb-[150px]">
+            <div class="w-full lg:w-7/12 xl:w-8/12 px-4" style="padding:2rem; background-color:#2259ad; border-radius:10%; border-color:#3985e3; border-width:25px;">
+                <div class="ud-contact-content-wrapper" style="padding: 20px;margin:0 auto;">
+                    <div class="ud-contact-title mb-12 ">
                         <span class="mb-5 text-base font-semibold" style="color:white">
                             CONTACTANOS
                         </span>
@@ -762,7 +826,7 @@
             <!-- Contact Form placed to the right -->
             <div class="w-full lg:w-5/12 xl:w-4/12 px-4" style="background-color:#75a3cb; border-radius:10%; padding:2rem;">
                 <div class="wow fadeInUp rounded-lg bg-white py-10 px-8  sm:py-12 sm:px-10 md:p-[60px] lg:p-10 lg:py-12 lg:px-10 2xl:p-[60px]" style="visibility: visible; animation-delay: 0.1s; border-radius:10%">
-                    <h3 class="mb-8 text-2xl font-semibold md:text-[26px]">
+                    <h3 class="mb-8 text-2xl font-semibold md:text-[26px]" style="text-align: center;">
                         Envianos un mensaje
                     </h3>
                     <form>
