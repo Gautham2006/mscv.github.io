@@ -282,9 +282,10 @@
         </script>
 		
     
-
-
         <style>
+            
+            
+
             .landingbanner__item {
                 position: relative; /* Ensure this container is positioned for absolute children */
                 color: #FFF; /* Text color to white */
@@ -304,31 +305,50 @@
             }
         
             .landingbanner__content {
+                padding: 0 0 0 !important;
                 position: absolute;
                 top: 50%; /* Adjust this value as needed */
                 left: 50%; /* Center the content horizontally */
-                transform: translate(-50%, -50%); /* Offset the content by half its width and height to center it */
+                transform: translate(-50%, -50%);/* Offset the content by half its width and height to center it */
                 width: 100%; /* Make sure the container spans the full width */
                 z-index: 2; /* Ensure the content is above the background image */
             }
         
             .landingbanner__content h1 {
-                font-size: 8vw; /* Responsive font size */
+                font-size: 6vw; /* Responsive font size */
                 text-align: center; /* Center the text */
                 color: #FFF; /* Set the text color to white */
+                
             }
         
             /* Mobile Styles */
+
+            @media (max-width: 500px) {
+                .landingbanner__background, .landingbanner__image--mobile {
+                    background-size: cover; /* Keep aspect ratio but cover the area */
+                    background-position: 15% 50%; /* Change to focus on a specific part of the image */
+                    height: 100vh; /* Full viewport height */
+                }
+                
+                .landingbanner__content h1 {
+                    transform: translate(-20%, -300%);
+                    font-size: 10vw;
+                }
+                
+            }
+
             @media (max-width: 768px) {
                 .landingbanner__background, .landingbanner__image--mobile {
                     background-size: cover; /* Keep aspect ratio but cover the area */
-                    background-position: 25% 25%; /* Change to focus on a specific part of the image */
+                    background-position: 15% 50%; /* Change to focus on a specific part of the image */
                     height: 100vh; /* Full viewport height */
                 }
-        
+                
                 .landingbanner__content h1 {
-                    font-size: 8vw; /* Slightly larger font size for readability on small devices */
+                    transform: translate(-20%, -300%);
+                    font-size: 10vw;
                 }
+                
             }
         
             /* Desktop and Larger Screens Styles */
@@ -338,7 +358,7 @@
                 }
         
                 .landingbanner__content h1 {
-                    font-size: 10rem; /* Fixed font size for larger screens */
+                    transform: translate(-30%, -400%);
                 }
             }
         
@@ -353,10 +373,50 @@
                     left: 50%; /* Central horizontal alignment */
                     transform: translate(-50%, -50%); /* Ensures the content is centered on the image */
                 }
-        
                 .landingbanner__content h1 {
-                    font-size: 5vw; /* Adjust the font size to ensure it's visible and appropriate for this screen size */
+                    transform: translate(-30%, -400%);
                 }
+                
+            }
+
+            
+            @media (min-width: 960px) {
+                
+                .landingbanner__content {
+                    top: 50%; /* Central vertical alignment */
+                    left: 50%; /* Central horizontal alignment */
+                    transform: translate(-50%, -50%); /* Ensures the content is centered on the image */
+                }
+                .landingbanner__content h1 {
+                    transform: translate(-30%, -400%);
+                }
+                
+            }
+
+            @media (min-width: 1000px) {
+                
+                .landingbanner__content {
+                    top: 50%; /* Central vertical alignment */
+                    left: 50%; /* Central horizontal alignment */
+                    transform: translate(-50%, -50%); /* Ensures the content is centered on the image */
+                }
+                .landingbanner__content h1 {
+                    transform: translate(-30%, -300%);
+                }
+                
+            }
+
+            @media (min-width: 1920px) {
+                
+                .landingbanner__content {
+                    top: 50%; /* Central vertical alignment */
+                    left: 50%; /* Central horizontal alignment */
+                    transform: translate(-50%, -50%); /* Ensures the content is centered on the image */
+                }
+                .landingbanner__content h1 {
+                    transform: translate(-30%, -350%);
+                }
+                
             }
         </style>
         
@@ -372,63 +432,38 @@
         <div class="landingbanner__image landingbanner__image--mobile d-block d-md-none" 
             style="background-image: url('./Images/mscship.webp');background-color:#0d3761;;filter: brightness(50%);">
         </div>
-        <div class="landingbanner__content px-lg-0 px-2 px-md-4" style="
-    transform: translate(-65%,-165%);">
-            <h1>Nosotros</h1>
+        <div class="landingbanner__content px-lg-0 px-2 px-md-4">
+            <h1 class="customclasss">Nosotros</h1>
         </div>
         
     </div> 
     
 </div>
 
-
    
         
 
-
-
-
-
-
-
-		<!-- <div class="grosvenorrichtext fr-view mt-md-5 mt-3 mb-3 mt-md-5">
-			<div class="container">
-				<div class="row">
-					<div class="col-12 col-md-8 pr-md-6">
-						<div class="OutlineElement Ltr BCX8 SCXW260282758">
-							<h4 class="Paragraph SCXW260282758 BCX8">
-								<span class="TextRun SCXW260282758 BCX8" data-contrast="none" lang="ES">
-									Muris Salinas Consultores es una distinguida firma de consultoría que se especializa en ofrecer asesoría y soluciones integrales en aduanas y comercio internacional. 
-								</span>
-							</h4>
-
-							<p class="Paragraph SCXW260282758 BCX8">Con un profundo conocimiento del complejo entorno regulatorio y un compromiso con la excelencia, Muris Salinas Consultores actúa como un socio fundamental para las empresas que navegan por las complejidades de la importación, la exportación y el cumplimiento aduanero. Aprovechando un equipo de profesionales experimentados y tecnología de vanguardia, garantizan que las operaciones de los clientes sean eficientes y cumplan con todos los requisitos legales. Su experiencia no solo cubre el corretaje aduanero sino que también se extiende a la consultoría estratégica para optimizar las operaciones comerciales y reducir costos, lo que los convierte en un asesor confiable en la comunidad comercial internacional.</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div> -->
-		<div class="grosvenorrichtext fr-view mt-md-5 mt-3 mb-3">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12"> <!-- This ensures full width on all devices -->
-                        <div class="OutlineElement Ltr BCX8 SCXW260282758">
-                            <h4 class="Paragraph SCXW260282758 BCX8">
-                                <span class="TextRun SCXW260282758 BCX8" data-contrast="none" lang="ES">
-                                    Muris Salinas Consultores es una distinguida agencia aduanal qué se especializa en ofrecer asesoría y soluciones integrales en aduanas y comercio internacional.
-                                </span>
-                                <!-- <span class="TextRun SCXW260282758 BCX8" data-contrast="none" lang="ES">
-                                    Muris Salinas Consultores es un socio fundamental que les facilita el proceso de importación, exportación et cumplimento aduanero.
-                                </span> -->
-                            </h4>
-                            <p class="Paragraph SCXW260282758 BCX8">
-                                Con un profundo conocimiento del complejo entorno regulatorio y un compromiso con la excelencia, es un socio fundamental que les facilita el proceso de importación, exportación y cumplimento aduanero. Aprovechando un equipo de profesionales experimentados y tecnología de vanguardia, garantizan que las operaciones de los clientes sean eficientes y cumplan con todos los requisitos legales. Su experiencia no solo cubre el corretaje aduanero sino que también se extiende a la consultoría estratégica para optimizar las operaciones comerciales y reducir costos, lo que los convierte en un asesor confiable en la comunidad comercial internacional.
-                            </p>
-                        </div>
-                    </div>
+<div class="grosvenorrichtext fr-view mt-md-5 mt-3 mb-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-12"> <!-- This ensures full width on all devices -->
+                <div class="OutlineElement Ltr BCX8 SCXW260282758">
+                    <h4 class="Paragraph SCXW260282758 BCX8">
+                        <span class="TextRun SCXW260282758 BCX8" data-contrast="none" lang="ES">
+                            Muris Salinas Consultores es una distinguida agencia aduanal qué se especializa en ofrecer asesoría y soluciones integrales en aduanas y comercio internacional.
+                        </span>
+                        <!-- <span class="TextRun SCXW260282758 BCX8" data-contrast="none" lang="ES">
+                            Muris Salinas Consultores es un socio fundamental que les facilita el proceso de importación, exportación et cumplimento aduanero.
+                        </span> -->
+                    </h4>
+                    <p class="Paragraph SCXW260282758 BCX8">
+                        Con un profundo conocimiento del complejo entorno regulatorio y un compromiso con la excelencia, es un socio fundamental que les facilita el proceso de importación, exportación y cumplimento aduanero. Aprovechando un equipo de profesionales experimentados y tecnología de vanguardia, garantizan que las operaciones de los clientes sean eficientes y cumplan con todos los requisitos legales. Su experiencia no solo cubre el corretaje aduanero sino que también se extiende a la consultoría estratégica para optimizar las operaciones comerciales y reducir costos, lo que los convierte en un asesor confiable en la comunidad comercial internacional.
+                    </p>
                 </div>
             </div>
         </div>
+    </div>
+</div>
         
 	
 
