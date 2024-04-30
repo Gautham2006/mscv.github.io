@@ -1029,7 +1029,7 @@ Championing climate action with our global carbon commitment                    
         /* Chart canvas styles */
         #currencyChart {
             width: 100%;
-            height: auto;
+            height: 500px !important;
             border-radius: 20px;
             background-color: #123456;
             box-shadow: inset 0 0 10px #000000;
@@ -1122,10 +1122,10 @@ Championing climate action with our global carbon commitment                    
                             font: {
                                 size: getFontSize(), // Larger font for readability
                             },
+                            autoSkip: true,
+                            maxTicksLimit: 5,
                             // Including a currency symbol
-                            callback: function(value, index, values) {
-                                return '$' + value.toFixed(2);
-                            }
+                            
                         }
                     },
                     x: {
@@ -1197,9 +1197,9 @@ Championing climate action with our global carbon commitment                    
             }
         });
 
-        window.addEventListener('resize', function() {
-            currencyChart.update();
-        });
+        /*window.addEventListener('resize', function() {
+            currencyChart.resize();
+        });*/
 
         async function updateExchangeRates() {
             const endpoint = 'https://script.google.com/macros/s/AKfycbxK6bMAo6FOXxjN3S9OqMqS4e7lsJ3aDjIv2ilkC-NHhVKR9Xg8u4tzgBHjHn3B8ND9/exec';
