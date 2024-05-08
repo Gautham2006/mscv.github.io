@@ -3,335 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Currency Chart with Annotations</title>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@0.5.7/dist/chartjs-plugin-annotation.min.js"></script>
-
-    <style>
-        .body {
-            color:#123456
-        }
-        #currency-chart-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            width: 100%;
-            max-width: 800px; /* Adjusted for better fit */
-            margin: 2rem auto;
-            padding: 1rem;
-            background-color: #123456; /* Dark blue background */
-            border-radius: 20px;
-            /*box-shadow: 0 12px 25px -5px #000000;*/
-            transition: all 0.3s ease-in-out;
-        }
-        
-        #currency-chart-container:hover {
-            transform: translateY(-5px);
-            /*box-shadow: 0 15px 30px -5px #000000;*/
-        }
-
-        #currencyChart {
-            width: 100%;
-            height: auto; /* Adjusted to auto for automatic height based on width */
-            aspect-ratio: 16/9;
-            border-radius: 20px;
-            background-color: #123456; /* Match the container background */
-            box-shadow: inset 0 0 10px #000000; /* Inner shadow for depth */
-            padding: 20px;
-            color: #ffffff; /* For any text inside the canvas */
-        }
-    </style>
+    <title>Filtered RSS Feeds</title>
 </head>
 <body>
-    <div id='currency-chart-container'><canvas id="currencyChart"></canvas></div>
-    
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            Chart.defaults.global.defaultFontColor = '#FFFFFF';
-            Chart.defaults.global.defaultFontFamily = 'Arial, sans-serif';
-
-            function getFontSize() {
-                if (window.innerWidth < 480) {
-                    return 10;  // Smaller font size for mobile
-                } else {
-                    return 14;  // Larger font size for desktop
-                }
-            }
-
-            const ctx = document.getElementById('currencyChart').getContext('2d');
-            let currencyChart = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: [],
-                    datasets: [{
-                        label: 'Exchange Rate MXN to USD',
-                        data: [],
-                        borderColor: '#2D86FF',
-                        backgroundColor: 'rgba(0, 123, 255, 0.2)',
-                        pointBorderColor: '#007bff',
-                        pointBackgroundColor: '#fff',
-                        pointBorderWidth: 2,
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: true,
-                    scales: {
-                        y: {
-                            beginAtZero: false,
-                            grid: {
-                                color: "#FFFFFF",
-                                lineWidth: 1,
-                                drawBorder: true,
-                            },
-                            ticks: {
-                                color: "#FFFFFF",
-                                font: {
-                                    size: getFontSize(),
-                                },
-                                callback: function(value, index, values) {
-                                    return '$' + value.toFixed(2);
-                                }
-                            }
-                        },
-                        x: {
-                            grid: {
-                                color: "#FFFFFF",
-                                lineWidth: 1,
-                                drawBorder: true,
-                            },
-                            ticks: {
-                                color: "#FFFFFF",
-                                font: {
-                                    size: getFontSize(),
-                                },
-                                maxRotation: 0,
-                                autoSkipPadding: 20,
-                            },
-                            type: 'time',
-                            time: {
-                                unit: 'month',
-                                displayFormats: {
-                                    month: 'MMM YY'
-                                },
-                            },
-                        }
-                    },
-                    plugins: {
-                        legend: {
-                            display: true,
-                            labels: {
-                                color: '#FFFFFF',
-                                font: {
-                                    size: getFontSize(),
-                                },
-                            }
-                        },
-                        tooltip: {
-                            enabled: true,
-                        },
-                        annotation: {
-                            annotations: [{
-                                id: 'a-line-1',
-                                type: 'line',
-                                mode: 'horizontal',
-                                xScaleID: 'x-axis-0',
-                                yScaleID: 'y-axis-0',
-                                borderColor: 'red',
-                                borderWidth: 2,
-                                label: {
-                                    enabled: true,
-                                    content: 'Annotation Text',
-                                    position: 'center'
-                                }
-                            }]
-                        }
-                    }
-                }
-            });
-
-            async function updateExchangeRates() {
-                const endpoint = 'https://script.google.com/macros/s/AKfycbxK6bMAo6FOXxjN3S9OqMqS4e7lsJ3aDjIv2ilkC-NHhVKR9Xg8u4tzgBHjHn3B8ND9/exec';
-                try {
-                    
-                    const canvas = document.getElementById('currencyChart');
-                    const ctx = canvas.getContext('2d');
-                    console.log(ctx);
-                    const xMin = 100; // Adjust as needed
-                    const xMax = 200; // Adjust as needed
-                    const yMin = 50; // Adjust as needed
-                    const yMax = 150; // Adjust as needed
-
-                    const borderColor = 'red';
-                    const borderWidth = 2;
-                    const backgroundColor = 'rgba(255, 0, 0, 0.1)'; // Adjust as needed
-
-                    // Draw annotation box
-                    ctx.beginPath();
-                    ctx.rect(xMin, yMin, xMax - xMin, yMax - yMin);
-                    ctx.strokeStyle = borderColor;
-                    ctx.fillStyle = backgroundColor;
-                    ctx.lineWidth = borderWidth;
-                    ctx.fill();
-                    ctx.stroke();
-
- 
-                    const response = await fetch(endpoint);
-                    const data = await response.json();
-                    
-                    const rates = data.map(entry => {
-                        return { date: entry['date'].substring(0, entry['date'].indexOf('T')), rate: entry['rate'] };
-                    });
-                    
-                    const latestRate = rates[rates.length-1].rate;
-                    const latestDate = rates[rates.length-1].date;
-
-                    // Update annotation label with the latest exchange rate and date
-                    console.log(currencyChart.options.plugins.annotation.annotations[0].label.content);
-                    currencyChart.options.plugins.annotation.annotations[0].label.content = `1 MXN = ${latestRate} USD (${latestDate})`;
-                    //currencyChart.options.plugins.annotation.annotations[0].value = latestDate;
-                    console.log(currencyChart.options.plugins.annotation.annotations[0].label.content)
-                    rates.forEach(rate => {
-                        currencyChart.data.labels.push(rate.date);
-                        currencyChart.data.datasets[0].data.push(rate.rate);
-                    });
-
-                    if (currencyChart.data.labels.length > 14) {
-                        currencyChart.data.labels.shift();
-                        currencyChart.data.datasets[0].data.shift();
-                    }
-
-                    currencyChart.update();
-                } catch (error) {
-                    console.error('Failed to fetch exchange rate:', error);
-                }
-            }
-
-            updateExchangeRates(); 
-        });
-    </script>
-</body>
-</html>
-
-
-
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>News Feed</title>
-</head>
-<body>
-    <h1>Latest News</h1>
-    <div id="news-container">Loading news...</div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const rssUrl = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent('https://news.google.com/rss/search?q=mexican+business+regulations&hl=en-US&gl=US&ceid=US:en');
-            
-            fetch(rssUrl)
-                .then(response => response.json())
-                .then(data => {
-                    const articles = data.items;
-                    const container = document.getElementById('news-container');
-                    container.innerHTML = '';
-
-                    articles.forEach(article => {
-                        // Fetch metadata using Microlink API
-                        fetch(`https://api.microlink.io?url=${encodeURIComponent(article.link)}`)
-                            .then(response => response.json())
-                            .then(metadata => {
-                                const imageUrl = metadata.data.image.url;
-                                const element = document.createElement('div');
-                                element.innerHTML = `
-                                    <h4>${article.title}</h4>
-                                    <p>${article.description}</p>
-                                    <img src="${imageUrl}" alt="Article Image" style="width:100%; max-width:300px;">
-                                    <br/>
-                                    <a href="${article.link}" target="_blank">Read more</a>
-                                `;
-                                container.appendChild(element);
-                            })
-                            .catch(error => console.error('Error fetching metadata:', error));
-                    });
-                })
-                .catch(error => {
-                    document.getElementById('news-container').innerHTML = `<p>Error loading news: ${error.message}</p>`;
-                    console.error('Error fetching news:', error);
-                });
-        });
-    </script>
-</body>
-</html>
-
- -->
-
-
-
-
-
-
-
-
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-
-    <title>Latest News</title>
-</head>
-<body>
-    <h1>News Feed</h1>
     <div id="news-container"></div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const url = `https://34.49.15.173`;  // Pointing to your VM
-    
-            async function fetchNews() {
-                try {
-                    
-                    const response = await fetch(url);
-                    const data = await response.json();
-                    if (data.status === 'ok') {
-                        displayNews(data.articles);
-                    } else {
-                        console.error('NewsAPI Error:', data.message);
-                        document.getElementById('news-container').innerHTML = `<p>Error: ${data.message}</p>`;
-                    }
-                } catch (error) {
-                    console.error('Fetch Error:', error);
-                    document.getElementById('news-container').innerHTML = '<p>Failed to fetch news.</p>';
-                }
+        document.addEventListener('DOMContentLoaded', async function() {
+    const rssUrl = 'https://news.google.com/rss/search?q=mexican+business+regulations&hl=en-US&gl=US&ceid=US:en';
+    const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(rssUrl)}`;
+
+    const container = document.getElementById('news-container');
+
+    try {
+        const response = await fetch(proxyUrl);
+        const data = await response.json();
+        const feed = JSON.parse(data.contents);  // Assuming the RSS to JSON conversion is done somewhere else or adjusted to match the format provided by AllOrigins
+        const articles = feed.items;
+        container.innerHTML = '';
+
+        articles.forEach(article => {
+            if (article.title.toLowerCase().includes('business') && article.description.toLowerCase().includes('mexico')) {
+                const element = document.createElement('div');
+                element.innerHTML = `
+                    <h4>${article.title}</h4>
+                    <p>${article.description}</p>
+                    <a href="${article.link}" target="_blank">Read more</a>
+                    <hr/>
+                `;
+                container.appendChild(element);
             }
-    
-            function displayNews(articles) {
-                const container = document.getElementById('news-container');
-                container.innerHTML = '';  // Clear previous contents
-                articles.forEach(article => {
-                    const articleDiv = document.createElement('div');
-                    articleDiv.innerHTML = `
-                        <h2><a href="${article.url}" target="_blank">${article.title}</a></h2>
-                        <img src="${article.urlToImage}" alt="Article Image" style="width:100%;height:auto;">
-                        <p>${article.description}</p>
-                        <p><small>Published at: ${new Date(article.publishedAt).toLocaleString()}</small></p>
-                    `;
-                    container.appendChild(articleDiv);
-                });
-            }
-    
-            fetchNews();
         });
+    } catch (error) {
+        console.error('Error fetching news:', error);
+        container.innerHTML = `<p>Error loading news: ${error.message}</p>`;
+    }
+});
+
+
     </script>
-    
 </body>
-</html> -->
-
-
+</html>
