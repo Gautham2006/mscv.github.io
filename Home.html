@@ -1057,32 +1057,31 @@ Championing climate action with our global carbon commitment                    
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        Chart.defaults.global.defaultFontColor = '#FFFFFF'; // Sets global font color
-        Chart.defaults.global.defaultColor = '#FFFFFF'; // Sets default color for lines and points
-        Chart.defaults.global.defaultFontColor = '#FFFFFF'; // Sets the default font color to white
-        Chart.defaults.global.defaultFontFamily = 'Arial, sans-serif'; // Sets a default font family
-        //Chart.defaults.global.defaultFontSize = 14; // Sets a default font size
-        Chart.defaults.global.defaultFontStyle = 'normal'; // Sets the font weight to normal (less bold)
+        Chart.defaults.global.defaultFontColor = '#FFFFFF';
+        Chart.defaults.global.defaultFontFamily = 'Arial, sans-serif';
+        Chart.defaults.global.defaultFontStyle = 'normal';
+
         function getFontSize() {
-            if (window.innerWidth < 480) {  // Example breakpoint for mobile devices
+            if (window.innerWidth < 480) {
                 return 1;  // Smaller font size for mobile
             } else {
                 return 3;  // Larger font size for desktop
             }
         }
+
         const ctx = document.getElementById('currencyChart').getContext('2d');
         let currencyChart = new Chart(ctx, {
             type: 'line',
             data: {
                 labels: [],
                 datasets: [{
-                    label: 'Tipo de Cambio MXN (Peso) a USD',
+                    label: 'Tipo de Cambio USD (Dólar) a MXN',
                     data: [],
-                    borderColor: '#2D86FF', /* A vivid blue for visibility */
-                    backgroundColor: 'rgba(0, 123, 255, 0.2)', /* Slightly transparent blue */
-                    pointBorderColor: '#007bff', /* Vivid blue for contrast */
-                    pointBackgroundColor: '#fff', /* White for visibility against any line color */
-                    pointBorderWidth: 2, /* Defines the border thickness of points */
+                    borderColor: '#2D86FF',
+                    backgroundColor: 'rgba(0, 123, 255, 0.2)',
+                    pointBorderColor: '#007bff',
+                    pointBackgroundColor: '#fff',
+                    pointBorderWidth: 2,
                 }]
             },
             options: {
@@ -1092,8 +1091,8 @@ Championing climate action with our global carbon commitment                    
                     line: {
                         tension: 0.4,
                         borderWidth: 4,
-                        borderColor: '#FFC107', // Using a bold amber for visibility
-                        backgroundColor: 'rgba(255, 193, 7, 0.2)', // Light amber background beneath the line
+                        borderColor: '#FFC107',
+                        backgroundColor: 'rgba(255, 193, 7, 0.2)',
                     },
                     point: {
                         radius: 3,
@@ -1109,34 +1108,32 @@ Championing climate action with our global carbon commitment                    
                     y: {
                         beginAtZero: false,
                         grid: {
-                            color: "#FFFFFF", // White grid lines
+                            color: "#FFFFFF",
                             lineWidth: 1,
                             drawBorder: true,
                         },
                         ticks: {
-                            color: "#FFFFFF", // White text for visibility
+                            color: "#FFFFFF",
                             font: {
-                                size: getFontSize(), // Larger font for readability
+                                size: getFontSize(),
                             },
                             autoSkip: true,
                             maxTicksLimit: 5,
-                            // Including a currency symbol
-                            
                         }
                     },
                     x: {
                         grid: {
-                            color: "#FFFFFF", // White grid lines
+                            color: "#FFFFFF",
                             lineWidth: 1,
                             drawBorder: true,
                         },
                         ticks: {
-                            color: "#FFFFFF", // White text for visibility
+                            color: "#FFFFFF",
                             font: {
                                 size: getFontSize(),
                             },
-                            maxRotation: 0, // Prevents text rotation for a cleaner look
-                            autoSkipPadding: 20, // Adequate space between labels
+                            maxRotation: 0,
+                            autoSkipPadding: 20,
                         },
                         type: 'time',
                         time: {
@@ -1151,20 +1148,20 @@ Championing climate action with our global carbon commitment                    
                     legend: {
                         display: true,
                         labels: {
-                            color: '#FFFFFF', // White text for the legend
+                            color: '#FFFFFF',
                             font: {
-                                size: getFontSize(), // Larger font for the legend
+                                size: getFontSize(),
                             },
                         }
                     },
                     tooltip: {
                         enabled: true,
-                        backgroundColor: 'rgba(0, 0, 0, 0.8)', // Dark tooltip background for contrast
-                        titleColor: '#FFFFFF', // White text for the title for consistency
-                        bodyColor: '#FFFFFF', // White for the body text
-                        borderColor: '#FFC107', // Amber border for consistency
+                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                        titleColor: '#FFFFFF',
+                        bodyColor: '#FFFFFF',
+                        borderColor: '#FFC107',
                         borderWidth: 2,
-                        cornerRadius: 6, // Rounded corners for the tooltip
+                        cornerRadius: 6,
                         titleFont: {
                             size: getFontSize(),
                         },
@@ -1182,7 +1179,7 @@ Championing climate action with our global carbon commitment                    
                                 if (context.parsed.y !== null) {
                                     label += new Intl.NumberFormat('en-US', {
                                         style: 'currency',
-                                        currency: 'USD',
+                                        currency: 'MXN',
                                     }).format(context.parsed.y);
                                 }
                                 return label;
@@ -1193,25 +1190,20 @@ Championing climate action with our global carbon commitment                    
             }
         });
 
-        /*window.addEventListener('resize', function() {
-            currencyChart.resize();
-        });*/
-
         async function updateExchangeRates() {
             const endpoint = 'https://script.google.com/macros/s/AKfycbxK6bMAo6FOXxjN3S9OqMqS4e7lsJ3aDjIv2ilkC-NHhVKR9Xg8u4tzgBHjHn3B8ND9/exec';
             try {
                 const response = await fetch(endpoint);
                 const data = await response.json();
-                
-                
+
                 const rates = data.map(entry => {
-                    
-                    return { date: entry['date'].substring(0,entry['date'].indexOf('T')), rate: entry['rate'] };
+                    return { 
+                        date: entry['date'].substring(0,entry['date'].indexOf('T')), 
+                        rate: 1 / entry['rate']  // Invert the rate to show MXN per USD
+                    };
                 });
-                
 
                 rates.forEach(rate => {
-                   
                     currencyChart.data.labels.push(rate.date);
                     currencyChart.data.datasets[0].data.push(rate.rate);
                 });
@@ -1225,18 +1217,17 @@ Championing climate action with our global carbon commitment                    
                 const latestRate = rates[rates.length - 1].rate;
                 const latestDate = rates[rates.length - 1].date;
                 const button = document.getElementById('latest-rate-button');
-                button.textContent = `Tipo de Cambio MXN (Peso) a USD: ${latestRate.toFixed(5)} USD`;
+                button.textContent = `Tipo de Cambio USD (Dólar) a MXN: ${latestRate.toFixed(2)} MXN`;
                 
             } catch (error) {
                 console.error('Failed to fetch exchange rate:', error);
             }
         }
 
-       
-            
         updateExchangeRates(); 
     });
 </script>
+
     
 <script>
     document.addEventListener('DOMContentLoaded', function() {
