@@ -924,6 +924,8 @@ Championing climate action with our global carbon commitment                    
   display: block;
 }
 
+
+
 /* #general {
   background-image: url('https://cdn-gaden.nitrocdn.com/jeRXLLMZymlAMbVtOsUnCWhDbjNHCnZx/assets/static/optimized/rev-69a8792/wordpress/wp-content/uploads/2017/02/Franchise1.png');
 }
@@ -1054,6 +1056,30 @@ Championing climate action with our global carbon commitment                    
 
 </style>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        async function updateExchangeRates() {
+            const endpoint = 'https://script.google.com/macros/s/AKfycbxK6bMAo6FOXxjN3S9OqMqS4e7lsJ3aDjIv2ilkC-NHhVKR9Xg8u4tzgBHjHn3B8ND9/exec';
+            try {
+                const response = await fetch(endpoint);
+                const data = await response.json();
+                
+                if (data && data.length > 0) {
+                    const latestEntry = data[data.length - 1];
+                    const latestRate = 1 / latestEntry['rate']; // Invert the rate to show MXN per USD
+                    const rateDisplay = document.getElementById('exchangeRateDisplay');
+                    rateDisplay.innerHTML = "Tipo de cambio" + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + `Hoy ${latestRate.toFixed(2)} MXN` + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + `Mañana ${latestRate.toFixed(2)} MXN`;
+                }
+            } catch (error) {
+                console.error('Failed to fetch exchange rate:', error);
+                const rateDisplay = document.getElementById('exchangeRateDisplay');
+                rateDisplay.textContent = "TIPO DE CAMBIO USD A MXN: No disponible";
+            }
+        }
+
+        updateExchangeRates(); 
+    });
+</script>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -1313,18 +1339,20 @@ Championing climate action with our global carbon commitment                    
 
                     <div class="twobyonewidget__box__image twobyonewidget__box__image--centeralign
 						  
-						  twobyonewidget__box__image--overlay" style="background-image: url(&#39;./Images/seguimento2.webp&#39;);">
+						  twobyonewidget__box__image--overlay" style="background-image: url(&#39;./Images/seguimento2.webp&#39;); background-color: #0000003b;">
                     </div>
+                    
 
+                    
 
                 <div class="pt-2 pr-2 pb-6 pb-md-2 pt-md-4 px-md-7" style="padding-left:23px">
                     <h3>
 
                         Seguimiento a embarques
                      </h3>
-                        <!-- <div class="d-block">
-                            Información y seguimiento de su operación aduanera en línea las 24:00 hrs del día. Mediante la mística del elemento humano, la filosofía innovadora y la tecnología, reduciendo así costos y tiempos.
-                        </div> -->
+                     <p>
+                        Seguimiento y coordinación de sus embarques desde cualquier parte del mundo hasta la puerta de su bodega o empresa.
+                    </p>	
                     <hr>
                         
                 </div>
@@ -1350,32 +1378,36 @@ Championing climate action with our global carbon commitment                    
                                 <img src="https://cdn-gaden.nitrocdn.com/jeRXLLMZymlAMbVtOsUnCWhDbjNHCnZx/assets/static/optimized/rev-69a8792/wordpress/wp-content/uploads/2017/02/Franchise1.png" alt="trucks" >
                             </div> -->
                             <div style="padding-top:25px"></div>
-                            <h3 style="color:white;">Información General</h3>
-                            <h5 style="color:white;">
+                            <h4 style="color:white;">Información General</h4>
+                            <p style="color:white;">
                             
-                            Nuestro compromiso es estar a la vanguardia con los cambios y/o modificaciones en materia aduanal, siendo nuestro primer eslabón la seguridad jurídica de cada uno de nuestros clientes, apegando a nuestra filosofía en trabajar de manera lícita cumpliendo a todo momento con la legislación aplicable.</h5>
-                            <h3 style="color:white;">Visión del Comercio Internacional</h3>
-                            <h5 style="color:white;">
+                            Nuestro compromiso es estar a la vanguardia con los cambios y/o modificaciones en materia aduanal, siendo nuestro primer eslabón la seguridad jurídica de cada uno de nuestros clientes, apegando a nuestra filosofía en trabajar de manera lícita cumpliendo a todo momento con la legislación aplicable.</p>
+                            
+                            <div class="contentlisting__card__image mb-3" style="background-image:url(&#39;./Images/boomwork.png&#39;); border-radius: 20px;">
+                            </div>
+                            
+                            <h4 style="color:white;">Visión del Comercio Internacional</h4>
+                            <p style="color:white;">
                             
                             La confianza es un elemento esencial en nuestra relación, brindamos el compromiso, nos preocupamos y salvaguardamos procesos en su cadena de suministro.
                     
                             A pesar de los desafíos, nos seguimos inspirando, demostrado una mayor resiliencia y positividad de la que podríamos haber imaginado, nos hemos renovado, nos sigue inspirando el ser mejores y cumplir con nuestra convicción de brindar un servicio de primera calidad.
                     
-                            También continuamos enfocados por la protección renovando nuestras certificaciones OEA, ISO 9001-2015, OLA, NMX-R-026-SCFI-2016 las cuales facilitan, simplifican y minimizan los riesgos en las operaciones de comercio internacional y garantiza la seguridad y protección de la cadena logística. 
-                            <!-- </p>
-                            <center><h4 style="color:white;">Noticias</h4></center>
-                            <center><div id="news-container"></div></center> -->
+                            También continuamos enfocados por la protección. 
+                          </p>
+                          <div class="contentlisting__card__image mb-3" style="background-image:url(&#39;./Images/boombigrobots.png&#39;); border-radius: 20px;">
+                            </div>
                      
                         </div>
                         <div id="news-container-tab" class="tab-content">
-                            <div id="currency-chart-container">
+                            <!-- <div id="currency-chart-container">
                                 <center><button id="latest-rate-button" class="">Latest Exchange Rate</button></center>
+                            </div> -->
+                            <center></center><div id="exchangeRateDisplay" style="color: white; font-size: 20px; font-family: Arial, sans-serif; padding: 20px; background: #00000054; text-shadow: #b0ffce; text-align: left; width:100%">
+                                TIPO DE CAMBIO USD A MXN: Cargando...
                             </div>
-                            <div id="currency-chart-container">
-                                
-                               
-                                <center><canvas id="currencyChart"></canvas></center>
-                            </div>
+                            <br>
+                            <br>
                             <center><h4 style="color:white;">Noticias</h4></center>
                             <center><div id="news-container"></div></center>
 
@@ -1446,8 +1478,8 @@ Championing climate action with our global carbon commitment                    
     </div>
 </div>
 <div class="contentlisting pb-3 pt-3 pb-md-5 pt-md-5 textcolour--white" style="background-color:#031b41">
-    <div class="container">
-	<div class="row">
+   <div class="container">
+	 <div class="row">
         <div class="col-12  mb-md-7 mb-5 col-md-1 ">
 						<div class="" >
 
