@@ -1041,7 +1041,7 @@ Championing climate action with our global carbon commitment                    
             border: none;
             border-radius: 5px;
             color: #ffffff;
-            font-size: 12px;
+            font-size: 15px;
             cursor: pointer;
         }
 
@@ -1225,7 +1225,7 @@ Championing climate action with our global carbon commitment                    
                 const latestRate = rates[rates.length - 1].rate;
                 const latestDate = rates[rates.length - 1].date;
                 const button = document.getElementById('latest-rate-button');
-                button.textContent = `1 MXN = ${latestRate.toFixed(5)} USD (${latestDate})`;
+                button.textContent = `Tipo de Cambio MXN (Peso) a USD: ${latestRate.toFixed(5)} USD`;
                 
             } catch (error) {
                 console.error('Failed to fetch exchange rate:', error);
@@ -1378,7 +1378,11 @@ Championing climate action with our global carbon commitment                    
                         </div>
                         <div id="news-container-tab" class="tab-content">
                             <div id="currency-chart-container">
-                                <center><button id="latest-rate-button" class="transparent-red-button">Latest Exchange Rate</button></center>
+                                <center><button id="latest-rate-button" class="">Latest Exchange Rate</button></center>
+                            </div>
+                            <div id="currency-chart-container">
+                                
+                               
                                 <center><canvas id="currencyChart"></canvas></center>
                             </div>
                             <center><h4 style="color:white;">Noticias</h4></center>
