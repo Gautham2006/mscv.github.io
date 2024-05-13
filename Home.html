@@ -1073,7 +1073,7 @@ Championing climate action with our global carbon commitment                    
                     const latestEntry = data[data.length - 1];
                     const latestRate = 1 / latestEntry['rate']; // Invert the rate to show MXN per USD
                     const rateDisplay = document.getElementById('exchangeRateDisplay');
-                    rateDisplay.innerHTML = "Tipo de cambio" + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + `Hoy ${latestRate.toFixed(2)} MXN` + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + `Mañana ${latestRate.toFixed(2)} MXN`;
+                    rateDisplay.innerHTML = "Tipo de cambio" + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hoy <strong>" + `${latestRate.toFixed(2)}` + "</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mañana <strong>" + `${latestRate.toFixed(2)}`+"</strong>";
                 }
             } catch (error) {
                 console.error('Failed to fetch exchange rate:', error);
@@ -1248,7 +1248,7 @@ Championing climate action with our global carbon commitment                    
                 const latestRate = rates[rates.length - 1].rate;
                 const latestDate = rates[rates.length - 1].date;
                 const button = document.getElementById('latest-rate-button');
-                button.textContent = `Tipo de Cambio USD (Dólar) a MXN: ${latestRate.toFixed(2)} MXN`;
+                button.textContent = `Tipo de Cambio USD (Dólar) a MXN: ${latestRate.toFixed(2)}`;
                 
             } catch (error) {
                 console.error('Failed to fetch exchange rate:', error);
@@ -1407,7 +1407,7 @@ Championing climate action with our global carbon commitment                    
 
                         
                         <div id="news-container-tab" class="tab-content">
-                            <div id="exchangeRateDisplay" style="color: white; font-size: 20px; font-family: Arial, sans-serif; padding: 20px; background: linear-gradient(to right, #01193c, white); text-shadow: #b0ffce; text-align: left; width:100%;">
+                            <div id="exchangeRateDisplay" style="color: white; font-size: 20px; font-family: Arial, sans-serif; padding: 20px; background: linear-gradient(to right, #01193c, rgb(175, 175, 175)); text-shadow: #b0ffce; text-align: left; width:100%;">
                                 TIPO DE CAMBIO USD A MXN: Cargando...
                             </div>
                             <!-- <div style="height: 600px; overflow-y: auto;"> -->
