@@ -52,50 +52,104 @@
 
 	<div class="site-container js-stickybit-parent">
 		
-<header class="header mb-2 mb-md-3 header--" style="position: sticky;">
-	
-	<nav class="topnav">
-		<div class="topnav__wrap px-3 px-md-6">
-			<a href="Home.html" class="topnav__logo">
-				<img 
-					src="https://cdn-gaden.nitrocdn.com/jeRXLLMZymlAMbVtOsUnCWhDbjNHCnZx/assets/static/optimized/rev-69a8792/wordpress/wp-content/uploads/2021/07/MSC-banner3_SF.png"
-					/>
-	
-			</a>
-			<section class="header__skiptocontent">
-				<!-- <ul>
-					<li><a id="skiptocontentanchor" href="https://grosvenor.com/about-us#contentanchor">Skip to content</a></li>
-				</ul> -->
-			</section>
-			<ul class="topnav__list">
-				
-                <li class="topnav__item ml-3 ml-md-5">
-                    <a href="javascript:;" class="topnav__link topnav__menuButton">
-                        <span>Menu</span>
-                        <svg class="icon topnav__menuIcon">
-                            <use xlink:href="#icon-menu"></use>
-                        </svg>
+        <style>
+            @media(min-width:none){
+                .topnav__logo img{
+                    width:60%;
+                    height:20%;
+                }
+            }
+            @media(max-width: 600px){
+                .topnav__logo {
+                    width: 0; /* Set width to 0 */
+                overflow: hidden; /* Hide content that overflows */
+            }
+        }
+        
+        .responsive-label {
+            color: rgb(255, 255, 255); 
+            font-size: 40%; /* Default font size */
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            text-shadow: #b0ffce;
+            text-align: left;
+            width: 100%; 
+            height: 100%;
+            padding-top: 50px;
+          }
+          /* Media query for screen sizes less than 600 pixels */
+          @media (max-width: 600px) {
+            .responsive-label {
+              font-size: 10px; /* Smaller font size for smaller screens */
+              padding-top: 25px;
+            }
+          }
+          @media (max-width: 350px) {
+            .responsive-label {
+              font-size: 8.2px; /* Smaller font size for smaller screens */
+              padding-top: 25px;
+            }
+          }
+        </style>
+        <header class="header mb-2 mb-md-3 header--" style="position: sticky;">
+            
+            <nav class="topnav">
+                <div class="topnav__wrap px-3 px-md-6" >
+                    <a href="Home.html" class="topnav__logo">
+                        <img  
+                            src="https://cdn-gaden.nitrocdn.com/jeRXLLMZymlAMbVtOsUnCWhDbjNHCnZx/assets/static/optimized/rev-69a8792/wordpress/wp-content/uploads/2021/07/MSC-banner3_SF.png"
+                            />
+                        
+                       
                     </a>
-                </li>
-			</ul>
-			<div class="search">
-				<form action="#" method="get">                    
-					<label for="headersearchbartext" class="visually-hidden">Search</label>
-						<input id="headersearchbartext" type="text" name="searchtext" placeholder="Search" class="search__input">
-						<a class="search__closeButton">
-							<svg class="icon search__closeIcon">
-								<use xlink:href="#icon-close"></use>
-							</svg>
-						</a>
-						<a class="search__searchButton">
-							<svg class="icon search__searchIcon">
-								<use xlink:href="#icon-search"></use>
-							</svg>
-						</a>
-				</form>            
-			</div>
-		</div>
-	</nav>
+                    
+                    <h3 class="topnav__item ml-3 ml-md-5">
+                        <div class="responsive-label" id="exchangeRateDisplay" style=" font-family: Arial, Helvetica, sans-serif;">
+                          TIPO DE CAMBIO USD A MXN: Cargando...
+                        </div>
+                      </h3>
+                    <section class="header__skiptocontent">
+                       
+        
+                        <!-- <ul>
+                            <li><a id="skiptocontentanchor" href="https://grosvenor.com/about-us#contentanchor">Skip to content</a></li>
+                        </ul> -->
+                    </section>
+                    <ul class="topnav__list">
+                        
+                        <!-- <li class="topnav__item ml-3 ml-md-5">
+                            <a href="#contact" class="topnav__link">
+                                Contacto
+                            </a>
+                        </li> -->
+                        <li class="topnav__item ml-3 ml-md-5">
+                            <a href="javascript:;" class="topnav__link topnav__menuButton">
+                                <span>Menu</span>
+                                <svg class="icon topnav__menuIcon">
+                                    <use xlink:href="#icon-menu"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        
+                    </ul>
+                    <div class="search">
+                        <form action="#" method="get">                    
+                            <label for="headersearchbartext" class="visually-hidden">Search</label>
+                                <input id="headersearchbartext" type="text" name="searchtext" placeholder="Search" class="search__input">
+                                <a class="search__closeButton">
+                                    <svg class="icon search__closeIcon">
+                                        <use xlink:href="#icon-close"></use>
+                                    </svg>
+                                </a>
+                                <a class="search__searchButton">
+                                    <svg class="icon search__searchIcon">
+                                        <use xlink:href="#icon-search"></use>
+                                    </svg>
+                                </a>
+                        </form>            
+                    </div>
+                </div>
+            </nav>
 
 	<!-- <style>
         @media(max-width:400px){
@@ -1260,6 +1314,243 @@ line-height: calc(16px + (20 * ((100vw - 288px) / 1612)));">
       "themeColor": "#2563eb"
   });
 </script>  
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        async function updateExchangeRates() {
+            const endpoint = 'https://script.google.com/macros/s/AKfycbxK6bMAo6FOXxjN3S9OqMqS4e7lsJ3aDjIv2ilkC-NHhVKR9Xg8u4tzgBHjHn3B8ND9/exec';
+            try {
+                const response = await fetch(endpoint);
+                const data = await response.json();
+                
+                if (data && data.length > 0) {
+                    const latestEntry = data[data.length - 1];
+                    const latestRate = 1 / latestEntry['rate']; // Invert the rate to show MXN per USD
+                    const rateDisplay = document.getElementById('exchangeRateDisplay');
+                    rateDisplay.innerHTML = "Tipo de cambio Hoy <strong>" + latestRate.toFixed(2) + "</strong> Mañana <strong>" + latestRate.toFixed(2) + "</strong>";
+                }
+            } catch (error) {
+                console.error('Failed to fetch exchange rate:', error);
+                const rateDisplay = document.getElementById('exchangeRateDisplay');
+                rateDisplay.textContent = "TIPO DE CAMBIO USD A MXN: No disponible";
+            }
+        }
+
+        updateExchangeRates(); 
+    });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        Chart.defaults.global.defaultFontColor = '#FFFFFF';
+        Chart.defaults.global.defaultFontFamily = 'Arial, sans-serif';
+        Chart.defaults.global.defaultFontStyle = 'normal';
+
+        function getFontSize() {
+            if (window.innerWidth < 480) {
+                return 1;  // Smaller font size for mobile
+            } else {
+                return 3;  // Larger font size for desktop
+            }
+        }
+
+        const ctx = document.getElementById('currencyChart').getContext('2d');
+        let currencyChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'Tipo de Cambio USD (Dólar) a MXN',
+                    data: [],
+                    borderColor: '#2D86FF',
+                    backgroundColor: 'rgba(0, 123, 255, 0.2)',
+                    pointBorderColor: '#007bff',
+                    pointBackgroundColor: '#fff',
+                    pointBorderWidth: 2,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                elements: {
+                    line: {
+                        tension: 0.4,
+                        borderWidth: 4,
+                        borderColor: '#FFC107',
+                        backgroundColor: 'rgba(255, 193, 7, 0.2)',
+                    },
+                    point: {
+                        radius: 3,
+                        pointStyle: 'circle',
+                        backgroundColor: '#FFC107',
+                        borderColor: '#FFFFFF',
+                        borderWidth: 2,
+                        hoverRadius: 9,
+                        hoverBorderWidth: 3,
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        grid: {
+                            color: "#FFFFFF",
+                            lineWidth: 1,
+                            drawBorder: true,
+                        },
+                        ticks: {
+                            color: "#FFFFFF",
+                            font: {
+                                size: getFontSize(),
+                            },
+                            autoSkip: true,
+                            maxTicksLimit: 5,
+                        }
+                    },
+                    x: {
+                        grid: {
+                            color: "#FFFFFF",
+                            lineWidth: 1,
+                            drawBorder: true,
+                        },
+                        ticks: {
+                            color: "#FFFFFF",
+                            font: {
+                                size: getFontSize(),
+                            },
+                            maxRotation: 0,
+                            autoSkipPadding: 20,
+                        },
+                        type: 'time',
+                        time: {
+                            unit: 'month',
+                            displayFormats: {
+                                month: 'MMM YY'
+                            },
+                        },
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: true,
+                        labels: {
+                            color: '#FFFFFF',
+                            font: {
+                                size: getFontSize(),
+                            },
+                        }
+                    },
+                    tooltip: {
+                        enabled: true,
+                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                        titleColor: '#FFFFFF',
+                        bodyColor: '#FFFFFF',
+                        borderColor: '#FFC107',
+                        borderWidth: 2,
+                        cornerRadius: 6,
+                        titleFont: {
+                            size: getFontSize(),
+                        },
+                        bodyFont: {
+                            size: getFontSize(),
+                        },
+                        mode: 'index',
+                        intersect: false,
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed.y !== null) {
+                                    label += new Intl.NumberFormat('en-US', {
+                                        style: 'currency',
+                                        currency: 'MXN',
+                                    }).format(context.parsed.y);
+                                }
+                                return label;
+                            },
+                        },
+                    }
+                }
+            }
+        });
+
+        async function updateExchangeRates() {
+            const endpoint = 'https://script.google.com/macros/s/AKfycbxK6bMAo6FOXxjN3S9OqMqS4e7lsJ3aDjIv2ilkC-NHhVKR9Xg8u4tzgBHjHn3B8ND9/exec';
+            try {
+                const response = await fetch(endpoint);
+                const data = await response.json();
+
+                const rates = data.map(entry => {
+                    return { 
+                        date: entry['date'].substring(0,entry['date'].indexOf('T')), 
+                        rate: 1 / entry['rate']  // Invert the rate to show MXN per USD
+                    };
+                });
+
+                rates.forEach(rate => {
+                    currencyChart.data.labels.push(rate.date);
+                    currencyChart.data.datasets[0].data.push(rate.rate);
+                });
+
+                if (currencyChart.data.labels.length > 14) {
+                    currencyChart.data.labels.shift();
+                    currencyChart.data.datasets[0].data.shift();
+                }
+
+                currencyChart.update();
+                const latestRate = rates[rates.length - 1].rate;
+                const latestDate = rates[rates.length - 1].date;
+                const button = document.getElementById('latest-rate-button');
+                button.textContent = `Tipo de Cambio USD (Dólar) a MXN: ${latestRate.toFixed(2)} MXN`;
+                
+            } catch (error) {
+                console.error('Failed to fetch exchange rate:', error);
+            }
+        }
+
+        updateExchangeRates(); 
+    });
+</script>
+
+    
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const rssUrl = 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fnews.google.com%2Frss%2Fsearch%3Fq%3Dmexican%2Bbusiness%2Bregulations%26hl%3Den-US%26gl%3DUS%26ceid%3DUS%3Aen&api_key=jsevehtyqhyjaeaskwjldsw2yttdjhvtg5rl4sjq';
+        
+        fetch(rssUrl)
+            .then(response => response.json())
+            .then(data => {
+                const articles = data.items;
+                const container = document.getElementById('news-container');
+                container.innerHTML = '';
+
+                articles.forEach(article => {
+                    // Fetch metadata using Microlink API
+                    fetch(`https://api.microlink.io?url=${encodeURIComponent(article.link)}`)
+                        .then(response => response.json())
+                        .then(metadata => {
+                            const imageUrl = metadata.data.image.url;
+                            const element = document.createElement('div');
+                            element.innerHTML = `
+                                <h6>${article.title}</h6>
+                                <p>${article.description}</p>
+                                <img src="${imageUrl}" alt="Article Image" style="width:100%; max-width:300px;">
+                                <br/>
+                                <a href="${article.link}" target="_blank">Read more</a>
+                                <hr/>
+                            `;
+                            container.appendChild(element);
+                        })
+                        .catch(error => console.error('Error fetching metadata:', error));
+                });
+            })
+            .catch(error => {
+                document.getElementById('news-container').innerHTML = `<p>Error loading news: ${error.message}</p>`;
+                console.error('Error fetching news:', error);
+            });
+    });
+</script>
 <!-- <script>
 	document.addEventListener('contextmenu', function(e) {
 	  e.preventDefault();

@@ -11318,7 +11318,7 @@ p.link-grosvenor a:after {
 }
 
 .header.js-is-sticky {
-    background: #000
+    background: linear-gradient(to right, #01193c, rgb(201, 201, 201));
 }
 
 .header.js-is-sticky .header__line {
@@ -13124,7 +13124,7 @@ but if it's required for your layout, you'll have to adjust it accordingly.
 }
 
 .topnav__wrap {
-    height: 70px;
+    height: 90px;
     display: flex;
     align-items: center;
     justify-content: space-between;
