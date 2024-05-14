@@ -1062,28 +1062,34 @@ Championing climate action with our global carbon commitment                    
 </style>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        async function updateExchangeRates() {
-            const endpoint = 'https://script.google.com/macros/s/AKfycbxK6bMAo6FOXxjN3S9OqMqS4e7lsJ3aDjIv2ilkC-NHhVKR9Xg8u4tzgBHjHn3B8ND9/exec';
-            try {
-                const response = await fetch(endpoint);
-                const data = await response.json();
-                
-                if (data && data.length > 0) {
-                    const latestEntry = data[data.length - 1];
-                    const latestRate = 1 / latestEntry['rate']; // Invert the rate to show MXN per USD
-                    const rateDisplay = document.getElementById('exchangeRateDisplay');
-                    rateDisplay.innerHTML = "Tipo de cambio" + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hoy <strong>" + `${latestRate.toFixed(2)}` + "</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mañana <strong>" + `${latestRate.toFixed(2)}`+"</strong>";
-                }
-            } catch (error) {
-                console.error('Failed to fetch exchange rate:', error);
+ document.addEventListener('DOMContentLoaded', function() {
+    async function updateExchangeRates() {
+        const endpoint = 'https://script.google.com/macros/s/AKfycbxK6bMAo6FOXxjN3S9OqMqS4e7lsJ3aDjIv2ilkC-NHhVKR9Xg8u4tzgBHjHn3B8ND9/exec';
+        try {
+            const response = await fetch(endpoint);
+            const data = await response.json();
+            
+            if (data && data.length > 1) {
+                const currentEntry = data[data.length - 1];
+                const tomorrowEntry = data[data.length - 2];
+                const currentRate = 1 / currentEntry['rate']; // Invert the rate to show MXN per USD
+                const tomorrowRate = 1 / tomorrowEntry['rate']; // Invert the rate to show MXN per USD
+                const rateDisplay = document.getElementById('exchangeRateDisplay');
+                rateDisplay.innerHTML = "Tipo de cambio" + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hoy <strong>" + `${currentRate.toFixed(2)}` + "</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mañana <strong>" + `${tomorrowRate.toFixed(2)}`+"</strong>";
+            } else {
                 const rateDisplay = document.getElementById('exchangeRateDisplay');
                 rateDisplay.textContent = "TIPO DE CAMBIO USD A MXN: No disponible";
             }
+        } catch (error) {
+            console.error('Failed to fetch exchange rate:', error);
+            const rateDisplay = document.getElementById('exchangeRateDisplay');
+            rateDisplay.textContent = "TIPO DE CAMBIO USD A MXN: No disponible";
         }
+    }
 
-        updateExchangeRates(); 
-    });
+    updateExchangeRates(); 
+});
+
 </script>
 
 <script>
