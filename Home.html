@@ -1075,7 +1075,7 @@ Championing climate action with our global carbon commitment                    
                 const currentRate = 1 / currentEntry['rate']; // Invert the rate to show MXN per USD
                 const tomorrowRate = 1 / tomorrowEntry['rate']; // Invert the rate to show MXN per USD
                 const rateDisplay = document.getElementById('exchangeRateDisplay');
-                rateDisplay.innerHTML = "Tipo de cambio" + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hoy <strong>" + `${currentRate.toFixed(3)}` + "</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mañana <strong>" + `${tomorrowRate.toFixed(3)}`+"</strong>";
+                rateDisplay.innerHTML = "<center>Tipo de cambio" + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hoy <strong>" + `${currentRate.toFixed(3)}` + "</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mañana <strong>" + `${tomorrowRate.toFixed(3)}`+"</strong></center>";
             } else {
                 const rateDisplay = document.getElementById('exchangeRateDisplay');
                 rateDisplay.textContent = "TIPO DE CAMBIO USD A MXN: No disponible";
