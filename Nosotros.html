@@ -1091,6 +1091,38 @@ line-height: calc(16px + (20 * ((100vw - 288px) / 1612)));">
     
     }
 
+    .contact-form .form-group .contenteditable-container {
+    position: relative;
+}
+
+.contact-form .form-group .contenteditable {
+    border: 2px solid rgba(0, 0, 0, 0);
+    padding: 11px 0;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.5;
+    background-color: transparent;
+    min-height: 50px;
+    box-sizing: border-box;
+    width: 45%;
+    border-bottom-color: rgba(0,0,0,.1);
+    outline: none;
+    transition: .3s ease-in-out;
+}
+
+.contact-form .form-group .contenteditable[data-placeholder]:empty:before {
+    content: attr(data-placeholder);
+    color: #222222;
+    pointer-events: none;
+    display: block;
+    font-weight: 100;
+}
+
+.contact-form .form-group .contenteditable:focus {
+    border-bottom-color: rgb(111, 132, 254);
+}
+
+
     
         </style>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -1150,10 +1182,10 @@ line-height: calc(16px + (20 * ((100vw - 288px) / 1612)));">
                                                 </div>
                                              </div>
                                              <div class="col-md-12">
-                                                <div class="form-group">
-                                                     <textarea type="description" rows="3" name="message" class="form-control" id="message" placeholder="Mensaje*" required="required"></textarea>
+                                                <div class="form-group contenteditable-container">
+                                                    <div class="form-control contenteditable" contenteditable="true" data-placeholder="Mensaje*" required="required"></div>
                                                 </div>
-                                             </div>
+                                            </div>
                                               <div class="col-md-12">
                                                   <!--contact button-->
                                                   <button  class="btn-big btn btn-bg">
