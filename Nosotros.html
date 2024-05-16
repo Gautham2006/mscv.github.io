@@ -184,11 +184,45 @@
         <div class="header__line mx-3 mx-md-4"></div>
     </header>
     
-            
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const header = document.querySelector('header');
+            const navList = header.querySelector('.topnav__list');
+            const menuItem = navList.querySelector('.topnav__menuButton').closest('li');
+
+            // Function to handle class changes
+            const handleClassChange = () => {
+                if (header.classList.contains('js-is-sticky') && header.classList.contains('js-is-sticky--change')) {
+                    if (!navList.querySelector('.cotiza-item')) {
+                        // Create new list item
+                        const newListItem = document.createElement('li');
+                        newListItem.className = 'topnav__item ml-3 ml-md-5 cotiza-item';
+
+                        const newLink = document.createElement('a');
+                        newLink.href = 'Contacto.html';
+                        newLink.className = 'topnav__link';
+                        newLink.textContent = 'COTIZA AHORA';
+
+                        newListItem.appendChild(newLink);
+                        navList.insertBefore(newListItem, menuItem);
+                    }
+                } else {
+                    const cotizaItem = navList.querySelector('.cotiza-item');
+                    if (cotizaItem) {
+                        navList.removeChild(cotizaItem);
+                    }
+                }
+            };
+
+            // Check class change periodically
+            setInterval(handleClassChange, 100);
+        });
+    </script>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const menuButton = document.querySelector('.topnav__menuButton');
-            const closeButton = document.querySelector('.mainnav__closeButton'); // Assuming there's a close button in your HTML
+            const closeButton = document.querySelector('.mainnav__closeButton'); 
             const menu = document.querySelector('.mainnav');
     
             // Initialize menu to be definitely closed on page load
