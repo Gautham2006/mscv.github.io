@@ -3,44 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Filtered RSS Feeds</title>
+    <title>Milenio Aduanas Articles</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .article {
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+        }
+        .article img {
+            max-width: 300px;
+        }
+    </style>
 </head>
 <body>
+    <h1>Milenio Aduanas Articles</h1>
     <div id="news-container"></div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', async function() {
-    const rssUrl = 'https://news.google.com/rss/search?q=mexican+business+regulations&hl=en-US&gl=US&ceid=US:en';
-    const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(rssUrl)}`;
+        async function fetchSheetData() {
+            const url = 'https://script.google.com/macros/s/AKfycbzaekeVeumgMoDNvuaJQQIJErpqeJhMf4CDi1ad3pPkOxa5p5Zl5vZDcuiGmJGR6qb2/exec';  // Replace with your web app URL
 
-    const container = document.getElementById('news-container');
+            try {
+                const response = await fetch(url);
+                const articles = await response.json();
 
-    try {
-        const response = await fetch(proxyUrl);
-        const data = await response.json();
-        const feed = JSON.parse(data.contents);  // Assuming the RSS to JSON conversion is done somewhere else or adjusted to match the format provided by AllOrigins
-        const articles = feed.items;
-        container.innerHTML = '';
+                const container = document.getElementById('news-container');
+                container.innerHTML = '';
 
-        articles.forEach(article => {
-            if (article.title.toLowerCase().includes('business') && article.description.toLowerCase().includes('mexico')) {
-                const element = document.createElement('div');
-                element.innerHTML = `
-                    <h4>${article.title}</h4>
-                    <p>${article.description}</p>
-                    <a href="${article.link}" target="_blank">Read more</a>
-                    <hr/>
-                `;
-                container.appendChild(element);
+                articles.forEach(article => {
+                    const element = document.createElement('div');
+                    element.className = 'article';
+                    element.innerHTML = `
+                        <h2>${article.Title}</h2>
+                        <p>${article.Summary}</p>
+                        <img src="${article.Image}" alt="Article Image">
+                        <br>
+                        <a href="${article.Link}" target="_blank">Read more</a>
+                    `;
+                    container.appendChild(element);
+                });
+            } catch (error) {
+                console.error('Error fetching data:', error);
             }
-        });
-    } catch (error) {
-        console.error('Error fetching news:', error);
-        container.innerHTML = `<p>Error loading news: ${error.message}</p>`;
-    }
-});
+        }
 
-
+        fetchSheetData();
     </script>
 </body>
 </html>

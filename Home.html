@@ -1268,9 +1268,9 @@ Championing climate action with our global carbon commitment                    
 </script>
 
     
-<script>
+<!-- <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const rssUrl = 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fnews.google.com%2Frss%2Fsearch%3Fq%3Dmexican%2Bbusiness%2Bregulations%26hl%3Den-US%26gl%3DUS%26ceid%3DUS%3Aen&api_key=jsevehtyqhyjaeaskwjldsw2yttdjhvtg5rl4sjq';
+        const rssUrl = 'https://script.google.com/macros/s/AKfycbzaekeVeumgMoDNvuaJQQIJErpqeJhMf4CDi1ad3pPkOxa5p5Zl5vZDcuiGmJGR6qb2/exec';
         
         fetch(rssUrl)
             .then(response => response.json())
@@ -1304,6 +1304,38 @@ Championing climate action with our global carbon commitment                    
                 console.error('Error fetching news:', error);
             });
     });
+</script> -->
+
+<script>
+    async function fetchSheetData() {
+        const url = 'https://script.google.com/macros/s/AKfycbzaekeVeumgMoDNvuaJQQIJErpqeJhMf4CDi1ad3pPkOxa5p5Zl5vZDcuiGmJGR6qb2/exec';  // Replace with your web app URL
+
+        try {
+            const response = await fetch(url);
+            const articles = await response.json();
+
+            const container = document.getElementById('news-container');
+            container.innerHTML = '';
+
+            articles.forEach(article => {
+                const element = document.createElement('div');
+                element.className = 'article';
+                element.innerHTML = `
+                    <h5>${article.Title}</h5>
+                    <p>${article.Summary}</p>
+                    <img src="${article.Image}" alt="Article Image">
+                    <br>
+                    <a href="${article.Link}" target="_blank">Leer Más</a>
+                    <hr/>
+                `;
+                container.appendChild(element);
+            });
+        } catch (error) {
+            console.error('Error al obtener datos:', error);
+        }
+    }
+
+    fetchSheetData();
 </script>
 
 <style>
@@ -1427,7 +1459,7 @@ Championing climate action with our global carbon commitment                    
                                 <br>
                                 <br>
                                 <br>
-                                <h4 class="news-header" style="color:white;">Noticias</h4>
+                                <h4 class="news-header" style="color:white;font-size:64px;">Noticias</h4>
                                 
                                 <div class="news-scroll" id="news-container"></div>
                             </center>
