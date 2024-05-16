@@ -1,0 +1,2882 @@
+: root {
+    --blanco: #fff;
+    --blancorgb: 255, 255, 255;
+    --negro: #222;
+    --negrorgb: 0, 0, 0;
+    --azul: # 02324 c;
+    --naranja: #de4320;
+    --naranjac: #ffa06a;
+    --azulc: #4180e4;
+    --azul2: # 00324 b;
+    --fondo: #d4dce9;
+    --gris: #f2f2f2;
+    --gris2: #777578;
+    --modulo: # eef1f6;
+    --font: "Montserrat", sans - serif
+}
+
+.blanco {
+    color: var (--blanco)
+}
+
+.negro {
+    color: var (--negro)
+}
+
+.azul {
+    color: var (--azul)
+}
+
+.naranja {
+    color: var (--naranja)
+}
+
+.naranjac {
+    color: var (--naranjac)
+}
+
+.azulc {
+    color: var (--azulc)
+}
+
+.azul2 {
+    color: var (--azul2)
+}
+
+.fondo {
+    color: var (--fondo)
+}
+
+.gris {
+    color: var (--gris)
+}
+
+.gris2 {
+    color: var (--gris2)
+}
+
+.bgblanco {
+    background: var (--blanco)
+}
+
+.bgnegro {
+    background: var (--negro)
+}
+
+.bgverde {
+    background: var (--verde)
+}
+
+.bgnaranja {
+    background: var (--naranja)
+}
+
+.bgamarillo {
+    background: var (--amarillo)
+}
+
+.bgazul {
+    background: var (--azul)
+}
+
+.bgazulc {
+    background: var (--azulc)
+}
+
+.bgazul2 {
+    background: var (--azul2)
+}
+
+.bggris {
+    background: var (--gris)
+}
+
+.bgclaro {
+    background: #edf2f5
+}
+
+.h - 100 {
+    height: 100 %
+}
+
+.bottom {
+    bottom: 0
+}
+
+.top {
+    top: 0
+}
+
+.left {
+    left: 0
+}
+
+.right {
+    right: 0
+}
+
+.bgmodulo {
+    background: var (--modulo)
+}
+
+.item - blog - typ a {
+    text - decoration: inherit !important
+}
+
+.item - blog - typ a: hover {
+    color: inherit !important
+}
+
+.line - 100 {
+    line - height: 100 %
+}
+
+.line - 120 {
+    line - height: 120 %
+}
+
+.line - 130 {
+    line - height: 130 %
+}
+
+.line - 190 {
+    line - height: 170 %
+}
+
+.hoja - 1100 {
+    max - width: 1100 px !important
+}
+
+.hoja - 1000, .hoja - 1100 {
+    margin: auto;
+    width: 100 %
+}
+
+.hoja - 1000 {
+    max - width: 1000 px
+}
+
+.hoja - 900 {
+    max - width: 900 px
+}
+
+.hoja - 800, .hoja - 900 {
+    margin: auto;
+    width: 100 %
+}
+
+.hoja - 800 {
+    max - width: 800 px
+}
+
+header.logo a img {
+    max - width: 190 px
+}
+
+.hs - menu - wrapper ul {
+    display: flex;
+    justify - content: space - around
+}
+
+.hs - menu - wrapper>ul>li>a {
+    text - transform: uppercase
+}
+
+.hs - menu - wrapper>ul>li>a.active - item, .hs - menu - wrapper>ul>li>a: hover {
+    border - bottom - style: solid;
+    border - width: 3 px;
+    padding - bottom: 1 px
+}
+
+.hs - menu - wrapper ul li: nth - child(10), .hs - menu - wrapper ul li: nth - child(9), .hs - menu - wrapper>ul>li: nth - child(8) {
+    display: none
+}
+
+.hs - menu - wrapper>ul>li: last - of -type {
+    display: block !important
+}
+
+.oswald {
+    font - family: Oswald, sans - serif
+}
+
+.myriad {
+    font - family: MyriadPro - Regular
+}
+
+.myriad strong {
+    font - family: MyriadPro - Bold
+}
+
+.hs - breadcrumb - menu - wrapper {
+    display: flex;
+    width: 100 %
+}
+
+ul.hs - breadcrumb - menu {
+    font - size: 15 px;
+    font - style: italic;
+    margin: auto;
+    width: 1200 px
+}
+
+h1, h2, h3 {
+    font - family: Oswald, sans - serif
+}
+
+.bold {
+    font - weight: 700
+}
+
+.banner - principal {
+    background - position: 100 %;
+    background - repeat: no - repeat;
+    background - size: cover;
+    font - family: Oswald, sans - serif;
+    height: 480 px;
+    position: relative
+}
+
+.banner - principal: before {
+    background: #002e4a;
+    bottom: 0;
+    content: "";
+    left: -35%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 35%
+}
+
+.banner-principal:after {
+    background-image: url(https://www.grupoei.com.mx/hubfs/site/industrias/2019/empresa-logistica-internacional-pleca-GrupoEi-May19.png);
+    bottom: 0;
+    content: "";
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 60%
+}
+
+.banner-interior, .banner-principal:after {
+    background-position: 100%;
+    background-repeat: no-repeat;
+    background-size: cover
+}
+
+.banner-interior {
+    font-family: Oswald, sans-serif;
+    height: auto;
+    position: relative
+}
+
+.banner-interior:before {
+    background: # 002e4 a;
+    bottom: 0;
+    content: "";
+    left: -35 %;
+    left: -26 %;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 35 %;
+    width: 27 %
+}
+
+.banner - interior: after {
+    background - image: url(https: //2039173.fs1.hubspotusercontent-na1.net/hubfs/2039173/site/home/empresa-logistica-internacional-pleca-GrupoEi-May19-min.png);
+    background-position: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    bottom: 0;
+    content: "";
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 60%
+}
+
+.txt-banner ul {
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 35px;
+    margin-top: 15px
+}
+
+ul.flechas {
+    list-style-image: url(https://www.grupoei.com.mx/hubfs/site/icos/GrupoEi-agencia-aduanal-en-mexico-innovacion-en-servicios.png);
+    margin-left: 33px;
+    text-transform: uppercase
+}
+
+.index-2 {
+    z-index: 2
+}
+
+.video-banner {
+    margin: auto;
+    position: relative;
+    width: 30%;
+    z-index: 2
+}
+
+.video-banner a {
+    display: block;
+    padding: 130px 0 0;
+    position: relative;
+    text-align: center
+}
+
+.video-banner a:hover {
+    color: #fff
+}
+
+.video-banner a small {
+    font-size: 30px;
+    font-weight: 500;
+    text-transform: uppercase
+}
+
+.video-banner a:before {
+    background-image: url(https://www.grupoei.com.mx/hubfs/site/industrias/2019/empresa-logistica-internacional-iconoplay-GrupoEi-May19.png);
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    content: "";
+    height: 120px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0
+}
+
+.btn-horizontal ul {
+    padding-left: 0
+}
+
+.btn-horizontal ul li {
+    border: 3px solid #02324c;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Oswald, sans-serif;
+    font-size: 25px;
+    margin: 0 -3px;
+    padding: 10px 6%
+}
+
+.c-tab {
+    margin: 15px auto;
+    max-width: 1400px
+}
+
+.c-tab ul {
+    padding-left: 0
+}
+
+ul.logo-home li {
+    display: inline-block;
+    margin: 0 20px
+}
+
+.btn-horizontal ul li.active, .btn-horizontal ul li:hover {
+    background: #02324c;
+    color: #fff
+}
+
+.c-tab>ul>li {
+    display: none;
+    height: 0;
+    vertical-align: middle;
+    visibility: hidden
+}
+
+.c-tab ul li.active {
+    display: block;
+    height: auto;
+    visibility: visible
+}
+
+.caja {
+    background: #fff;
+    color: #02324c;
+    display: inline-block;
+    font-size: 17px;
+    height: 480px;
+    margin: 10px auto;
+    padding: 20px 25px 40px;
+    position: relative;
+    text-align: center;
+    vertical-align: top
+}
+
+.icono.agencia-aduanal, .icono.comercio-ext, .icono.logistica, .iso, .neec, .r026, .tpat, i.bandera-mexico, i.bandera-usa, i.bandera-usa a, i.email, i.instagram a, i.tel, i.ver-video, i.youtube a {
+    background: url(https://www.grupoei.com.mx/hubfs/sprite-optimized-grupoei2_v3.webp)
+}
+
+i.bandera-mexico {
+    background-position: 1px 2px;
+    display: inline-block;
+    width: 30px
+}
+
+i.bandera-usa, i.bandera-usa a {
+    background-position: -30px 2px;
+    display: inline-block;
+    width: 30px
+}
+
+.icono.agencia-aduanal {
+    background-position: -75px 170px;
+    display: block;
+    height: 71px;
+    margin: auto;
+    width: 68px
+}
+
+.icono.logistica {
+    background-position: 495px 330px;
+    width: 80px
+}
+
+.icono.comercio-ext, .icono.logistica {
+    display: block;
+    height: 73px;
+    margin: auto
+}
+
+.icono.comercio-ext {
+    background-position: -141px 250px;
+    width: 76px
+}
+
+ul.disco-azul {
+    font-family: MyriadPro-Regular;
+    font-size: 17px;
+    list-style: inherit;
+    list-style-image: url(https://www.grupoei.com.mx/hubfs/site/icos/bullet-azul-final.fw.png);
+    text-align: left
+}
+
+ul.disco-azul li {
+    color: #02324c;
+    line-height: 24px;
+    margin: 15px 0
+}
+
+.ver-mas {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    text-align: right;
+    width: 100%
+}
+
+.ver-mas a {
+    background: #da3a20;
+    box-sizing: border-box;
+    color: #fff;
+    font-weight: 400;
+    padding: 7px 15px
+}
+
+.ver-mas a, a.borde-naranja {
+    display: block;
+    font-family: Oswald, sans-serif;
+    font-size: 18px
+}
+
+a.borde-naranja {
+    border: 2px solid #de4320;
+    margin: auto auto 40px;
+    padding: 8px 0;
+    text-align: center;
+    text-transform: uppercase;
+    width: 310px
+}
+
+.cuadricula {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center
+}
+
+.cuadro {
+    background: url(https://www.grupoei.com.mx/hubfs/site/home/GrupoEi-agencia-aduanal-en-mexico-automotriz.jpg);
+    display: block;
+    height: 243px;
+    margin: 0;
+    padding: 0;
+    width: 298px
+}
+
+.cuadro-texto {
+    border-style: solid;
+    border-width: 2px;
+    color: #fff;
+    font-family: Oswald, sans-serif;
+    font-size: 27px;
+    font-weight: 500;
+    margin: auto;
+    position: relative;
+    text-align: center;
+    top: 100px;
+    width: 222px
+}
+
+.cuadro-texto a {
+    display: block;
+    padding: 7px 0
+}
+
+.maquiladora {
+    background: url(https://www.grupoei.com.mx/hubfs/site/home/GrupoEi-agencia-aduanal-en-mexico-maquiladora.jpg)
+}
+
+.herramienta {
+    background: url(https://www.grupoei.com.mx/hubfs/site/home/GrupoEi-agencia-aduanal-en-mexico-herramientas.jpg)
+}
+
+.energia {
+    background: url(https://www.grupoei.com.mx/hubfs/site/home/GrupoEi-agencia-aduanal-en-mexico-energetica.jpg)
+}
+
+.metal {
+    background: url(https://www.grupoei.com.mx/hubfs/site/home/GrupoEi-agencia-aduanal-en-mexico-metalurgica.jpg)
+}
+
+.tecnologia {
+    background: url(https://www.grupoei.com.mx/hubfs/site/home/GrupoEi-agencia-aduanal-en-mexico-tecnologia.jpg)
+}
+
+.salud {
+    background: url(https://www.grupoei.com.mx/hubfs/site/home/GrupoEi-agencia-aduanal-en-mexico-salud.jpg)
+}
+
+.quimica {
+    background: url(https://www.grupoei.com.mx/hubfs/site/home/GrupoEi-agencia-aduanal-en-mexico-quimica.jpg)
+}
+
+.certificaciones {
+    margin: auto;
+    max-width: 605px;
+    text-align: center
+}
+
+.iso {
+    background-position: -2px -427px;
+    height: 75px;
+    width: 67px
+}
+
+.iso, .tpat {
+    display: inline-block
+}
+
+.tpat {
+    background-position: -109px -426px;
+    height: 56px;
+    width: 129px
+}
+
+.neec {
+    background-position: -278px -425px;
+    width: 111px
+}
+
+.neec, .r026 {
+    display: inline-block;
+    height: 69px
+}
+
+.r026 {
+    background-position: -420px -425px;
+    width: 68px
+}
+
+.rutas {
+    color: #043249;
+    font-family: MyriadPro-It;
+    font-size: 14px
+}
+
+.caja-naranja {
+    border: 2px solid #fff;
+    display: inline-block;
+    height: 170px;
+    margin-bottom: 40px;
+    margin-top: 0;
+    padding-top: 10px;
+    text-align: center;
+    vertical-align: top;
+    width: 180px
+}
+
+.caja-naranja:hover {
+    border-color: #de4320
+}
+
+.cir-agente, .cir-almacenaje, .cir-consul, .cir-soluciones, .cir-transporte, .icono-img.agente, .icono-img.almacenaje, .icono-img.c-exterior, .icono-img.logistica, .icono-img.t-internacional {
+    background: url(https://www.grupoei.com.mx/hubfs/site/icos/sprite-optimized-grupoei.png)
+}
+
+.icono-img.agente {
+    background-position: -238px -2px;
+    height: 58px;
+    margin: auto;
+    width: 60px
+}
+
+.icono-img.logistica {
+    background-position: -155px -180px;
+    height: 58px;
+    margin: auto;
+    width: 54px
+}
+
+.icono-img.c-exterior {
+    background-position: -73px -262px;
+    height: 58px;
+    margin: auto;
+    width: 60px
+}
+
+.icono-img.t-internacional {
+    background-position: -440px -161px;
+    height: 60px;
+    margin: auto;
+    width: 41px
+}
+
+.icono-img.almacenaje {
+    background-position: -425px -230px;
+    height: 60px;
+    margin: auto;
+    width: 71px
+}
+
+.cir-agente {
+    background-position: -74px 75px
+}
+
+.cir-agente, .cir-soluciones {
+    flex: 0 0 71px;
+    float: left;
+    height: 67px;
+    margin-right: 10px;
+    width: 71px
+}
+
+.cir-soluciones {
+    background-position: -78px 237px
+}
+
+.cir-consul {
+    background-position: -71px 163px;
+    flex: 0 0 71px;
+    float: left;
+    height: 67px;
+    margin-right: 10px;
+    width: 71px
+}
+
+.cir-transporte {
+    background-position: -219px 243px
+}
+
+.cir-almacenaje, .cir-transporte {
+    flex: 0 0 74px;
+    float: left;
+    height: 73px;
+    margin-right: 10px;
+    width: 74px
+}
+
+.cir-almacenaje {
+    background-position: -232px 159px
+}
+
+a.btn-conoce-mas {
+    background: #de4320;
+    color: #fff;
+    display: inline-block;
+    font-family: Oswald, sans-serif;
+    font-size: 17px;
+    padding: 10px 40px;
+    text-transform: uppercase
+}
+
+.serv-agencia, .serv-almacen, .serv-consul, .serv-solucion, .serv-transporte {
+    background: url(https://www.grupoei.com.mx/hubfs/site/servicios/Servicios-Integrales-min.jpg)
+}
+
+.serv-agencia {
+    background-position: 0;
+    height: 230px;
+    width: 347px
+}
+
+.serv-solucion {
+    background-position: 0 232px;
+    height: 230px;
+    width: 347px
+}
+
+.serv-consul {
+    background-position: 0 695px;
+    height: 230px;
+    width: 347px
+}
+
+.serv-transporte {
+    background-position: -347px 464px;
+    height: 230px;
+    width: 347px
+}
+
+.serv-almacen {
+    background-position: -347px 694px;
+    height: 230px;
+    width: 347px
+}
+
+.ventajas {
+    background: url(//2039173.fs1.hubspotusercontent-na1.net/hubfs/2039173/site/servicios/Servicios-Integrales-de-Comercio-Exterior-ventajas.jpg)
+}
+
+.industrias {
+    background: url(//2039173.fs1.hubspotusercontent-na1.net/hubfs/2039173/site/servicios/Servicios-Integrales-de-Comercio-Exterior-industrias.jpg)
+}
+
+.oficinas {
+    background: url(//2039173.fs1.hubspotusercontent-na1.net/hubfs/2039173/site/servicios/Servicios-Integrales-de-Comercio-Exterior-oficinas.jpg)
+}
+
+.btn-naranja {
+    background: #de4320;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Oswald, sans-serif;
+    font-size: 20px;
+    line-height: 130%;
+    padding: 10px 8%;
+    text-transform: uppercase
+}
+
+.titulo-borde {
+    position: relative
+}
+
+.titulo-borde h1 {
+    border-left: 3px solid #de4320;
+    padding: 0 0 0 20px
+}
+
+.titulo-borde p {
+    font-family: MyriadPro-Regular;
+    font-size: 22px;
+    padding: 0 0 0 20px
+}
+
+.txt-flip, .txt-flip-reverse {
+    background-color: hsla(0, 0%, 100%, .95);
+    border-top: 10px solid #02324c;
+    box-shadow: 0 1px 7px 0 rgba(0, 0, 0, .2);
+    box-sizing: border-box;
+    margin: 4% 0 4% -5%;
+    padding: 4% 5%;
+    position: relative;
+    width: 105%;
+    z-index: 1
+}
+
+.txt-flip-reverse {
+    margin: 4% -5% 4% 0
+}
+
+.box-flechas .box {
+    align-items: center;
+    border-left: 5px solid #de4320;
+    box-shadow: 0 1px 7px 0 rgba(0, 0, 0, .2);
+    display: flex;
+    padding: 15px 20px;
+    position: relative
+}
+
+.box-flechas .flex-basis {
+    display: flex;
+    padding: 0 60px 0 0
+}
+
+.box-flechas .flex-basis:after {
+    background-image: url(https://2039173.fs1.hubspotusercontent-na1.net/hubfs/2039173/site/maquinaria-industrial-pesada/agencia-aduanal-maquinaria-pesada-industrial-flecha-naran.png);
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    content: "";
+    height: 30px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 37px
+}
+
+.box-flechas .flex-basis:last-of-type {
+    padding: 0
+}
+
+.box-flechas .flex-basis:last-of-type:after {
+    display: none
+}
+
+.borde-naranja {
+    border: solid #de4320;
+    border-width: 1px 1px 15px;
+    box-shadow: 0 1px 7px 0 rgba(0, 0, 0, .2);
+    height: 100%
+}
+
+span.icon-soluciones {
+    background-image: url(https://www.grupoei.com.mx/hubfs/site/logistica/soluciones-logisticas-inteligentes-beneficios.jpg);
+    background-repeat: no-repeat;
+    background-size: auto 96px;
+    display: block;
+    height: 96px;
+    margin: 0 auto 20px;
+    width: 96px
+}
+
+span.icon-soluciones.ico1 {
+    background-position: 0 0
+}
+
+span.icon-soluciones.ico2 {
+    background-position: -110px 0
+}
+
+span.icon-soluciones.ico3 {
+    background-position: -210px 0
+}
+
+.bullet-naranja {
+    list-style-type: none;
+    padding-left: 0
+}
+
+.bullet-naranja li {
+    color: #02324c;
+    font-size: 17px;
+    line-height: 24px;
+    margin: 0 0 10px;
+    padding-left: 20px;
+    position: relative
+}
+
+.bullet-naranja li:before {
+    background-color: #de4320;
+    border-radius: 50%;
+    content: "";
+    height: 8px;
+    left: 0;
+    position: absolute;
+    top: 6px;
+    width: 8px
+}
+
+.bullet-naranja-small {
+    list-style-type: none;
+    padding-left: 0
+}
+
+.bullet-naranja-small li {
+    color: #02324c;
+    font-size: 18px;
+    line-height: 24px;
+    margin: 0 0 15px;
+    padding-left: 12px;
+    position: relative
+}
+
+.bullet-naranja-small li:before {
+    background-color: #de4320;
+    border-radius: 50%;
+    content: "";
+    height: 5px;
+    left: 0;
+    position: absolute;
+    top: 9px;
+    width: 5px
+}
+
+.btn-solicita {
+    background: #fff;
+    color: #de4320;
+    font-family: Oswald, sans-serif;
+    font-size: 17px;
+    padding: 10px 40px;
+    text-transform: uppercase
+}
+
+.btn-solicita, .mail {
+    display: inline-block;
+    margin: 25px 0 0
+}
+
+.mail {
+    color: #fff;
+    font-size: 18px;
+    padding: 10px 0 10px 40px;
+    position: relative
+}
+
+.mail:before {
+    background-image: url(https://2039173.fs1.hubspotusercontent-na1.net/hubfs/2039173/site/oficinas/banner-interior-agencia-aduanal-iconos.png);
+    background-position: -97px -6px;
+    background-repeat: no-repeat;
+    background-size: auto 56px;
+    bottom: 0;
+    content: "";
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 30px
+}
+
+.f-datos {
+    position: relative
+}
+
+.f-datos:before {
+    background-color: #fff;
+    bottom: 0;
+    content: "";
+    left: 50%;
+    position: absolute;
+    top: 0;
+    transform: translateX(-50%);
+    width: 2px
+}
+
+.ico-certificacion {
+    background-image: url(https://www.grupoei.com.mx/hubfs/site/logistica/soluciones-logisticas-inteligentescertificaciones.png);
+    background-repeat: no-repeat;
+    background-size: auto 127px;
+    display: block;
+    height: 127px;
+    margin: 0 15px;
+    width: 122px
+}
+
+.ico-certificacion.ico-neec {
+    background-position: -146px 0;
+    width: 270px
+}
+
+.ico-certificacion.ico-ctepat {
+    background-position: -435px 0;
+    width: 190px
+}
+
+.ico-certificacion.ico-iso {
+    background-position: -645px 0;
+    width: 130px
+}
+
+span.icon-generales {
+    background-image: url(https://2039173.fs1.hubspotusercontent-na1.net/hubfs/2039173/site/comercio-exterior/iconos-beneficios-grupoei.jpg);
+    background-repeat: no-repeat;
+    background-size: auto 96px;
+    display: block;
+    height: 96px;
+    margin: 0 auto 20px;
+    width: 96px
+}
+
+span.icon-generales.ico1 {
+    background-position: 0 0
+}
+
+span.icon-generales.ico2 {
+    background-position: -110px 0
+}
+
+span.icon-generales.ico3 {
+    background-position: -210px 0
+}
+
+span.icon-generales.ico4 {
+    background-position: -304px 0
+}
+
+span.icon-generales.ico5 {
+    background-position: -403px 0
+}
+
+span.icon-generales.ico6 {
+    background-position: -514px 0
+}
+
+span.icon-generales.ico7 {
+    background-position: -623px 0;
+    width: 112px
+}
+
+span.icon-generales.ico8 {
+    background-position: -768px 0;
+    width: 112px
+}
+
+span.icon-generales.ico9 {
+    background-position: -892px 0;
+    width: 101px
+}
+
+.certificaciones div {
+    margin: 0 20px
+}
+
+span.icon-aduaneros {
+    background-image: url(https://www.grupoei.com.mx/hubfs/site/servicios-aduaneros/servicios-aduaneros-iconos.jpg);
+    background-repeat: no-repeat;
+    background-size: auto 96px;
+    display: block;
+    height: 96px;
+    margin: 0 auto 20px;
+    width: 96px
+}
+
+span.icon-aduaneros.ico1 {
+    background-position: 0 0
+}
+
+span.icon-aduaneros.ico2 {
+    background-position: -110px 0
+}
+
+span.icon-aduaneros.ico3 {
+    background-position: -200px 0
+}
+
+.ind-automotriz, .ind-energetica, .ind-herramientas, .ind-maquiladora, .ind-metalurgia, .ind-quimica, .ind-salud, .ind-tecnologia {
+    background: url(//2039173.fs1.hubspotusercontent-na1.net/hubfs/2039173/site/industrias/industrias-grupoei-min.jpg);
+    height: 232px;
+    width: 347px
+}
+
+.ind-maquiladora {
+    background-position: -347px -232px
+}
+
+.ind-herramientas {
+    background-position: 0 -232px
+}
+
+.ind-energetica {
+    background-position: 347px 0;
+    width: 342px
+}
+
+.ind-metalurgia {
+    background-position: 694px -464px;
+    width: 346px
+}
+
+.ind-tecnologia {
+    background-position: 697px -696px;
+    width: 349px
+}
+
+.ind-salud {
+    background-position: 347px -696px;
+    width: 347px
+}
+
+.ind-quimica {
+    background: url(//2039173.fs1.hubspotusercontent-na1.net/hubfs/2039173/site/industrias/industrias-grupoei-min.jpg);
+    background-position: 347px -464px;
+    width: 347px
+}
+
+.iconos-clientes-auto .ico {
+    background: url(https://2039173.fs1.hubspotusercontent-na1.net/hubfs/2039173/site/industrias/automotriz/esp/logistica-automotriz-grupoei-sprite-logos.jpg) no-repeat;
+    height: 60px;
+    margin: auto
+}
+
+.iconos-clientes-auto .ico1 {
+    background-position: 0;
+    width: 200px
+}
+
+.iconos-clientes-auto .ico2 {
+    background-position: -218px;
+    width: 95px
+}
+
+.iconos-clientes-auto .ico3 {
+    background-position: -332px;
+    width: 180px
+}
+
+.iconos-clientes-auto .ico4 {
+    background-position: -537px;
+    width: 114px
+}
+
+.iconos-clientes-auto .ico5 {
+    background-position: -675px;
+    width: 93px
+}
+
+.caja-contacto {
+    background: transparent;
+    border: 2px solid #fff;
+    display: inline-block;
+    margin-bottom: 30px;
+    padding: 30px 0;
+    width: 100%
+}
+
+.caja-contacto:hover {
+    border: 2px solid #de4320
+}
+
+.ico-ctco {
+    background: url(https://2039173.fs1.hubspotusercontent-na1.net/hubfs/2039173/site/contactanos/contactanos-iconos-grupoei.png);
+    display: block;
+    margin: auto
+}
+
+.ico-ctco.ico1 {
+    background-position: 0 0;
+    height: 61px;
+    width: 55px
+}
+
+.ico-ctco.ico2 {
+    background-position: -55px 0;
+    height: 61px;
+    width: 45px
+}
+
+.ico-ctco.ico3 {
+    background-position: -98px 0;
+    height: 61px;
+    width: 52px
+}
+
+.ico-ctco.ico4 {
+    background-position: -151px 0;
+    height: 61px;
+    width: 85px
+}
+
+.ico-ctco.ico5 {
+    background-position: -237px 0;
+    height: 61px;
+    width: 55px
+}
+
+.ico-ctco.ico6 {
+    background-position: -295px 0;
+    height: 61px;
+    width: 64px
+}
+
+.lista-iconos {
+    padding-left: 0
+}
+
+.lista-iconos li {
+    margin: 0 0 30px
+}
+
+.lista-iconos span {
+    background-image: url(https://2039173.fs1.hubspotusercontent-na1.net/hubfs/2039173/site/maquinaria-industrial-pesada/agencia-aduanal-maquinaria-pesada-industrial-iconos1-sprite.png);
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    display: block;
+    flex: 0 0 88px;
+    height: 96px;
+    margin-right: 20px
+}
+
+.lista-iconos2 span {
+    background-image: url(https://2039173.fs1.hubspotusercontent-na1.net/hubfs/2039173/site/metalurgia-y-aceros/logistica-importacion-acero-iconos-grupoei-oct.png);
+    flex: 0 0 88px;
+    margin-right: 20px
+}
+
+.lista-iconos3 span {
+    background-image: url(https://2039173.fs1.hubspotusercontent-na1.net/hubfs/2039173/site/logistica-aduanas-maquiladora/logistica-aduanas-industria-maquiladora-iconos.png);
+    flex: 0 0 88px;
+    height: 88px;
+    margin-right: 20px
+}
+
+.lista-iconos span.agilidad {
+    background-position: -134px 0
+}
+
+.lista-iconos span.extra {
+    background-position: -270px 0
+}
+
+.lista-iconos span.costeo {
+    background-position: -405px 0
+}
+
+.lista-iconos span.covertura {
+    background-position: 0 0
+}
+
+.lista-iconos span.eliminacion {
+    background-position: -93px 0
+}
+
+.lista-iconos span.tarifa {
+    background-position: -187px 0
+}
+
+.lista-iconos span.tecnologia {
+    background-position: -281px 0
+}
+
+.lista-iconos span.frontera {
+    background-position: 0 0
+}
+
+.lista-iconos span.computadora {
+    background-position: -97px 0
+}
+
+.lista-iconos span.grafica {
+    background-position: -193px 0
+}
+
+.lista-iconos span.dinero {
+    background-position: -289px 0
+}
+
+.box-blanco {
+    padding: 35px 20px
+}
+
+.box-blanco {
+    background-color: #fff;
+    border-left: 5px solid #de4320;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 100%;
+    padding: 41px 20px 45px;
+    position: relative
+}
+
+.box-blanco a {
+    display: block
+}
+
+.box-blanco a:before {
+    background-image: url(https://2039173.fs1.hubspotusercontent-na1.net/hubfs/2039173/site/maquinaria-industrial-pesada/agencia-aduanal-maquinaria-pesada-industrial-flecha-naran.png);
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    bottom: 31px;
+    content: "";
+    cursor: pointer;
+    height: 30px;
+    position: absolute;
+    right: 19px;
+    width: 37px
+}
+
+a.pos-abs {
+    display: block;
+    height: 10px;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%
+}
+
+.lista-beneficios span {
+    background-image: url(https://2039173.fs1.hubspotusercontent-na1.net/hubfs/2039173/site/maquinaria-industrial-pesada/agencia-aduanal-maquinaria-pesada-industrial-iconos2-sprite.png);
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    display: block;
+    flex: 0 0 88px;
+    height: 58px;
+    margin-right: 20px
+}
+
+.lista-beneficios span.expediente {
+    background-position: -200px 0
+}
+
+.lista-beneficios span.legal {
+    background-position: -95px 0
+}
+
+.lista-beneficios span.pedimentos {
+    background-position: -295px 0
+}
+
+.lista-iconos.i-energia span {
+    background-image: url(https://2039173.fs1.hubspotusercontent-na1.net/hubfs/2039173/energetico/logistica-aduanas-industria-energetica-iconos.png);
+    max-width: 95px
+}
+
+.lista-iconos.i-energia span.costo {
+    background-position: -97px -1px;
+    max-width: 95px
+}
+
+.lista-iconos.i-energia span.tarifa {
+    background-position: -191px 0
+}
+
+.lista-iconos.i-energia span.agilidad {
+    background-position: -288px 0
+}
+
+.vent-inova, .vent-serv {
+    background-image: url(//2039173.fs1.hubspotusercontent-na1.net/hubfs/2039173/site/ventajas/Grupo-Aduanal-servicio-min.jpg);
+    background-repeat: no-repeat
+}
+
+.vent-serv {
+    max-width: 348px
+}
+
+.vent-inova, .vent-serv {
+    height: 241px;
+    width: 100%
+}
+
+.vent-inova {
+    background-position: -349px 0;
+    max-width: 381px
+}
+
+.caja-ventajas {
+    display: block;
+    max-width: 231px;
+    text-align: center;
+    vertical-align: top;
+    width: 100%
+}
+
+.caja-ventajas .titulo {
+    font-family: Oswald, sans-serif;
+    font-size: 20px;
+    line-height: 23px;
+    margin: 10px 0;
+    padding: 0 10px
+}
+
+.medio {
+    border-bottom-color: #de4320;
+    border-bottom-width: 1px;
+    border-left: 1px solid #de4320;
+    border-right: 1px solid #de4320;
+    border-top-color: #de4320;
+    border-top-width: 1px
+}
+
+.icono.eficiencia, .icono.multas, .imagen.atencion, .imagen.exporta, .imagen.importa, .imagen.legal, .imagen.tecnologia {
+    background: url(//2039173.fs1.hubspotusercontent-na1.net/hubfs/2039173/site/icos/sprite-optimized-grupoei.png);
+    margin: 0
+}
+
+.imagen.tecnologia {
+    background-position: 96px -5px;
+    width: 94px
+}
+
+.imagen.atencion, .imagen.tecnologia {
+    display: block;
+    height: 57px;
+    margin: 0 auto 15px
+}
+
+.imagen.atencion {
+    background-position: 185px 0;
+    width: 78px
+}
+
+.icono.eficiencia {
+    background-position: -305px -186px;
+    height: 112px;
+    margin: 0 auto 15px;
+    width: 112px
+}
+
+.icono.multas {
+    background-position: -304px -305px;
+    height: 112px;
+    margin: auto;
+    width: 112px
+}
+
+.imagen.exporta {
+    background-position: 37x 0 !important;
+    background: url(https://2039173.fs1.hubspotusercontent-na1.net/hubfs/2039173/site/icos/Icono-Exportacion-OneCore.png);
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: block
+}
+
+.imagen.exporta, .imagen.importa {
+    display: inline-block;
+    height: 74px;
+    width: 78px
+}
+
+.imagen.importa {
+    background-position: 37x 0 !important;
+    background: url(https://2039173.fs1.hubspotusercontent-na1.net/hubfs/2039173/site/icos/Icono-Importacion-OneCore.png);
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: contain
+}
+
+.imagen.legal {
+    background-position: 71px 96px;
+    display: block;
+    height: 65px;
+    margin: auto;
+    width: 53px
+}
+
+.imagen.actualiza, .imagen.errores, .imagen.infraes, .imagen.redu-tiempo, .imagen.seguridad, .imagen.servicios {
+    background: url(//2039173.fs1.hubspotusercontent-na1.net/hubfs/2039173/site/icos/logistica-opt.png)
+}
+
+.imagen.servicios {
+    background-position: -68px 1px;
+    height: 69px;
+    margin: auto auto 15px;
+    width: 78px
+}
+
+.imagen.infraes {
+    background-position: -149px 0;
+    height: 68px;
+    margin: auto auto 15px;
+    width: 78px
+}
+
+.imagen.seguridad {
+    background-position: -227px 0;
+    height: 68px;
+    margin: auto auto 15px;
+    width: 56px
+}
+
+.imagen.redu-tiempo {
+    background-position: 0 -73px;
+    height: 74px;
+    margin: auto;
+    width: 59px
+}
+
+.imagen.errores {
+    background-position: -86px -73px
+}
+
+.imagen.actualiza, .imagen.errores {
+    height: 74px;
+    margin: auto;
+    width: 59px
+}
+
+.imagen.actualiza {
+    background-position: -168px -73px
+}
+
+#pantalla-2, #pantalla-3 {
+    display: none
+}
+
+.wrapper-btn {
+    display: flex;
+    gap: 25px;
+    margin: auto;
+    max-width: 700px;
+    width: 100%
+}
+
+.wrapper-btn>div {
+    max-width: 350px
+}
+
+.boton-banner, .wrapper-btn>div {
+    display: inline-block;
+    width: 100%
+}
+
+.boton-banner {
+    background: transparent;
+    border: 1px solid #de4320;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #02324c;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase
+}
+
+.boton-banner p {
+    font-family: Oswald, sans-serif;
+    margin-bottom: 0
+}
+
+.wrapper-btn .boton-banner:hover, .wrapper-btn .seleccion .boton-banner {
+    background-color: #de4320;
+    color: #fff
+}
+
+.form-c .hs-error-msgs {
+    list-style-type: none;
+    padding-left: 0
+}
+
+.form-c .hs-error-msgs li label {
+    color: #e04322 !important;
+    font-size: 14px !important;
+    font-style: italic !important;
+    font-weight: 100 !important;
+    margin: 10px 0 0;
+    text-align: left !important
+}
+
+.form-c input[type=email], .form-c input[type=phone], .form-c input[type=tel], .form-c input[type=text], .form-c select, .form-c textarea {
+    background: #fff !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    color: #03324c !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    height: 40px !important;
+    margin: 0 !important;
+    padding: 8px 0 8px 2% !important;
+    width: 100% !important
+}
+
+.form-c textarea {
+    height: 60px !important;
+    resize: none
+}
+
+.form-c .hs-form-field {
+    margin: 0 0 20px
+}
+
+.form-c fieldset {
+    max-width: inherit !important
+}
+
+.form-c fieldset.form-columns-2 .hs-form-field:first-child {
+    display: inline-block;
+    float: none;
+    margin-bottom: 10px;
+    padding-right: 2%;
+    text-align: left;
+    width: 50% !important
+}
+
+.form-c fieldset.form-columns-2 .hs-form-field:last-child {
+    display: inline-block;
+    float: none;
+    margin-bottom: 10px;
+    padding: 0 0 0 2%;
+    text-align: left;
+    width: 50% !important
+}
+
+.form-c .hs-form-field label {
+    color: #03324c !important;
+    font-size: 16px;
+    font-weight: 600
+}
+
+.form-c .actions {
+    text-align: center
+}
+
+.form-c input[type=submit] {
+    background: #e04322;
+    border: 0;
+    color: #fff;
+    font-family: Oswald, sans-serif;
+    font-size: 18px;
+    margin-top: 15px;
+    max-width: 450px;
+    padding: 10px 0;
+    text-transform: uppercase;
+    width: 100%
+}
+
+.obligatorio {
+    color: #03324c;
+    display: block;
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center
+}
+
+.obligatorio.blanco {
+    color: #fff
+}
+
+.aviso-form {
+    color: #e04322;
+    display: block;
+    font-size: 14px;
+    font-style: italic;
+    text-align: center;
+    text-decoration: underline
+}
+
+.contenedor-contacto {
+    background: #eef3f6;
+    font-size: 18px;
+    padding: 50px 0
+}
+
+.contenedor-contacto, .contenedor-formulario {
+    max-width: 400px;
+    text-align: center;
+    width: 100%
+}
+
+.contenedor-formulario {
+    background: #03324c;
+    color: #fff;
+    margin: 30px auto;
+    padding: 30px
+}
+
+.flex {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    position: relative;
+    z-index: 1
+}
+
+#formulario-2-pasos input[type=email], #formulario-2-pasos input[type=phone], #formulario-2-pasos input[type=tel], #formulario-2-pasos input[type=text], #formulario-2-pasos select, #formulario-2-pasos textarea {
+    background: #fff;
+    border: 0;
+    color: #03324c;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 10px 0;
+    padding: 10px 0 10px 2%;
+    width: 98% !important
+}
+
+#formulario-2-pasos p.next {
+    background: #e04322;
+    cursor: pointer;
+    font-family: Oswald, sans-serif;
+    font-size: 18px;
+    margin-top: 10px;
+    max-width: 450px;
+    padding: 12px 0;
+    width: 100%
+}
+
+.message, .message2 {
+    color: #e40000 !important;
+    display: none;
+    font-size: 13px !important;
+    font-style: italic;
+    margin-bottom: 0;
+    margin-top: 0;
+    text-align: left
+}
+
+.boton-azul {
+    background: #03324c;
+    margin-top: 30px
+}
+
+.boton-2 {
+    color: #fff;
+    margin: 0 auto;
+    max-width: 300px;
+    padding: 20px 0;
+    width: 100%
+}
+
+.boton-2 p {
+    margin-bottom: 0
+}
+
+.contenedor-contacto h3 {
+    color: #e04322;
+    font-family: Oswald, sans-serif;
+    font-size: 23px;
+    margin: 0 0 20px;
+    text-transform: uppercase
+}
+
+.contenedor-contacto p.azul {
+    margin-bottom: 0;
+    margin-top: 20px
+}
+
+.caja-cultura {
+    border-left: solid;
+    border-color: #de4320;
+    border-width: 1px;
+    color: #0d304e;
+    font-family: Oswald, sans-serif;
+    text-align: center;
+    vertical-align: top
+}
+
+.caja-cultura:last-child {
+    border-right-style: solid
+}
+
+.caja-cultura .texto {
+    font-size: 18px;
+    line-height: 24px;
+    max-width: 430px;
+    padding: 5px 10px;
+    text-transform: uppercase;
+    width: 100%
+}
+
+.img-c.familia {
+    background: url(//2039173.fs1.hubspotusercontent-na1.net/hubfs/2039173/site/unete/unete-icos-min.png);
+    background-position: -147px 0;
+    height: 72px;
+    margin: auto;
+    width: 74px
+}
+
+.img-c.crece {
+    width: 75px
+}
+
+.img-c.crece, .img-c.mejora {
+    background: url(//2039173.fs1.hubspotusercontent-na1.net/hubfs/2039173/site/unete/unete-icos-min.png);
+    height: 72px;
+    margin: auto
+}
+
+.img-c.mejora {
+    background-position: -74px 0;
+    width: 74px
+}
+
+.testimonio {
+    background: #fff;
+    color: #02324c;
+    display: block;
+    font-family: MyriadPro-It;
+    font-size: 19px;
+    height: 100%;
+    margin: auto;
+    max-width: 312px;
+    padding: 0;
+    position: relative;
+    text-align: center;
+    vertical-align: top;
+    width: 100%
+}
+
+i.comilla-a, i.comilla-b {
+    display: inline-block;
+    height: 22px;
+    width: 27px
+}
+
+i.comilla-a {
+    background: url(//2039173.fs1.hubspotusercontent-na1.net/hubfs/2039173/site/unete/Empresas-de-comercio-exterior-testimonio.png)
+}
+
+i.comilla-b {
+    background: url(//2039173.fs1.hubspotusercontent-na1.net/hubfs/2039173/site/unete/Empresas-de-comercio-exterior-testimonio-1.png)
+}
+
+.text-test {
+    padding: 20px 20px 60px
+}
+
+.nombre-t {
+    bottom: 20px;
+    font-family: Oswald, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    left: 0;
+    padding: 20px 0 0;
+    position: absolute;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%
+}
+
+.caja-2 {
+    background: #fff;
+    border: 1px solid #dbdddc;
+    display: block;
+    margin: auto;
+    max-width: 312px;
+    vertical-align: top;
+    width: 100%
+}
+
+.icos-tit-map-b {
+    border-bottom: 1px solid #ccc
+}
+
+.icos-tit-map-b .ico1, .icos-tit-map-b .ico2, .icos-tit-map-b .ico3 {
+    background: url(https://2039173.fs1.hubspotusercontent-na1.net/hubfs/2039173/site/oficinas/v3/agencias-aduanales-en-mexico-GrupoEi-sprite-iconos.png) no-repeat;
+    display: inline-block;
+    height: 42px;
+    vertical-align: middle
+}
+
+.icos-tit-map-b .ico1 {
+    background-position: -65px;
+    width: 31px
+}
+
+.icos-tit-map-b .ico2 {
+    background-position: -124px;
+    width: 45px
+}
+
+.icos-tit-map-b .ico3 {
+    background-position: -195px;
+    width: 45px
+}
+
+.border-l-r-b {
+    border-left: 1px solid #02324c;
+    border-right: 1px solid #02324c;
+    padding: 0 20px
+}
+
+.caja-3 {
+    margin: auto;
+    max-width: 250px;
+    width: 100%
+}
+
+.title-of {
+    border-bottom: 1px solid var(--azul);
+    margin: 0 0 20px;
+    padding: 0 0 20px
+}
+
+.b-bottom-gris {
+    border-bottom: 1px solid #ccc
+}
+
+.banner {
+    align-items: center;
+    background-position: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    font-family: Oswald, sans-serif;
+    height: 400px;
+    justify-content: center;
+    z-index: 1
+}
+
+.banner, .banner-parent {
+    position: relative
+}
+
+.banner-parent:after {
+    background-color: rgba(0, 0, 0, .5);
+    bottom: 0;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0
+}
+
+span.icon {
+    background-image: url(https://2039173.fs1.hubspotusercontent-na1.net/hubfs/2039173/site/maquinaria-industrial-pesada/agencia-aduanal-maquinaria-pesada-industrial-iconos1-sprite.png);
+    background-repeat: no-repeat;
+    display: block;
+    height: 86px;
+    margin: 0 auto 20px;
+    width: 86px
+}
+
+span.icon.en {
+    background-image: url(https://2039173.fs1.hubspotusercontent-na1.net/hubfs/2039173/site/oficinas/en/customs-brokers-in-ciudad-de-mexico-sprite-iconos.webp)
+}
+
+span.icon.ico1 {
+    background-position: 0 0
+}
+
+span.icon.ico2 {
+    background-position: -135px 0
+}
+
+span.icon.ico3 {
+    background-position: -270px 0
+}
+
+span.icon.ico4 {
+    background-position: -405px 0
+}
+
+.flex-footer>div ul li a {
+    color: #fff;
+    font-size: 17px;
+    line-height: normal
+}
+
+.redes-footer ul li a {
+    background-image: url(https://www.grupoei.com.mx/hubfs/site/agencia-aduanal-GrupoEi-iconos.png);
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: auto 38px;
+    display: block;
+    height: 38px;
+    width: 38px
+}
+
+.redes-footer ul li a.facebook {
+    background-position: -120px 0
+}
+
+.redes-footer ul li a.linkedin {
+    background-position: -247px 0
+}
+
+.redes-footer ul li a.youtube {
+    background-position: -183px 0
+}
+
+.txt-linea {
+    border-left: 2px solid #fff;
+    margin: 15px 0;
+    max-width: 320px;
+    padding: 0 10px;
+    width: 100%
+}
+
+.footer-aviso {
+    background-color: #02324c;
+    padding: 25px 15px;
+    -webkit-font-smoothing: auto;
+    border-top: 1px solid #fff
+}
+
+.footer-aviso ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    margin: auto;
+    max-width: 700px;
+    padding-left: 0;
+    width: 100%
+}
+
+.col-6.itms:first-child {
+    border-right: 2px solid #da3a20
+}
+
+.item-blog {
+    margin: auto;
+    max-width: 440px
+}
+
+.bborde {
+    border-right: 2px solid #da3a20
+}
+
+p.irart {
+    background: #da3a20;
+    color: #fff;
+    font-size: 20px;
+    margin-top: 20px;
+    padding: 12px 0;
+    text-align: center;
+    width: 200px
+}
+
+.salto, p.irart {
+    display: block
+}
+
+ul.logo-home {
+    margin: 35px auto 0;
+    max-width: 800px;
+    padding: 0;
+    width: 100%
+}
+
+.bord_video {
+    border: 10px solid #cacaca
+}
+
+.bbnaranja:before {
+    background: var(--naranja);
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    right: 0;
+    width: 50%
+}
+
+.body-box {
+    align-items: center;
+    display: flex;
+    height: 300px;
+    padding: 0 5%
+}
+
+.box-contacto, .box-contacto p {
+    font-family: MyriadPro-Regular
+}
+
+.box-contacto {
+    border: 1px solid #d9d9d9
+}
+
+.fm_tab1 fieldset.form-columns-1, .fm_tab1 fieldset.form-columns-2 {
+    max-width: 100%
+}
+
+.fm_tab1 .input input {
+    width: 100%
+}
+
+.fm_tab1 fieldset.form-columns-2 .hs-form-field {
+    margin: 0 1%;
+    max-width: 48%
+}
+
+.fm_tab1 fieldset.form-columns-1 .hs-form-field {
+    margin: 0 1%;
+    max-width: 98%
+}
+
+.fm_tab1 .input input, .fm_tab1 select, .fm_tab1 textarea {
+    border: 1px solid #d9d9d9;
+    border-radius: 0;
+    margin: 0;
+    padding: 5px
+}
+
+.fm_tab1 label {
+    color: var(--azul);
+    font-weight: 600;
+    margin-top: 25px
+}
+
+.fm_tab1 {
+    max-width: 1040px;
+    width: 100%
+}
+
+ul.no-list.hs-error-msgs.inputs-list {
+    list-style: none;
+    margin: 0;
+    padding: 0
+}
+
+.fm_tab1 label.hs-error-msg, div#formulario-2 label.hs-error-msg {
+    color: red;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 200;
+    margin: 0;
+    padding: 0
+}
+
+.fm_tab1 input.hs-button.primary.large, div#formulario-2 input.hs-button.primary.large {
+    background: var(--naranja);
+    border: none;
+    color: #fff;
+    display: block;
+    font-family: Oswald;
+    font-size: 18px;
+    margin: 40px auto;
+    padding: 15px 25px;
+    width: 285px
+}
+
+div#formulario-2 label#label-company-93a431f3-17e6-4d22-92c2-51bb9e303341 {
+    display: none
+}
+
+div#formulario-2 .input {
+    margin: -10px 0 0;
+    padding: 0;
+    width: 100%
+}
+
+.fm_ds_guia label {
+    margin-top: 0
+}
+
+.fm_ds_guia input.hs-button.primary.large {
+    display: inline-block;
+    margin: 15px 0 10px;
+    max-width: 270px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    width: 100%
+}
+
+.fm_ds_guia .input input {
+    max-width: 50%
+}
+
+.fm_ds_guia .hs_error_rollup {
+    display: none
+}
+
+.box-cotiza {
+    border: 2px solid #eef2f5;
+    padding: 10px 0 0
+}
+
+.ico-mail:before {
+    content: url(https://2039173.fs1.hubspotusercontent-na1.net/hubfs/2039173/site/cotizacion/cotiza-servicios-aduanales-grupoei-icono-mail.jpg);
+    margin-right: 5px
+}
+
+.ico-phone:before {
+    content: url(https://2039173.fs1.hubspotusercontent-na1.net/hubfs/2039173/site/cotizacion/cotiza-servicios-aduanales-grupoei-icono-tel.jpg);
+    margin-right: 5px
+}
+
+.bgazul div#formulario-2, .bgazul div#formulario-2-pasos {
+    margin: auto;
+    max-width: 330px;
+    width: 100%
+}
+
+div#formulario-2 {
+    display: none
+}
+
+div#formulario-2 .hs_submit.hs-submit {
+    margin-bottom: -20px;
+    margin-top: -20px
+}
+
+::-webkit-input-placeholder {
+    color: var(--azul)
+}
+
+:-ms-input-placeholder {
+    color: var(--azul)
+}
+
+::placeholder {
+    color: var(--azul)
+}
+
+div#formulario-2 .input input {
+    background: #fff;
+    border: 0;
+    color: #03324c;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 10px 0;
+    padding: 10px 0 10px 2%;
+    width: 98% !important
+}
+
+.hoja-1000 .nav-tabs {
+    justify-content: center
+}
+
+ul.nav.nav-tabs li {
+    border: 1px solid var(--naranja);
+    text-align: center;
+    width: 49%
+}
+
+.hoja-1000 .nav-tabs {
+    align-content: normal;
+    display: flex;
+    justify-content: space-between
+}
+
+.nav-tabs, .nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
+    border-bottom: none
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    border: none
+}
+
+a.nav-link.active, a.nav-link:hover {
+    background: var(--naranja) !important;
+    border-radius: 0;
+    color: #fff !important;
+    font-family: oswald;
+    padding-bottom: 11px
+}
+
+.h370 {
+    height: 370px
+}
+
+.b-0 {
+    bottom: 0
+}
+
+.fm-webinnar {
+    background: #f8f8f8;
+    border-radius: 15px;
+    box-shadow: 0 1px 3px 0 #e0e0e0;
+    margin-top: -130px;
+    opacity: 1;
+    padding: 20px 15px;
+    position: relative;
+    z-index: 10
+}
+
+.fm-webinnar form {
+    margin: auto;
+    max-width: 234px
+}
+
+.fm-webinnar label {
+    color: #00324d;
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 15px
+}
+
+.fm-webinnar .input input, .fm-webinnar select {
+    border: 1px solid #cbcbcb;
+    font-size: 15px;
+    margin-top: 3px;
+    max-width: none;
+    padding: 3px 5px;
+    width: 100%
+}
+
+.fm-webinnar input.hs-button.primary.large {
+    background: #dd4321;
+    border: none;
+    color: #fff;
+    display: block;
+    font-family: Oswald, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: normal;
+    margin-top: 20px;
+    padding: 10px 0;
+    width: 100%
+}
+
+.fm-webinnar label.hs-error-msg {
+    color: red;
+    font-size: 12px;
+    font-style: italic;
+    font-weight: 100;
+    margin: 0;
+    padding: 0
+}
+
+.box-evento {
+    border-radius: 35px;
+    box-shadow: -1px 3px 5px 2px #e6e6e6;
+    margin: 70px auto auto;
+    max-width: 480px;
+    padding: 0 30px;
+    width: 100%
+}
+
+.box-evento img {
+    margin: -30px 0 0
+}
+
+strong {
+    font-family: MyriadPro-Bold
+}
+
+.tshadow {
+    text-shadow: 3px 2px 0 #000
+}
+
+img.neg-img {
+    margin-top: -70px
+}
+
+.radius {
+    border-radius: 10px
+}
+
+.video-serv {
+    border: 10px solid #cacaca;
+    display: inline-block;
+    float: right;
+    max-width: 465px;
+    width: 100%
+}
+
+a.blanco.mail:hover, a.btn-naranja, a.btn-naranja:hover {
+    color: #fff
+}
+
+a.aviso-form:hover, a.naranja:hover {
+    color: var(--naranja)
+}
+
+a.aviso-form:hover {
+    text-decoration: underline
+}
+
+.triangle-tit {
+    display: inline-block;
+    padding: 9px 40px;
+    position: relative;
+    text-transform: uppercase
+}
+
+.triangle-tit:after {
+    border-color: #02324c transparent transparent;
+    border-style: solid;
+    border-width: 20px 20px 0;
+    bottom: -19px;
+    content: "";
+    height: 0;
+    left: 15px;
+    position: absolute;
+    width: 0
+}
+
+.bgwebinar {
+    position: relative
+}
+
+.bgwebinar:before {
+    background: #edf3f5;
+    content: "";
+    display: block;
+    height: 90%;
+    left: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%
+}
+
+.borde-bottom {
+    border-bottom: 2px solid var(--naranja);
+    max-width: 250px
+}
+
+.bgwebinarimg:before {
+    content: url(https://2039173.fs1.hubspotusercontent-na1.net/hubfs/2039173/site/webinars/webinars-grupoei-webinar-ultimos-boton.svg);
+    position: absolute;
+    right: 10px;
+    top: 10px
+}
+
+.bgwebinarimg {
+    background: url(https://2039173.fs1.hubspotusercontent-na1.net/hubfs/2039173/site/webinars/webinars-grupoei-webinar-ultimos-img1.png);
+    display: flex;
+    height: 397px;
+    margin: 0 10px;
+    max-width: 288px;
+    position: relative
+}
+
+.bgwebinarimg hr {
+    border: 0;
+    border-top: 2px solid var(--blanco);
+    margin-bottom: 5px;
+    margin-top: 1rem;
+    max-width: 80px
+}
+
+.pleca-duracion {
+    background: #fff;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 5px 0
+}
+
+span.num_circle {
+    background: var(--naranja);
+    border-radius: 100%;
+    color: #fff;
+    font-family: Oswald;
+    font-size: 16px;
+    margin-right: 10px;
+    min-width: 25px;
+    text-align: center;
+    width: 25px
+}
+
+.boreder-left {
+    border-left: 1px solid var(--naranja);
+    padding-left: 10px
+}
+
+.fm-webinar {
+    padding: 0 20% 20px
+}
+
+.fm-webinar input, .fm-webinar select {
+    border: 1px solid #c9c9c9;
+    padding: 5px !important
+}
+
+.fm-webinar label {
+    color: var(--azul);
+    font-size: 18px;
+    font-weight: 700;
+    margin: 15px 0 5px;
+    padding: 0
+}
+
+.fm-webinar label.hs-error-msg.hs-main-font-element {
+    color: red;
+    font-size: 12px;
+    font-style: italic;
+    font-weight: 100;
+    margin: 0
+}
+
+.fm-webinar input.hs-button.primary.large {
+    background: var(--naranja);
+    border: none;
+    color: #fff;
+    display: block;
+    font-family: Oswald;
+    font-size: 18px;
+    margin: 20px auto 0;
+    width: 100%
+}
+
+.pleca-fm {
+    background: var(--azul);
+    padding: 10px 5px
+}
+
+.bord_rad_lr, .pleca-fm {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px
+}
+
+@media only screen and (min-width:992px) {
+    .video-yt img {
+        max-width: 100%
+    }
+}
+
+@media only screen and (max-width:850px) {
+    .hs-menu-wrapper ul {
+        display: block
+    }
+
+    img.bord_video {
+        width: 100%
+    }
+}
+
+@media only screen and (max-width:768px) {
+    .box-flechas>div:first-of-type {
+        flex: 100%
+    }
+
+    .hs-menu-wrapper ul {
+        display: block
+    }
+
+    .banner-interior:after {
+        content: none
+    }
+
+    .caja {
+        height: auto;
+        padding: 20px 15px 70px
+    }
+}
+
+@media only screen and (max-width:767px) {
+    .video-banner a:before {
+        background-image: url(https://www.grupoei.com.mx/hubfs/site/industrias/2019/empresa-logistica-internacional-iconoplay-GrupoEi-May19.png);
+        background-position: 50%;
+        background-repeat: no-repeat;
+        background-size: contain;
+        content: "";
+        height: 49px;
+        left: 20px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 44px
+    }
+
+    .w-80, .w-90, img {
+        height: auto;
+        width: 100%
+    }
+
+    .container {
+        padding: 0
+    }
+
+    .container-wrapper {
+        padding: 0 15px
+    }
+
+    .hs-menu-wrapper ul, .hs-menu-wrapper ul li:nth-child(10), .hs-menu-wrapper ul li:nth-child(9) {
+        display: block
+    }
+
+    .fs34 {
+        font-size: 30px
+    }
+
+    .fs32 {
+        font-size: 28px
+    }
+
+    .fs26 {
+        font-size: 22px
+    }
+
+    .fs24 {
+        font-size: 20px
+    }
+
+    .fs22 {
+        font-size: 18px
+    }
+
+    a.cotiza-ahora {
+        background: #da3a20;
+        color: #fff;
+        display: block;
+        font-size: 22px;
+        padding: 10px 0;
+        text-align: center;
+        width: 100%
+    }
+
+    .container-wrapper.banner-movil {
+        background: #002e4b !important;
+        padding: 0 0 30px
+    }
+
+    .video-banner {
+        margin: auto;
+        position: relative;
+        width: 20%;
+        z-index: 2
+    }
+
+    .video-banner a {
+        display: block;
+        padding: 52px 0 0;
+        position: relative;
+        text-align: center
+    }
+
+    ul.flechas {
+        margin-left: 5px;
+        max-width: 90%
+    }
+
+    .banner-movil img {
+        margin-bottom: 15px
+    }
+
+    .video-banner a small {
+        font-size: 16px
+    }
+
+    #blog .col-6 {
+        flex: 0 0 100%;
+        max-width: 100%
+    }
+
+    .col-4.blanco.hidden-m, .col-6.bborde {
+        display: none
+    }
+
+    .footer .row .col-4 {
+        flex: 0 0 100%;
+        max-width: 100%
+    }
+
+    .txt-flip, .txt-flip-reverse {
+        border-top: 0;
+        box-shadow: none;
+        margin: 0;
+        width: 100%
+    }
+
+    .box-flechas .flex-basis {
+        padding: 0
+    }
+
+    .box-flechas .flex-basis:after, .f-datos:before {
+        display: none
+    }
+
+    .mail {
+        margin: 0
+    }
+
+    .btn-horizontal ul li {
+        border: 1px solid #02324c;
+        cursor: pointer;
+        display: inline-block;
+        font-family: Oswald, sans-serif;
+        font-size: 18px;
+        margin: 0 -2px;
+        padding: 10px 5%
+    }
+
+    ul.logo-home {
+        margin: 0;
+        padding: 0
+    }
+
+    ul.logo-home li {
+        display: inline-block;
+        margin: 15px 0 0;
+        width: 100%
+    }
+
+    .lista-iconos3 span {
+        margin-right: 10px
+    }
+
+    .wrapper-btn {
+        display: block
+    }
+
+    .wrapper-btn>div {
+        margin: 0 0 15px
+    }
+
+    .wrapper-btn>div:last-of-type {
+        margin: 0
+    }
+
+    .form-c fieldset.form-columns-2 .hs-form-field:first-child, .form-c fieldset.form-columns-2 .hs-form-field:last-child {
+        width: 100% !important
+    }
+
+    .form-c fieldset.form-columns-2 .input {
+        margin-right: 0 !important
+    }
+
+    .form-c fieldset.form-columns-2 .hs-form-field:first-child {
+        padding-right: 0
+    }
+
+    .form-c fieldset.form-columns-2 .hs-form-field:last-child {
+        padding: 0
+    }
+
+    .flex {
+        display: block
+    }
+
+    .caja-cultura {
+        border-left: none
+    }
+
+    .border-l-r-b, .caja-cultura:last-child {
+        border-right: none
+    }
+
+    .border-l-r-b {
+        border-left: none;
+        padding: 0
+    }
+
+    .bord_video {
+        width: 100%
+    }
+
+    .body-box {
+        height: auto
+    }
+
+    .fm_tab1 fieldset.form-columns-2 .hs-form-field {
+        margin: 0 1%;
+        max-width: 95%
+    }
+
+    .fm_tab1 input {
+        width: 100% !important
+    }
+
+    .fm_ds_guia .input input {
+        max-width: 100%
+    }
+
+    ul.nav.nav-tabs li {
+        border: 1px solid var(--naranja);
+        margin: 10px 0;
+        text-align: center;
+        width: 100%
+    }
+
+    .fs50 {
+        font-size: 28px
+    }
+
+    .fs34 {
+        font-size: 26px
+    }
+
+    .bullet-movil strong {
+        font-weight: lighter;
+        text-align: left
+    }
+
+    p.bullet-movil {
+        font-size: 16px;
+        line-height: 130%;
+        margin: 0;
+        padding: 5px 20px;
+        position: relative;
+        text-align: left
+    }
+
+    p.bullet-movil:before {
+        background: var(--naranja);
+        border-radius: 100%;
+        content: "";
+        display: block;
+        height: 6px;
+        left: 7px;
+        position: absolute;
+        top: 10px;
+        width: 6px
+    }
+
+    .fm-webinnar {
+        margin-top: 30px
+    }
+
+    .banner-webinnar {
+        background: url(https://2039173.fs1.hubspotusercontent-na1.net/hubfs/2039173/Webinars%202022/aviso-de-cruce/lp-difusion-webinar-grupoei-banner-mobile.jpg);
+        background-size: cover;
+        height: auto;
+        padding-top: 15%
+    }
+
+    .h370 {
+        height: auto
+    }
+
+    .video-serv {
+        border: 5px solid #cacaca;
+        display: block;
+        float: none;
+        margin: 28px auto 0;
+        max-width: 465px;
+        width: 90%
+    }
+
+    iframe#playerId {
+        height: 245px;
+        max-width: 100%
+    }
+
+    .triangle-tit {
+        padding: 9px 15px
+    }
+
+    .triangle-tit.fs26 {
+        font-size: 18px
+    }
+
+    .hs-menu-wrapper>ul>li:nth-child(8) {
+        display: block
+    }
+
+    .bgwebinarimg .fs28 {
+        font-size: 20px
+    }
+
+    .bgwebinarimg .fs16, p.pleca-duracion.fs16 {
+        font-size: 12px
+    }
+
+    .bgwebinarimg {
+        background: url(https://2039173.fs1.hubspotusercontent-na1.net/hubfs/2039173/site/webinars/webinars-grupoei-webinar-ultimos-img1.png);
+        display: flex;
+        height: 397px;
+        margin: 12px 5px;
+        max-width: 100%;
+        width: 288px
+    }
+
+    div#widget_1647452254952 {
+        background: url(https://www.grupoei.com.mx/hubfs/site/webinars/webinars-grupoei-banner-principal.png);
+        background-position: 50%;
+        background-repeat: no-repeat;
+        background-size: cover
+    }
+
+    div#widget_1710878045764 {
+        background-image: url(https://2039173.fs1.hubspotusercontent-na1.net/hubfs/2039173/site/webinars/webinars-grupoei-webinar-destacado-img-1.png);
+        padding: 140px 15px 5px
+    }
+
+    .fs24m {
+        font-size: 24px
+    }
+
+    .fs45 {
+        font-size: 30px
+    }
+
+    a.btn-naranja.d-flex img {
+        max-width: 20px
+    }
+}
+
+@media only screen and (max-width:575px) {
+    .medio {
+        border-left-style: none;
+        border-right-style: none
+    }
+}
+
+@media only screen and (max-width:381px) {
+    .vent-inova {
+        background-position: -310px 0;
+        background-size: auto 215px;
+        height: 215px
+    }
+}
