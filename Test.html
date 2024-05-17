@@ -6,7 +6,7 @@
 
 	
 	
-<title>Nosotros</title>
+<title>TestPage</title>
 <meta name="description">
 <meta name="keywords" content="">
 
@@ -192,7 +192,7 @@
     </header>
 
 
-<my-widget></my-widget>
+<!-- <my-widget></my-widget> -->
 
 <script>
     class MyWidget extends HTMLElement {
@@ -200,109 +200,95 @@
             super();
             const shadow = this.attachShadow({ mode: 'open' });
             shadow.innerHTML = `
-                <style>
+            <style>
                     :host {
                         display: block;
                         max-width: 1200px;
                         margin: auto;
                         padding: 20px;
                         font-size: 21px;
+
                     }
-                    .container {
-                        text-align: center;
-                        color: #fff;
+                    .contenedor-formulario {
+                        padding: 30px;
+                        border: 1px solid #ccc;
+                        border-radius: 8px;
+                        background-color: #f9f9f9;
+                        font-family:arial
                     }
-                    .container h1 {
-                        color: #fff;
+                    .form-group {
+                        margin-bottom: 40px;
                     }
-                    .highlight {
+                    .titulo {
+                        font-size: 24px;
                         font-weight: bold;
+                        color: #333;
                     }
-                    .line {
-                        height: 2px;
-                        background-color: #fff;
-                        margin: 10px 0;
-                    }
-                    .row {
+                    .radio-group {
                         display: flex;
-                        justify-content: space-around;
-                        margin: 20px 0;
+                        justify-content: center;
+                        gap: 20px;
                     }
-                    .col {
-                        flex: 1;
-                        margin: 0 10px;
-                        text-align: center;
-                        padding: 20px;
-                        border-radius: 10px;
+                    .radio-label {
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                        font-size: 18px;
+                        color: #333;
                     }
-                    .col img {
-                        max-width: 100px;
-                        background-color: #fff; /* Default background color */
-                        margin-bottom: 10px;
+                    .hs-form-field.radio {
+                        width: 20px;
+                        height: 20px;
+                    }
+                    .hs-button {
+                        padding: 10px 20px;
+                        font-size: 18px;
+                        color: #fff;
+                        background-color: #007bff;
+                        border: none;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        transition: background-color 0.3s;
+                    }
+                    .hs-button:hover {
+                        background-color: #0056b3;
                     }
                 </style>
-                <div class="container">
-                    <h1>Cotiza tus servicios aduanales</h1>
-                    <p style="font-family: Arial, sans-serif;" class="highlight">Atendemos principalmente a empresas que manejan más de 10 operaciones al mes<br>o que tienen algún proyecto con una operación importante</p>
-                    <div class="line"></div>
-                    <h2>Al solicitar una cotización obtendrás:</h2>
-                    <div class="row">
-                        <div class="col">
-                            <img src="./Images/clock.jpg" alt="Response time">
-                            <p style="font-family: Arial, sans-serif;"><strong>Respuesta de tu solicitud<br>a la brevedad</strong></p>
+                <div class="contenedor-formulario">
+                    <form method="post" id="formulario-1" class="pad-30">
+                        <div class="form-group text-center">
+                            <p class="titulo mb40">¿Qué tipo de operación deseas realizar?</p>
+                            <div class="radio-group inline">
+                                <label for="operacion-importacion" class="radio-label">
+                                    <input value="Importación" type="radio" name="operacion" id="operacion-importacion" class="hs-form-field radio">
+                                    Importación
+                                </label>
+                                <label for="operacion-exportacion" class="radio-label">
+                                    <input value="Exportación" type="radio" name="operacion" id="operacion-exportacion" class="hs-form-field radio">
+                                    Exportación
+                                </label>
+                                <label for="operacion-ambas" class="radio-label">
+                                    <input type="radio" value="Ambas" name="operacion" id="operacion-ambas" class="hs-form-field radio">
+                                    Ambas
+                                </label>
+                            </div>
                         </div>
-                        <div class="col">
-                            <img src="./Images/personphone.jpg" alt="Expert advice">
-                            <p style="font-family: Arial, sans-serif;"><strong>Asesoría por un especialista en<br>comercio exterior que te ayudará<br>a resolver todas tus dudas</strong></p>
+                        <div class="form-group mt40 text-center">
+                            <p class="titulo mb40">¿Trabajas como persona física o persona moral?</p>
+                            <div class="radio-group inline">
+                                <label for="persona-fisica" class="radio-label">
+                                    <input type="radio" value="Persona física" name="regimen_fiscal" id="persona-fisica" class="hs-form-field radio">
+                                    Persona Física
+                                </label>
+                                <label for="persona-moral" class="radio-label">
+                                    <input type="radio" value="Persona moral" name="regimen_fiscal" id="persona-moral" class="hs-form-field radio">
+                                    Persona Moral
+                                </label>
+                            </div>
                         </div>
-                        <div class="col">
-                            <img src="./Images/paperdollar.jpg" alt="Flat rate">
-                            <p style="font-family: Arial, sans-serif;"><strong>Cotización detallada de tus<br>servicios con una tarifa flat</strong></p>
-                        </div>
-                    </div>
-                    <h2 style="font-family: Arial, sans-serif;">EL PRIMER PASO PARA DARTE LA COTIZACIÓN QUE NECESITAS <br>
-                        es que nos apoyes a responder la siguiente información con la finalidad de conocerte mejor<br>
-                        y ofrecerte una cotización única:</h2>
-                        <div class="contenedor-cotizador">
-                            <div class="contenedor-formulario">
-    <form method="post" id="formulario-1" class="pad-30">
-        <div class="form-group text-center">
-            <p class="titulo mb40">¿Qué tipo de operación deseas realizar?</p>
-            <div class="radio-group inline">
-                <label for="operacion-importacion" class="radio-label">
-                    <input value="Importación" type="radio" name="operacion" id="operacion-importacion" class="hs-form-field radio">
-                    Importación
-                </label>
-                <label for="operacion-exportacion" class="radio-label">
-                    <input value="Exportación" type="radio" name="operacion" id="operacion-exportacion" class="hs-form-field radio">
-                    Exportación
-                </label>
-                <label for="operacion-ambas" class="radio-label">
-                    <input type="radio" value="Ambas" name="operacion" id="operacion-ambas" class="hs-form-field radio">
-                    Ambas
-                </label>
-            </div>
-        </div>
-        <div class="form-group mt40 text-center">
-            <p class="titulo mb40">¿Trabajas como persona física o persona moral?</p>
-            <div class="radio-group inline">
-                <label for="persona-fisica" class="radio-label">
-                    <input type="radio" value="Persona física" name="regimen_fiscal" id="persona-fisica" class="hs-form-field radio">
-                    Persona Física
-                </label>
-                <label for="persona-moral" class="radio-label">
-                    <input type="radio" value="Persona moral" name="regimen_fiscal" id="persona-moral" class="hs-form-field radio">
-                    Persona Moral
-                </label>
-            </div>
-        </div>
-        <div class="mt40 text-center">
-            <button type="submit" id="iniciar" class="hs-button">Iniciar</button>
-        </div>
-    </form>
-</div>
-<div class="barra"></div>
-</div>
+                        
+                    </form>
+                </div>
 
 <style>
     .contenedor-formulario {
@@ -408,461 +394,307 @@
 </script>
 
 <div style="background-color: #00142b;">
-    <section id = "contact" class="contact" style="background-image: url(https://images4.alphacoders.com/879/thumb-1920-879683.jpg); background-repeat: no-repeat;"  data-scroll-index="7">
+    <section id="contact" class="contact" style="background-image: url(https://images4.alphacoders.com/879/thumb-1920-879683.jpg); background-repeat: no-repeat;" data-scroll-index="7">
         <style>
             .overlay {
-        background-image: linear-gradient(to right, rgba(51, 82, 141, 0.795), rgba(51, 82, 141, 0.795));
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-        position: relative;
-        padding: 110px 0;
-    }
-    .section-bg {
-        background-size: cover;
-        position: relative;
-        background-position: left;
-        z-index: 0;
-        padding: 0;
-        min-height: auto;
-        overflow: hidden;
-    }
-    .contact-form {
-        position: relative;
-        padding: 45px 0 45px 60px;
-    }
-    
-    .contact-form:before {
-        position: absolute;
-        content: '';
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        border-radius: 6px;
-        background: #ffffff;
-        box-shadow: 10px 40px 40px rgba(0,0,0,.2);
-        pointer-events: none;
-        right: auto;
-        width: 60%;
-    }
-    .particles-js-canvas-el {
-        position: absolute;
-        left: 0;
-        top: 0;
-        z-index: 1;
-    }
-    .contact-form input {
-        border: 0;
-        background: transparent;
-    
-        display: block;
-        width: 45%;
-        min-height: 50px;
-        padding: 11px 0;
-        font-size: 16px;
-        font-weight: 600;
-        line-height: 27px;
-    
-        background-color: transparent;
-        background-image: none;
-        border-radius: 0;
-        -webkit-appearance: none;
-        transition: .3s ease-in-out;
-        border: 2px solid transparent;
-        border-bottom-color: rgba(0,0,0,.1);
-    }
-    
-    .contact-form textarea {
-        border: 0;
-        background: transparent;
-        display: block;
-        width: 45%;
-        min-height: 50px;
-        padding: 11px 0;
-        font-size: 16px;
-        font-weight: 600;
-        line-height: 27px;
-    
-        background-color: transparent;
-        background-image: none;
-        border-radius: 0;
-        -webkit-appearance: none;
-        transition: .3s ease-in-out;
-        border: 2px solid transparent;
-        border-bottom-color: rgba(0,0,0,.1);
-    }
-    .contact-form input::placeholder {
-      color:#222;
-      
-    }
-    .contact-form textarea::placeholder {
-     
-      color:#222;
-    
-    }
-    .contact-form input {
-        margin-bottom: 30px;
-        font-size: 16px;
-        font-weight: 600;
-        height: 55px;
-    }
-    .contact-form input:hover, .contact-form input:focus{
-        outline: none;
-        box-shadow: none;
-        background: transparent;
-        border: 2px solid transparent;
-        border-bottom-color: rgb(111, 132, 254);
-    
-    }
-    .contact-form textarea:hover, .contact-form textarea:focus{
-      background: transparent; 
-        outline: none;
-      box-shadow: none;
-         border: 2px solid transparent;
-        border-bottom-color: rgb(111, 132, 254);
-    
-    }
-    
-    
-    .taso-btn {
-        background-color: #fff;
-        margin: 25px 0;
-        color: #214dcb;
-        -webkit-box-shadow: 0px 10px 30px 0px rgba(255, 255, 255, 0.32);
-        box-shadow: 0px 10px 30px 0px rgba(255, 255, 255, 0.17);
-    }
-    .contact-info {
-        padding: 0 30px 0px 0;
-    }
-    
-    h2.contact-title {
-        font-size: 35px;
-        font-weight: 600;
-        color: #fff;
-        margin-bottom: 30px;
-    }
-    
-    .contact-info p {
-        color: #ececec;
-    }
-    
-    ul.contact-info {
-        margin-top: 30px;
-    }
-    
-    ul.contact-info li {
-        margin-bottom: 22px;
-    }
-    
-    
-    
-    ul.contact-info span {
-        font-size: 20px;
-        line-height: 26px;
-    }
-    ul.contact-info li {
-        display: flex;
-        width: 100%;
-    }
-    
-    .info-left {
-        width: 10%;
-    }
-    
-    .info-left i {
-        width: 30px;
-        height: 30px;
-        line-height: 30px;
-        font-size: 30px;
-        color: #ffffff;
-    }
-    
-    .info-right h4 {
-        color: #fff;
-        font-size: 18px;
-    }
-    .contact-page .info-left i{
-    color: rgb(111, 132, 254);
-    }
-    .btn {
-    display: inline-block;
-        font-weight: 400;
-        text-align: center;
-        white-space: nowrap;
-        vertical-align: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-        font-family: 'Poppins', sans-serif;
-        padding: 10px 30px 10px;
-        font-size: 17px;
-        line-height: 28px;
-        border: 0px;
-        border-radius: 10px;
-        -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-        -o-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-    }
-    .btn-big {
-        color: #ffffff;
-        -webkit-box-shadow: 0px 5px 20px 0px rgba(45, 45, 45, 0.47843137254901963);
-        box-shadow: 2px 5px 10px 0px rgba(45, 45, 45, 0.19);
-        color: #fff !important;
-        margin-right: 20px;
-        background: rgb(111, 132, 254);
-        transition: .2s;
-        border: 2px solid rgb(111, 132, 254);
-        margin-top: 50px;
-        
-    }
-    
-    .btn-big:hover{
-        background: rgb(79, 100, 216);
-        border: 2px solid rgb(79, 100, 216);
-    } 
-    
-    @media only screen and (max-width: 767px) {
-    .contact-form {
-        padding: 30px;
-    }
-    .contact-form:before {
-        width: 100%;
-    }
-    
-    }
+                background-image: linear-gradient(to right, rgba(51, 82, 141, 0.795), rgba(51, 82, 141, 0.795));
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+                position: relative;
+                padding: 110px 0;
+            }
 
-    .contact-form .form-group .contenteditable-container {
-    position: relative;
-}
+            .section-bg {
+                background-size: cover;
+                position: relative;
+                background-position: left;
+                z-index: 0;
+                padding: 0;
+                min-height: auto;
+                overflow: hidden;
+            }
 
-.contact-form .form-group .contenteditable {
-    border: 2px solid rgba(0, 0, 0, 0);
-    padding: 11px 0;
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 1.5;
-    background-color: transparent;
-    min-height: 50px;
-    box-sizing: border-box;
-    width: 45%;
-    border-bottom-color: rgba(0,0,0,.1);
-    outline: none;
-    transition: .3s ease-in-out;
-}
+            .contact-form {
+                position: relative;
+                padding: 45px 0 45px 60px;
+                background: #fff;
+                border-radius: 6px;
+                box-shadow: 10px 40px 40px rgba(0, 0, 0, .2);
+            }
 
-.contact-form .form-group .contenteditable[data-placeholder]:empty:before {
-    content: attr(data-placeholder);
-    color: #222222;
-    pointer-events: none;
-    display: block;
-    font-weight: 100;
-}
+            .contact-form:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                border-radius: 6px;
+                pointer-events: none;
+                right: auto;
+                width: 100%;
+            }
 
-.contact-form .form-group .contenteditable:focus {
-    border-bottom-color: rgb(111, 132, 254);
-}
-
-
-    
-        </style>
-        <style>
-            :host {
+            .contact-form input,
+            .contact-form textarea {
+                border: 0;
+                background: transparent;
                 display: block;
-                max-width: 1200px;
-                margin: auto;
-                padding: 20px;
-                font-size: 21px;
+                width: 100%;
+                min-height: 50px;
+                padding: 11px 0;
+                font-size: 16px;
+                font-weight: 600;
+                line-height: 27px;
+                background-color: transparent;
+                background-image: none;
+                border-radius: 0;
+                -webkit-appearance: none;
+                transition: .3s ease-in-out;
+                border: 2px solid transparent;
+                border-bottom-color: rgba(0, 0, 0, .1);
             }
-            
-            .container {
-                text-align: center;
-                color: #fff;
+
+            .contact-form input::placeholder,
+            .contact-form textarea::placeholder {
+                color: #222;
             }
-            
-            .container h1 {
-                color: #fff;
+
+            .contact-form input:hover,
+            .contact-form input:focus,
+            .contact-form textarea:hover,
+            .contact-form textarea:focus {
+                outline: none;
+                box-shadow: none;
+                background: transparent;
+                border: 2px solid transparent;
+                border-bottom-color: rgb(111, 132, 254);
             }
-            
-            .highlight {
-                font-weight: bold;
-            }
-            
-            .line {
-                height: 2px;
+
+            .taso-btn {
                 background-color: #fff;
-                margin: 10px 0;
+                margin: 25px 0;
+                color: #214dcb;
+                -webkit-box-shadow: 0px 10px 30px 0px rgba(255, 255, 255, 0.32);
+                box-shadow: 0px 10px 30px 0px rgba(255, 255, 255, 0.17);
             }
-            
-            .row {
+
+            .contact-info {
+                padding: 0 30px 0px 0;
+            }
+
+            h2.contact-title {
+                font-size: 35px;
+                font-weight: 600;
+                color: #fff;
+                margin-bottom: 30px;
+            }
+
+            .contact-info p {
+                color: #ececec;
+            }
+
+            ul.contact-info {
+                margin-top: 30px;
+            }
+
+            ul.contact-info li {
+                margin-bottom: 22px;
+            }
+
+            ul.contact-info span {
+                font-size: 20px;
+                line-height: 26px;
+            }
+
+            ul.contact-info li {
                 display: flex;
-                justify-content: space-around;
-                margin: 20px 0;
+                width: 100%;
             }
-            
-            .col {
-                flex: 1;
-                margin: 0 10px;
+
+            .info-left {
+                width: 10%;
+            }
+
+            .info-left i {
+                width: 30px;
+                height: 30px;
+                line-height: 30px;
+                font-size: 30px;
+                color: #ffffff;
+            }
+
+            .info-right h4 {
+                color: #fff;
+                font-size: 18px;
+            }
+
+            .contact-page .info-left i {
+                color: rgb(111, 132, 254);
+            }
+
+            .btn {
+                display: inline-block;
+                font-weight: 400;
                 text-align: center;
-                padding: 20px;
+                white-space: nowrap;
+                vertical-align: middle;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                font-family: 'Poppins', sans-serif;
+                padding: 10px 30px 10px;
+                font-size: 17px;
+                line-height: 28px;
+                border: 0px;
                 border-radius: 10px;
+                -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+                transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+                -o-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+                transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+                transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
             }
-            
-            .col img {
-                max-width: 100px;
-                background-color: #fff;
-                /* Default background color */
-                margin-bottom: 10px;
+
+            .btn-big {
+                color: #ffffff;
+                -webkit-box-shadow: 0px 5px 20px 0px rgba(45, 45, 45, 0.47843137254901963);
+                box-shadow: 2px 5px 10px 0px rgba(45, 45, 45, 0.19);
+                color: #fff !important;
+                margin-right: 20px;
+                background: rgb(111, 132, 254);
+                transition: .2s;
+                border: 2px solid rgb(111, 132, 254);
+                margin-top: 50px;
             }
-            
-            .contenedor-formulario {
-                padding: 30px;
-                border: 1px solid #ccc;
-                border-radius: 8px;
-                background-color: #f9f9f9;
+
+            .btn-big:hover {
+                background: rgb(79, 100, 216);
+                border: 2px solid rgb(79, 100, 216);
             }
-            
-            .form-group {
-                margin-bottom: 40px;
+
+            @media only screen and (max-width: 767px) {
+                .contact-form {
+                    padding: 30px;
+                }
+
+                .contact-form:before {
+                    width: 100%;
+                }
             }
-            
-            .titulo {
-                font-size: 24px;
-                font-weight: bold;
-                color: #333;
+
+            .contact-form .form-group .contenteditable-container {
+                position: relative;
             }
-            
-            .radio-group {
-                display: flex;
-                justify-content: center;
-                gap: 20px;
+
+            .contact-form .form-group .contenteditable {
+                border: 2px solid rgba(0, 0, 0, 0);
+                padding: 11px 0;
+                font-size: 16px;
+                font-weight: 600;
+                line-height: 1.5;
+                background-color: transparent;
+                min-height: 50px;
+                box-sizing: border-box;
+                width: 100%;
+                border-bottom-color: rgba(0, 0, 0, .1);
+                outline: none;
+                transition: .3s ease-in-out;
             }
-            
-            .radio-label {
-                display: flex;
-                align-items: center;
-                gap: 10px;
-                font-size: 18px;
-                color: #333;
+
+            .contact-form .form-group .contenteditable[data-placeholder]:empty:before {
+                content: attr(data-placeholder);
+                color: #222222;
+                pointer-events: none;
+                display: block;
+                font-weight: 100;
             }
-            
-            .hs-form-field.radio {
-                width: 20px;
-                height: 20px;
-            }
-            
-            .hs-button {
-                padding: 10px 20px;
-                font-size: 18px;
-                color: #fff;
-                background-color: #007bff;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-                transition: background-color 0.3s;
-            }
-            
-            .hs-button:hover {
-                background-color: #0056b3;
-            }
-            
-            .barra {
-                margin-top: 20px;
-                height: 4px;
-                background-color: #007bff;
+
+            .contact-form .form-group .contenteditable:focus {
+                border-bottom-color: rgb(111, 132, 254);
             }
         </style>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
-        <div class="overlay pt-100 pb-100">
-          <div class="container">
-             <div class="row">
-                  <div class="col-lg-6 d-flex align-items-center">
-                      <div class="contact-info">
-    
-                          <h2 class="contact-title" style="font-family: Arial, Helvetica, sans-serif;">Contactanos</h2>
-                          <h4 style="font-family: Arial, Helvetica, sans-serif; color: white"> Platiquemos <br>
-                            Nos gustaría saber de ti.</h4>
-                          <ul class="contact-info">
-    
-                              <li>
-                                <div class="info-left">
-                                    <i class="fas fa-at"></i>
-                                </div>
-                                <div  class="info-right">
-                                    <h4 style="font-family: Arial, Helvetica, sans-serif; color: white">&nbsp;ventas@aamuris.com.mx</h4>
-                                </div>
-                              </li>
-                              <li>
-                                <div class="info-left">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                </div>
-                                <div class="info-right">
-                                    <h4 style="font-family: Arial, Helvetica, sans-serif; color: white">Lincoln #4343, Col. San Rafael, 88200, <br/> Nuevo Laredo, Tamaulipas, <br/> Mexico.</h4>
-                                </div>
-                              </li>
-                          </ul>
-                      </div>
-                  </div>
-                  <div class="col-lg-6 d-flex align-items-center" >
-                          <div class="contact-form" >
-                                      <!--Contact Form-->
-                                      Envianos un mensaje
-    
-                                      <form  id='contact-form' method='POST'><input type='hidden' name='form-name' value='contactForm' />
-                                          
-                                        <div class="row">
-                                           
-                                             <div class="col-md-12">
-                                                <div class="form-group">
-                                                   <input type="text" name="name" class="form-control" id="first-name" placeholder="Nombre completo*" required="required">
-                                                </div>
-                                             </div>
-                                             <div class="col-md-12">
-                                                <div class="form-group">
-                                                   <input type="email" name="email" class="form-control" id="email" placeholder="Email*" required="required">
-                                                </div>
-                                             </div>
-                                             <div class="col-md-12">
-                                                <div class="form-group">
-                                                   <input type="phone" name="phone" class="form-control" id="phone" placeholder="Telefóno*" required="required">
-                                                </div>
-                                             </div>
-                                             <div class="col-md-12" >
-                                                <div class="form-group contenteditable-container" >
-                                                    <div class="form-control contenteditable" id="msgthingy" contenteditable="true" data-placeholder="Mensaje*" required="required"></div>
-                                                    
-                                                </div>
 
-                                            </div>
-                                              <div class="col-md-12">
-                                                  <!--contact button-->
-                                                  <button  class="btn-big btn btn-bg">
-                                                    Enviar <i class="fas fa-arrow-right"></i>
-                                                  </button>
-                                              </div>
-                                          </div>
-                                      </form>
-                                  </div>
-                  </div>
-             </div>
-         </div>
+        <div class="overlay pt-100 pb-100">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 d-flex align-items-center">
+                        <div class="contact-info">
+                            <h2 class="contact-title" style="font-family: Arial, Helvetica, sans-serif;">Contactanos</h2>
+                            <h4 style="font-family: Arial, Helvetica, sans-serif; color: white"> Platiquemos <br> Nos gustaría saber de ti.</h4>
+                            <ul class="contact-info">
+                                <li>
+                                    <div class="info-left">
+                                        <i class="fas fa-at"></i>
+                                    </div>
+                                    <div class="info-right">
+                                        <h4 style="font-family: Arial, Helvetica, sans-serif; color: white">&nbsp;ventas@aamuris.com.mx</h4>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="info-left">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <div class="info-right">
+                                        <h4 style="font-family: Arial, Helvetica, sans-serif; color: white">Lincoln #4343, Col. San Rafael, 88200, <br /> Nuevo Laredo, Tamaulipas, <br /> Mexico.</h4>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 d-flex align-items-center">
+                        <div class="contact-form" style="padding-right: 50px;">
+                            <!--Contact Form-->
+                            <!-- <h2>Envianos un mensaje</h2> -->
+
+                            <form id='contact-form' method='POST'>
+                                <input type='hidden' name='form-name' value='contactForm' />
+
+                                <div class="row">
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <input type="text" name="name" class="form-control" id="first-name" placeholder="Nombre completo*" required="required">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <input type="email" name="email" class="form-control" id="email" placeholder="Email*" required="required">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <input type="phone" name="phone" class="form-control" id="phone" placeholder="Telefóno*" required="required">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <my-widget></my-widget>
+                                    </div>
+                                    <!-- <div class="col-md-12">
+                                        <div class="form-group contenteditable-container">
+                                            <div class="form-control contenteditable" contenteditable="true" data-placeholder="Mensaje*" required="required"></div>
+                                        </div>
+                                    </div> -->
+                                    <div class="col-md-12">
+                                        <!--contact button-->
+                                        <button class="btn-big btn btn-bg">
+                                            Enviar <i class="fas fa-arrow-right"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
-      </section>
-    </div>
-    <script>
-        // Wait for the DOM to be fully loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            // Get the content of the shadow DOM
-            const shadowContent = document.getElementById('my-widget').shadowRoot.innerHTML;
-            console.log()
-            // Insert the shadow DOM content into the contenteditable div
-            document.getElementById('msgthingy').innerHTML = shadowContent;
-        });
-    </script>
+        </div>
+    </section>
+</div>
+
+
+
     <style>
         /* Aligns the items vertically in the footer */
     .footer .row {
