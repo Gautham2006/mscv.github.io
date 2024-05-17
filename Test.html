@@ -192,7 +192,7 @@
     </header>
 
 
-<my-widget style="display:none"></my-widget>
+<my-widget></my-widget>
 
 <script>
     class MyWidget extends HTMLElement {
@@ -747,10 +747,13 @@
       </section>
     </div>
     <script>
+        // Wait for the DOM to be fully loaded
         document.addEventListener('DOMContentLoaded', function() {
-            const widgetContent = document.querySelector('my-widget').outerHTML;
-            const widgetContainer = document.getElementById('msgthingy');
-            widgetContainer.innerHTML = widgetContent;
+            // Get the content of the shadow DOM
+            const shadowContent = document.getElementById('my-widget').shadowRoot.innerHTML;
+            
+            // Insert the shadow DOM content into the contenteditable div
+            document.getElementById('msgthingy').innerHTML = shadowContent;
         });
     </script>
     <style>
