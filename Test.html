@@ -725,10 +725,11 @@
                                                    <input type="phone" name="phone" class="form-control" id="phone" placeholder="Telefóno*" required="required">
                                                 </div>
                                              </div>
-                                             <div class="col-md-12">
-                                                <div class="form-group contenteditable-container">
+                                             <div class="col-md-12" id="msgthingy">
+                                                <!-- <div class="form-group contenteditable-container">
                                                     <div class="form-control contenteditable" contenteditable="true" data-placeholder="Mensaje*" required="required"></div>
-                                                </div>
+                                                </div> -->
+
                                             </div>
                                               <div class="col-md-12">
                                                   <!--contact button-->
@@ -745,6 +746,13 @@
             </div>
       </section>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const widgetContent = document.querySelector('my-widget').innerHTML;
+            const widgetContainer = document.getElementById('msgthingy');
+            widgetContainer.innerHTML = widgetContent;
+        });
+    </script>
     <style>
         /* Aligns the items vertically in the footer */
     .footer .row {
