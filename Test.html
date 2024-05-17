@@ -748,7 +748,7 @@
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const widgetContent = document.querySelector('my-widget').innerHTML;
+            const widgetContent = document.querySelector('my-widget').outerHTML;
             const widgetContainer = document.getElementById('msgthingy');
             widgetContainer.innerHTML = widgetContent;
         });
