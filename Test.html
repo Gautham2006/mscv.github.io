@@ -3,53 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Milenio Aduanas Articles</title>
+    <title>Shadow DOM Example</title>
     <style>
         body {
             font-family: Arial, sans-serif;
         }
-        .article {
-            border-bottom: 1px solid #ccc;
-            padding: 10px 0;
-        }
-        .article img {
-            max-width: 300px;
+        my-widget {
+            display: block;
+            margin: 20px;
         }
     </style>
 </head>
 <body>
-    <h1>Milenio Aduanas Articles</h1>
-    <div id="news-container"></div>
 
-    <script>
-        async function fetchSheetData() {
-            const url = 'https://script.google.com/macros/s/AKfycbzaekeVeumgMoDNvuaJQQIJErpqeJhMf4CDi1ad3pPkOxa5p5Zl5vZDcuiGmJGR6qb2/exec';  // Replace with your web app URL
+<my-widget></my-widget>
 
-            try {
-                const response = await fetch(url);
-                const articles = await response.json();
-
-                const container = document.getElementById('news-container');
-                container.innerHTML = '';
-
-                articles.forEach(article => {
-                    const element = document.createElement('div');
-                    element.className = 'article';
-                    element.innerHTML = `
-                        <h2>${article.Title}</h2>
-                        <p>${article.Summary}</p>
-                        <img src="${article.Image}" alt="Article Image">
-                        <br>
-                        <a href="${article.Link}" target="_blank">Read more</a>
-                    `;
-                    container.appendChild(element);
-                });
-            } catch (error) {
-                console.error('Error fetching data:', error);
-            }
+<script>
+    class MyWidget extends HTMLElement {
+        constructor() {
+            super();
+            const shadow = this.attachShadow({ mode: 'open' });
+            shadow.innerHTML = `
+                <style>
+                    :host {
+                        display: block;
+                        font-family: Arial, sans-serif;
+                        max-width: 1200px;
+                        margin: auto;
+                        padding: 20px;
+                    }
+                    .container {
+                        text-align: center;
+                        color: #1f4b70;
+                    }
+                    .container h1 {
+                        color: #f25c27;
+                    }
+                    .highlight {
+                        font-weight: bold;
+                    }
+                    .line {
+                        height: 2px;
+                        background-color: #f25c27;
+                        margin: 10px 0;
+                    }
+                    .row {
+                        display: flex;
+                        justify-content: space-around;
+                        margin: 20px 0;
+                    }
+                    .col {
+                        flex: 1;
+                        margin: 0 10px;
+                        text-align: center;
+                    }
+                    .col img {
+                        max-width: 100px;
+                        margin-bottom: 10px;
+                    }
+                </style>
+                <div class="container">
+                    <h1>Cotiza tus servicios aduanales</h1>
+                    <p class="highlight">Atendemos principalmente a empresas que manejan más de 10 operaciones al mes<br>o que tienen algún proyecto con una operación importante</p>
+                    <div class="line"></div>
+                    <h2>Al solicitar una cotización obtendrás:</h2>
+                    <div class="row">
+                        <div class="col">
+                            <img src="https://www.grupoei.com.mx/hs-fs/hubfs/site/cotizacion/cotiza-servicios-aduanales-grupoei-ic1.jpg" alt="Response time">
+                            <p><strong>Respuesta de tu solicitud<br>a la brevedad</strong></p>
+                        </div>
+                        <div class="col">
+                            <img src="https://www.grupoei.com.mx/hs-fs/hubfs/site/cotizacion/cotiza-servicios-aduanales-grupoei-ic2.jpg" alt="Expert advice">
+                            <p><strong>Asesoría por un especialista en<br>comercio exterior que te ayudará<br>a resolver todas tus dudas</strong></p>
+                        </div>
+                        <div class="col">
+                            <img src="https://www.grupoei.com.mx/hs-fs/hubfs/site/cotizacion/cotiza-servicios-aduanales-grupoei-ic3.jpg" alt="Flat rate">
+                            <p><strong>Cotización detallada de tus<br>servicios con una tarifa flat</strong></p>
+                        </div>
+                    </div>
+                    <h2>Para cotizar, selecciona el número de embarques que realiza tu empresa al mes</h2>
+                </div>
+            `;
         }
+    }
 
-        fetchSheetData();
-    </script>
+    customElements.define('my-widget', MyWidget);
+</script>
+
 </body>
 </html>
