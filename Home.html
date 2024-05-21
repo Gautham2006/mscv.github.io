@@ -1771,115 +1771,347 @@ Championing climate action with our global carbon commitment                    
             </div>
         </div>
     </div> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     
     <script>
-        class MyWidget extends HTMLElement {
+                class MyWidget extends HTMLElement {
             constructor() {
                 super();
                 const shadow = this.attachShadow({ mode: 'open' });
-                shadow.innerHTML = `
-                    <style>
-                        :host {
-                            display: block;
-                            width: 100%;
-                            
-                            
-                            font-size: 20px;
-                        }
-                        .container {
-                            text-align: center;
-                            color: #fff;
-                        }
-                        .highlight {
-                            font-weight: bold;
-                        }
-                        .line {
-                            height: 2px;
-                            background-color: #fff;
-                            margin: 10px 0;
-                        }
-                        .mcq-container {
-                        padding: 20px;
-                        border: 1px solid #ccc;
-                        border-radius: 8px;
-                        background-color: #f9f9f9;
-                        margin-top: 20px;
-                    }
-                    .mcq-container .form-group {
-                        margin-bottom: 20px;
-                    }
-                    .mcq-container .mcq-title {
-                        font-size: 20px;
-                        font-weight: bold;
-                        color: #333;
-                    }
-                    .mcq-container .radio-group {
-                        display: flex;
-                        flex-direction: column;
-                        gap: 10px;
-                    }
-                    .mcq-container .radio-label {
-                        display: flex;
-                        align-items: center;
-                        gap: 10px;
-                        font-size: 16px;
-                        color: #333;
-                    }
-                    .mcq-container .mcq-radio {
-                        width: 20px;
-                        height: 20px;
-                    }
 
-                    @media (max-width: 768px) {
-                        .mcq-container {
-                            padding: 10px;
-                        }
-                        .mcq-container .mcq-title {
-                            font-size: 18px;
-                        }
-                        .mcq-container .radio-label {
-                            font-size: 14px;
-                        }
+                // Initial state
+                this.currentStep = 1;
+                this.renderStep();
+
+                // Event listeners for navigation
+                shadow.addEventListener('click', event => {
+                    if (event.target.classList.contains('back-btn')) {
+                        this.currentStep = Math.max(1, this.currentStep - 1);
+                        this.renderStep();
+                    } else if (event.target.classList.contains('next-btn')) {
+                        // You can add validation logic here before proceeding to the next step
+                        this.currentStep = Math.min(8, this.currentStep + 1);
+                        this.renderStep();
                     }
+                });
+            }
+
+            renderStep() {
+                this.shadowRoot.innerHTML = `
+                <style>
+                    :host {
+            display: block;
+            font-family: Arial, sans-serif;
+            width: 100%;
+        }
+
+        .step-content {
+            margin-bottom: 20px;
+        }
+
+        .mcq-container {
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            margin-bottom: 20px;
+            margin-top: 20px; /* Adjust margin-top to add space */
+        }
+
+        .mcq-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .radio-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .mcq-radio {
+            width: 20px;
+            height: 20px;
+        }
+
+        .dropdown-select {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .navigation {
+            text-align: right;
+            padding-top: 5px;
+        }
+
+        .next-btn,
+        .back-btn {
+            padding: 15px 20px;
+            margin: 0 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .next-btn:hover,
+        .back-btn:hover {
+            background-color: #0056b3;
+        }
                     </style>
-                    <div class="mcq-container">
-                        <div class="form-group text-center">
-                            <p class="mcq-title">¿Qué tipo de operación deseas realizar?</p>
-                            <div class="radio-group">
-                                <label for="new-operacion-importacion" class="radio-label">
-                                    <input value="Importación" type="radio" name="new-operacion" id="new-operacion-importacion" class="mcq-radio">
-                                    Importación
-                                </label>
-                                <label for="new-operacion-exportacion" class="radio-label">
-                                    <input value="Exportación" type="radio" name="new-operacion" id="new-operacion-exportacion" class="mcq-radio">
-                                    Exportación
-                                </label>
-                                <label for="new-operacion-ambas" class="radio-label">
-                                    <input type="radio" value="Ambas" name="new-operacion" id="new-operacion-ambas" class="mcq-radio">
-                                    Ambas
-                                </label>
-                            </div>
-                        </div>
-                        <div class="form-group mt40 text-center">
-                            <p class="mcq-title">¿Trabajas como persona física o persona moral?</p>
-                            <div class="radio-group">
-                                <label for="new-persona-fisica" class="radio-label">
-                                    <input type="radio" value="Persona física" name="new-regimen_fiscal" id="new-persona-fisica" class="mcq-radio">
-                                    Persona Física
-                                </label>
-                                <label for="new-persona-moral" class="radio-label">
-                                    <input type="radio" value="Persona moral" name="new-regimen_fiscal" id="new-persona-moral" class="mcq-radio">
-                                    Persona Moral
-                                </label>
-                            </div>
-                        </div>
+                    <div class="step-content">
+                        ${this.renderStepContent()}
+                    </div>
+                    <div class="navigation">
+                        ${this.currentStep > 1 ? '<button class="back-btn">Back</button>' : ''}
+                        ${this.currentStep < 8 ? '<button class="next-btn">Next</button>' : ''}
                     </div>
                 `;
             }
+
+            renderStepContent() {
+                switch (this.currentStep) {
+                    case 1:
+                        return `
+                            <div class="mcq-container">
+                                <p class="mcq-title">¿Qué tipo de operación deseas realizar?</p>
+                                <div class="radio-group">
+                                    <label class="radio-label">
+                                        <input type="radio" value="Importación" name="step1" class="mcq-radio">
+                                        Importación
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" value="Exportación" name="step1" class="mcq-radio">
+                                        Exportación
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" value="Ambas" name="step1" class="mcq-radio">
+                                        Ambas
+                                    </label>
+                                </div>
+                            </div>
+                        `;
+                    case 2:
+                        return `
+                            <div class="mcq-container">
+                                <p class="mcq-title">¿Trabajas como persona física o persona moral?</p>
+                                <div class="radio-group">
+                                    <label class="radio-label">
+                                        <input type="radio" value="Persona física" name="step2" class="mcq-radio">
+                                        Persona Física
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" value="Persona moral" name="step2" class="mcq-radio">
+                                        Persona Moral
+                                    </label>
+                                </div>
+                            </div>
+                        `;
+
+                    case 3:
+                        return `
+                        <div class="mcq-container">
+                            <p class="mcq-title">¿Qué tipo de operación requieres?</p>
+                                <select class="dropdown-select" name="step2">
+                                    <option value="Importacion">Importación</option>
+                                    <option value="Exportacion">Exportacion</option>
+                                    <option value="Importación y Exportación">Importación y Exportación</option>
+                                    <option value="Otro">Otro</option>
+                                </select>
+                            </div>
+                            </div>
+                        `;
+                    case 4:
+                        return `
+                        <div class="mcq-container">
+                            <p class="mcq-title">¿Cuentas con padrón de importadores?</p>
+                                <select class="dropdown-select" name="step2">
+                                    <option value="Sí">Sí</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+                            </div>
+                        `;
+                    case 5:
+                        return `
+                        <div class="mcq-container">
+                                <p class="mcq-title">¿Qué mercancía manejas?</p>
+                                <div class="form-group">
+                                    <input type="text" name="¿Que mercancia maneja?" class="form-control" id="¿Que mercancia maneja?" placeholder="" required="required">
+                                </div>
+                            </div>
+                        `;
+  
+                    case 6:
+                        return `
+                        <div class="mcq-container">
+                                <p class="mcq-title">¿Que aduanas maneja?</p>
+                                <div class="form-group">
+                                    <input type="text" name="¿Que aduanas maneja?" class="form-control" id="¿Que aduanas maneja?" placeholder="" required="required">
+                                </div>
+                            </div>
+                        `;
+                    case 7:
+                        return `
+                        <div class="mcq-container">
+                                <p class="mcq-title">Número de partes que manejas por embarque (Line-ítems)</p>
+                                <div class="form-group">
+                                    <input type="text" name="Número de partes que manejas por embarque (Line-ítems)" class="form-control" id="Número de partes que manejas por embarque (Line-ítems)" placeholder="" required="required">
+                                </div>
+                            </div>
+                        `;                    
+                    case 8:
+                        return `
+                        <div class="mcq-container">
+                                <p class="mcq-title">Comentarios Adicionales</p>
+                                <div class="form-group">
+                                    <textarea type="text" rows = '5' columns = '15' name="Comentarios Adicionales" class="form-control" id="Comentarios Adicionales" placeholder="" required="required"></textarea>
+                                </div>
+                            </div>
+                        `;                         
+                }
+            }
+
+            
         }
-    
+       
         customElements.define('my-widget', MyWidget);
+    //     class MyWidget extends HTMLElement {
+    //         constructor() {
+    //             super();
+    //             const shadow = this.attachShadow({ mode: 'open' });
+    //             shadow.innerHTML = `
+    //                 <style>
+    //                     :host {
+    //                         display: block;
+    //                         width: 100%;
+                            
+                            
+    //                         font-size: 20px;
+    //                     }
+    //                     .container {
+    //                         text-align: center;
+    //                         color: #fff;
+    //                     }
+    //                     .highlight {
+    //                         font-weight: bold;
+    //                     }
+    //                     .line {
+    //                         height: 2px;
+    //                         background-color: #fff;
+    //                         margin: 10px 0;
+    //                     }
+    //                     .mcq-container {
+    //                     padding: 20px;
+    //                     border: 1px solid #ccc;
+    //                     border-radius: 8px;
+    //                     background-color: #f9f9f9;
+    //                     margin-top: 20px;
+    //                 }
+    //                 .mcq-container .form-group {
+    //                     margin-bottom: 20px;
+    //                 }
+    //                 .mcq-container .mcq-title {
+    //                     font-size: 20px;
+    //                     font-weight: bold;
+    //                     color: #333;
+    //                 }
+    //                 .mcq-container .radio-group {
+    //                     display: flex;
+    //                     flex-direction: column;
+    //                     gap: 10px;
+    //                 }
+    //                 .mcq-container .radio-label {
+    //                     display: flex;
+    //                     align-items: center;
+    //                     gap: 10px;
+    //                     font-size: 16px;
+    //                     color: #333;
+    //                 }
+    //                 .mcq-container .mcq-radio {
+    //                     width: 20px;
+    //                     height: 20px;
+    //                 }
+
+    //                 @media (max-width: 768px) {
+    //                     .mcq-container {
+    //                         padding: 10px;
+    //                     }
+    //                     .mcq-container .mcq-title {
+    //                         font-size: 18px;
+    //                     }
+    //                     .mcq-container .radio-label {
+    //                         font-size: 14px;
+    //                     }
+    //                 }
+    //                 </style>
+    //                 <div class="mcq-container">
+    //                     <div class="form-group text-center">
+    //                         <p class="mcq-title">¿Qué tipo de operación deseas realizar?</p>
+    //                         <div class="radio-group">
+    //                             <label for="new-operacion-importacion" class="radio-label">
+    //                                 <input value="Importación" type="radio" name="new-operacion" id="new-operacion-importacion" class="mcq-radio">
+    //                                 Importación
+    //                             </label>
+    //                             <label for="new-operacion-exportacion" class="radio-label">
+    //                                 <input value="Exportación" type="radio" name="new-operacion" id="new-operacion-exportacion" class="mcq-radio">
+    //                                 Exportación
+    //                             </label>
+    //                             <label for="new-operacion-ambas" class="radio-label">
+    //                                 <input type="radio" value="Ambas" name="new-operacion" id="new-operacion-ambas" class="mcq-radio">
+    //                                 Ambas
+    //                             </label>
+    //                         </div>
+    //                     </div>
+    //                     <div class="form-group mt40 text-center">
+    //                         <p class="mcq-title">¿Trabajas como persona física o persona moral?</p>
+    //                         <div class="radio-group">
+    //                             <label for="new-persona-fisica" class="radio-label">
+    //                                 <input type="radio" value="Persona física" name="new-regimen_fiscal" id="new-persona-fisica" class="mcq-radio">
+    //                                 Persona Física
+    //                             </label>
+    //                             <label for="new-persona-moral" class="radio-label">
+    //                                 <input type="radio" value="Persona moral" name="new-regimen_fiscal" id="new-persona-moral" class="mcq-radio">
+    //                                 Persona Moral
+    //                             </label>
+    //                         </div>
+    //                     </div>
+    //                 </div>
+    //             `;
+    //         }
+    //     }
+    
+    //     customElements.define('my-widget', MyWidget);
     </script>
     
     <div style="background-color: #00142b;">
