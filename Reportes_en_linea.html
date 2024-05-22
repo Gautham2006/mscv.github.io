@@ -697,344 +697,608 @@
 
 
     </div>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <script>
+        class MyWidget extends HTMLElement {
+            constructor() {
+                super();
+                this.currentStep = 1;
+                this.formData = JSON.parse(localStorage.getItem('formData')) || {}; // Load stored data from local storage
+                this.attachShadow({ mode: 'open' });
+                this.renderStep();
+            }
+
+            renderStep() {
+                this.shadowRoot.innerHTML = `
+                    <style>
+                        :host {
+                            display: block;
+                            font-family: Arial, sans-serif;
+                            width: 100%;
+                        }
+
+                        .step-content {
+                            margin-bottom: 20px;
+                        }
+
+                        .mcq-container {
+                            padding: 20px;
+                            border: 1px solid #ccc;
+                            border-radius: 8px;
+                            background-color: #f9f9f9;
+                            margin-bottom: 20px;
+                            margin-top: 20px;
+                        }
+
+                        .mcq-title {
+                            font-size: 20px;
+                            font-weight: bold;
+                            color: #333;
+                            margin-bottom: 10px;
+                        }
+
+                        .radio-group {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 10px;
+                        }
+
+                        .radio-label {
+                            display: flex;
+                            align-items: center;
+                            gap: 10px;
+                            font-size: 16px;
+                            color: #333;
+                        }
+
+                        .mcq-radio {
+                            width: 20px;
+                            height: 20px;
+                        }
+
+                        .dropdown-select {
+                            padding: 10px;
+                            font-size: 16px;
+                            border: 1px solid #ccc;
+                            border-radius: 5px;
+                            width: 100%;
+                            box-sizing: border-box;
+                        }
+
+                        .form-group {
+                            margin-bottom: 20px;
+                        }
+
+                        .form-control {
+                            padding: 10px;
+                            font-size: 16px;
+                            border: 1px solid #ccc;
+                            border-radius: 5px;
+                            width: 100%;
+                            box-sizing: border-box;
+                        }
+
+                        .navigation {
+                            text-align: right;
+                            padding-top: 30px;
+                        }
+
+                        .next-btn,
+                        .back-btn {
+                            padding: 15px 20px;
+                            margin: 0 10px;
+                            border: none;
+                            border-radius: 5px;
+                            background-color: #007bff;
+                            color: #fff;
+                            cursor: pointer;
+                            transition: background-color 0.3s ease-in-out;
+                        }
+
+                        .next-btn:hover,
+                        .back-btn:hover {
+                            background-color: #0056b3;
+                        }
+                    </style>
+                    <div class="step-content">
+                        ${this.renderStepContent()}
+                    </div>
+                    <div class="navigation">
+                        ${this.currentStep > 1 ? '<button class="back-btn">Back</button>' : ''}
+                        ${this.currentStep < 8 ? '<button class="next-btn">Next</button>' : ''}
+                    </div>
+                `;
+
+                this.setupEventListeners();
+            }
+
+            renderStepContent() {
+                switch (this.currentStep) {
+                    case 1:
+                        return `
+                            <div class="mcq-container">
+                                <p class="mcq-title">¿Qué tipo de operación deseas realizar?</p>
+                                <div class="radio-group">
+                                    <label class="radio-label">
+                                        <input type="radio" value="Importación" name="step1" class="mcq-radio" ${this.formData['step1'] === 'Importación' ? 'checked' : ''}>
+                                        Importación
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" value="Exportación" name="step1" class="mcq-radio" ${this.formData['step1'] === 'Exportación' ? 'checked' : ''}>
+                                        Exportación
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" value="Ambas" name="step1" class="mcq-radio" ${this.formData['step1'] === 'Ambas' ? 'checked' : ''}>
+                                        Ambas
+                                    </label>
+                                </div>
+                            </div>
+                        `;
+                    case 2:
+                        return `
+                            <div class="mcq-container">
+                                <p class="mcq-title">¿Trabajas como persona física o persona moral?</p>
+                                <div class="radio-group">
+                                    <label class="radio-label">
+                                        <input type="radio" value="Persona física" name="step2" class="mcq-radio" ${this.formData['step2'] === 'Persona física' ? 'checked' : ''}>
+                                        Persona Física
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" value="Persona moral" name="step2" class="mcq-radio" ${this.formData['step2'] === 'Persona moral' ? 'checked' : ''}>
+                                        Persona Moral
+                                    </label>
+                                </div>
+                            </div>
+                        `;
+                    case 3:
+                        return `
+                            <div class="mcq-container">
+                                <p class="mcq-title">¿Qué tipo de operación requieres?</p>
+                                <select class="dropdown-select" name="step3">
+                                    <option value="Importacion" ${this.formData['step3'] === 'Importacion' ? 'selected' : ''}>Importación</option>
+                                    <option value="Exportacion" ${this.formData['step3'] === 'Exportacion' ? 'selected' : ''}>Exportacion</option>
+                                    <option value="Importación y Exportación" ${this.formData['step3'] === 'Importación y Exportación' ? 'selected' : ''}>Importación y Exportación</option>
+                                    <option value="Otro" ${this.formData['step3'] === 'Otro' ? 'selected' : ''}>Otro</option>
+                                </select>
+                            </div>
+                        `;
+                    case 4:
+                        return `
+                            <div class="mcq-container">
+                                <p class="mcq-title">¿Cuentas con padrón de importadores?</p>
+                                <select class="dropdown-select" name="step4">
+                                    <option value="Sí" ${this.formData['step4'] === 'Sí' ? 'selected' : ''}>Sí</option>
+                                    <option value="No" ${this.formData['step4'] === 'No' ? 'selected' : ''}>No</option>
+                                </select>
+                            </div>
+                        `;
+                    case 5:
+                        return `
+                            <div class="mcq-container">
+                                <p class="mcq-title">¿Qué mercancía manejas?</p>
+                                <div class="form-group">
+                                    <input type="text" name="step5" class="form-control" placeholder="" required="required" value="${this.formData['step5'] || ''}">
+                                </div>
+                            </div>
+                        `;
+                    case 6:
+                        return `
+                            <div class="mcq-container">
+                                <p class="mcq-title">¿Que aduanas maneja?</p>
+                                <div class="form-group">
+                                    <input type="text" name="step6" class="form-control" placeholder="" required="required" value="${this.formData['step6'] || ''}">
+                                </div>
+                            </div>
+                        `;
+                    case 7:
+                        return `
+                            <div class="mcq-container">
+                                <p class="mcq-title">Número de partes que manejas por embarque (Line-ítems)</p>
+                                <div class="form-group">
+                                    <input type="text" name="step7" class="form-control" placeholder="" required="required" value="${this.formData['step7'] || ''}">
+                                </div>
+                            </div>
+                        `;
+                    case 8:
+                        return `
+                            <div class="mcq-container">
+                                <p class="mcq-title">Comentarios Adicionales</p>
+                                <div class="form-group">
+                                    <textarea type="text" rows="5" columns="15" name="step8" class="form-control" placeholder="" required="required">${this.formData['step8'] || ''}</textarea>
+                                </div>
+                            </div>
+                        `;
+                }
+            }
+
+            setupEventListeners() {
+                // Radio buttons
+                const radioButtons = this.shadowRoot.querySelectorAll('.mcq-radio');
+                radioButtons.forEach(button => {
+                    button.addEventListener('change', event => {
+                        this.formData[event.target.name] = event.target.value;
+                        localStorage.setItem('formData', JSON.stringify(this.formData)); // Store data in local storage
+                    });
+                });
+
+                // Dropdowns
+                const dropdowns = this.shadowRoot.querySelectorAll('.dropdown-select');
+                dropdowns.forEach(dropdown => {
+                    dropdown.addEventListener('change', event => {
+                        this.formData[event.target.name] = event.target.value;
+                        localStorage.setItem('formData', JSON.stringify(this.formData)); // Store data in local storage
+                    });
+                });
+
+                // Text inputs and textareas
+                const textInputs = this.shadowRoot.querySelectorAll('.form-control');
+                textInputs.forEach(input => {
+                    input.addEventListener('input', event => {
+                        this.formData[event.target.name] = event.target.value;
+                        localStorage.setItem('formData', JSON.stringify(this.formData)); // Store data in local storage
+                    });
+                });
+
+                const nextButton = this.shadowRoot.querySelector('.next-btn');
+                if (nextButton) {
+                    nextButton.addEventListener('click', () => {
+                        this.currentStep++;
+                        this.renderStep();
+                    });
+                }
+
+                const backButton = this.shadowRoot.querySelector('.back-btn');
+                if (backButton) {
+                    backButton.addEventListener('click', () => {
+                        this.currentStep--;
+                        this.renderStep();
+                    });
+                }
+            }
+        }
+
+        customElements.define('my-widget', MyWidget);
+    </script>
+    
     <div style="background-color: #00142b;">
-        <section id = "contact" class="contact" style="background-image: url(https://images4.alphacoders.com/879/thumb-1920-879683.jpg); background-repeat: no-repeat;"  data-scroll-index="7">
+        <section id="contact" class="contact" style="background-image: url(https://images4.alphacoders.com/879/thumb-1920-879683.jpg); background-repeat: no-repeat;" data-scroll-index="7">
             <style>
                 .overlay {
-            background-image: linear-gradient(to right, rgba(51, 82, 141, 0.795), rgba(51, 82, 141, 0.795));
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            position: relative;
-            padding: 110px 0;
-        }
-        .section-bg {
-            background-size: cover;
-            position: relative;
-            background-position: left;
-            z-index: 0;
-            padding: 0;
-            min-height: auto;
-            overflow: hidden;
-        }
-        .contact-form {
-            position: relative;
-            padding: 45px 0 45px 60px;
-        }
-        
-        .contact-form:before {
-            position: absolute;
-            content: '';
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            border-radius: 6px;
-            background: #ffffff;
-            box-shadow: 10px 40px 40px rgba(0,0,0,.2);
-            pointer-events: none;
-            right: auto;
-            width: 60%;
-        }
-        .particles-js-canvas-el {
-            position: absolute;
-            left: 0;
-            top: 0;
-            z-index: 1;
-        }
-        .contact-form input {
-            border: 0;
-            background: transparent;
-        
-            display: block;
-            width: 45%;
-            min-height: 50px;
-            padding: 11px 0;
-            font-size: 16px;
-            font-weight: 600;
-            line-height: 27px;
-        
-            background-color: transparent;
-            background-image: none;
-            border-radius: 0;
-            -webkit-appearance: none;
-            transition: .3s ease-in-out;
-            border: 2px solid transparent;
-            border-bottom-color: rgba(0,0,0,.1);
-        }
-        
-        .contact-form textarea {
-            border: 0;
-            background: transparent;
-            display: block;
-            width: 45%;
-            min-height: 50px;
-            padding: 11px 0;
-            font-size: 16px;
-            font-weight: 600;
-            line-height: 27px;
-        
-            background-color: transparent;
-            background-image: none;
-            border-radius: 0;
-            -webkit-appearance: none;
-            transition: .3s ease-in-out;
-            border: 2px solid transparent;
-            border-bottom-color: rgba(0,0,0,.1);
-        }
-        .contact-form input::placeholder {
-          color:#222;
-          
-        }
-        .contact-form textarea::placeholder {
-         
-          color:#222;
-        
-        }
-        .contact-form input {
-            margin-bottom: 30px;
-            font-size: 16px;
-            font-weight: 600;
-            height: 55px;
-        }
-        .contact-form input:hover, .contact-form input:focus{
-            outline: none;
-            box-shadow: none;
-            background: transparent;
-            border: 2px solid transparent;
-            border-bottom-color: rgb(111, 132, 254);
-        
-        }
-        .contact-form textarea:hover, .contact-form textarea:focus{
-          background: transparent; 
-            outline: none;
-          box-shadow: none;
-             border: 2px solid transparent;
-            border-bottom-color: rgb(111, 132, 254);
-        
-        }
-        
-        
-        .taso-btn {
-            background-color: #fff;
-            margin: 25px 0;
-            color: #214dcb;
-            -webkit-box-shadow: 0px 10px 30px 0px rgba(255, 255, 255, 0.32);
-            box-shadow: 0px 10px 30px 0px rgba(255, 255, 255, 0.17);
-        }
-        .contact-info {
-            padding: 0 30px 0px 0;
-        }
-        
-        h2.contact-title {
-            font-size: 35px;
-            font-weight: 600;
-            color: #fff;
-            margin-bottom: 30px;
-        }
-        
-        .contact-info p {
-            color: #ececec;
-        }
-        
-        ul.contact-info {
-            margin-top: 30px;
-        }
-        
-        ul.contact-info li {
-            margin-bottom: 22px;
-        }
-        
-        
-        
-        ul.contact-info span {
-            font-size: 20px;
-            line-height: 26px;
-        }
-        ul.contact-info li {
-            display: flex;
-            width: 100%;
-        }
-        
-        .info-left {
-            width: 10%;
-        }
-        
-        .info-left i {
-            width: 30px;
-            height: 30px;
-            line-height: 30px;
-            font-size: 30px;
-            color: #ffffff;
-        }
-        
-        .info-right h4 {
-            color: #fff;
-            font-size: 18px;
-        }
-        .contact-page .info-left i{
-        color: rgb(111, 132, 254);
-        }
-        .btn {
-        display: inline-block;
-            font-weight: 400;
-            text-align: center;
-            white-space: nowrap;
-            vertical-align: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-            font-family: 'Poppins', sans-serif;
-            padding: 10px 30px 10px;
-            font-size: 17px;
-            line-height: 28px;
-            border: 0px;
-            border-radius: 10px;
-            -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-            transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-            -o-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-            transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-            transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-        }
-        .btn-big {
-            color: #ffffff;
-            -webkit-box-shadow: 0px 5px 20px 0px rgba(45, 45, 45, 0.47843137254901963);
-            box-shadow: 2px 5px 10px 0px rgba(45, 45, 45, 0.19);
-            color: #fff !important;
-            margin-right: 20px;
-            background: rgb(111, 132, 254);
-            transition: .2s;
-            border: 2px solid rgb(111, 132, 254);
-            margin-top: 50px;
-            
-        }
-        
-        .btn-big:hover{
-            background: rgb(79, 100, 216);
-            border: 2px solid rgb(79, 100, 216);
-        } 
-        
-        @media only screen and (max-width: 767px) {
-        .contact-form {
-            padding: 30px;
-        }
-        .contact-form:before {
-            width: 100%;
-        }
-        
-        }
+                    background-image: linear-gradient(to right, rgba(51, 82, 141, 0.795), rgba(51, 82, 141, 0.795));
+                    width: 100%;
+                    height: 100%;
+                    z-index: 1;
+                    position: relative;
+                    padding: 110px 0;
+                }
     
-        .contact-form .form-group .contenteditable-container {
-        position: relative;
-    }
+                .section-bg {
+                    background-size: cover;
+                    position: relative;
+                    background-position: left;
+                    z-index: 0;
+                    padding: 0;
+                    min-height: auto;
+                    overflow: hidden;
+                }
     
-    .contact-form .form-group .contenteditable {
-        border: 2px solid rgba(0, 0, 0, 0);
-        padding: 11px 0;
-        font-size: 16px;
-        font-weight: 600;
-        line-height: 1.5;
-        background-color: transparent;
-        min-height: 50px;
-        box-sizing: border-box;
-        width: 45%;
-        border-bottom-color: rgba(0,0,0,.1);
-        outline: none;
-        transition: .3s ease-in-out;
-    }
+                .contact-form {
+                    position: relative;
+                    padding-top: 40px;
+                    padding-bottom: 40px;
+                    padding-left: 40px;
+                    background: #fff;
+                    border-radius: 6px;
+                    box-shadow: 10px 40px 40px rgba(0, 0, 0, .2);
+                    max-width: 600px;
+                    margin: auto;
+                    box-sizing: border-box;
+                }
     
-    .contact-form .form-group .contenteditable[data-placeholder]:empty:before {
-        content: attr(data-placeholder);
-        color: #222222;
-        pointer-events: none;
-        display: block;
-        font-weight: 100;
-    }
+                .contact-form:before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    border-radius: 6px;
+                    pointer-events: none;
+                    width: 100%;
+                }
     
-    .contact-form .form-group .contenteditable:focus {
-        border-bottom-color: rgb(111, 132, 254);
-    }
+                .contact-form input,
+                .contact-form textarea {
+                    border: 0;
+                    background: transparent;
+                    display: block;
+                    width: 100%;
+                    min-height: 50px;
+                    padding: 11px 0;
+                    font-size: 16px;
+                    font-weight: 600;
+                    line-height: 27px;
+                    background-color: transparent;
+                    background-image: none;
+                    border-radius: 0;
+                    -webkit-appearance: none;
+                    transition: .3s ease-in-out;
+                    border: 2px solid transparent;
+                    border-bottom-color: rgba(0, 0, 0, .1);
+                }
     
+                .contact-form input::placeholder,
+                .contact-form textarea::placeholder {
+                    color: #222;
+                }
     
-        
+                .contact-form input:hover,
+                .contact-form input:focus,
+                .contact-form textarea:hover,
+                .contact-form textarea:focus {
+                    outline: none;
+                    box-shadow: none;
+                    background: transparent;
+                    border: 2px solid transparent;
+                    border-bottom-color: rgb(111, 132, 254);
+                }
+    
+                .taso-btn {
+                    background-color: #fff;
+                    margin: 25px 0;
+                    color: #214dcb;
+                    -webkit-box-shadow: 0px 10px 30px 0px rgba(255, 255, 255, 0.32);
+                    box-shadow: 0px 10px 30px 0px rgba(255, 255, 255, 0.17);
+                }
+    
+                .contact-info {
+                    padding: 0 30px 0px 0;
+                }
+    
+                h2.contact-title {
+                    font-size: 35px;
+                    font-weight: 600;
+                    color: #fff;
+                    margin-bottom: 30px;
+                }
+    
+                .contact-info p {
+                    color: #ececec;
+                }
+    
+                ul.contact-info {
+                    margin-top: 30px;
+                }
+    
+                ul.contact-info li {
+                    margin-bottom: 22px;
+                }
+    
+                ul.contact-info span {
+                    font-size: 20px;
+                    line-height: 26px;
+                }
+    
+                ul.contact-info li {
+                    display: flex;
+                    width: 100%;
+                }
+    
+                .info-left {
+                    width: 10%;
+                }
+    
+                .info-left i {
+                    width: 30px;
+                    height: 30px;
+                    line-height: 30px;
+                    font-size: 30px;
+                    color: #ffffff;
+                }
+    
+                .info-right h4 {
+                    color: #fff;
+                    font-size: 18px;
+                }
+    
+                .contact-page .info-left i {
+                    color: rgb(111, 132, 254);
+                }
+    
+                .btn {
+                    display: inline-block;
+                    font-weight: 400;
+                    text-align: center;
+                    white-space: nowrap;
+                    vertical-align: middle;
+                    -webkit-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
+                    font-family: 'Poppins', sans-serif;
+                    padding: 10px 30px 10px;
+                    font-size: 17px;
+                    line-height: 28px;
+                    border: 0px;
+                    border-radius: 10px;
+                    -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+                    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+                    -o-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+                    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+                    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+                }
+    
+                .btn-big {
+                    color: #ffffff;
+                    -webkit-box-shadow: 0px 5px 20px 0px rgba(45, 45, 45, 0.47843137254901963);
+                    box-shadow: 2px 5px 10px 0px rgba(45, 45, 45, 0.19);
+                    color: #fff !important;
+                    margin-right: 20px;
+                    background: rgb(111, 132, 254);
+                    transition: .2s;
+                    border: 2px solid rgb(111, 132, 254);
+                    margin-top: 50px;
+                }
+    
+                .btn-big:hover {
+                    background: rgb(79, 100, 216);
+                    border: 2px solid rgb(79, 100, 216);
+                }
+    
+                @media only screen and (max-width: 767px) {
+                    .contact-form {
+                        padding: 30px;
+                        width: 90%;
+                    }
+    
+                    .contact-form:before {
+                        width: 100%;
+                    }
+                }
+    
+                .contact-form .form-group .contenteditable-container {
+                    position: relative;
+                }
+    
+                .contact-form .form-group .contenteditable {
+                    border: 2px solid rgba(0, 0, 0, 0);
+                    padding: 11px 0;
+                    font-size: 16px;
+                    font-weight: 600;
+                    line-height: 1.5;
+                    background-color: transparent;
+                    min-height: 50px;
+                    box-sizing: border-box;
+                    width: 100%;
+                    border-bottom-color: rgba(0, 0, 0, .1);
+                    outline: none;
+                    transition: .3s ease-in-out;
+                }
+    
+                .contact-form .form-group .contenteditable[data-placeholder]:empty:before {
+                    content: attr(data-placeholder);
+                    color: #222222;
+                    pointer-events: none;
+                    display: block;
+                    font-weight: 100;
+                }
+    
+                .contact-form .form-group .contenteditable:focus {
+                    border-bottom-color: rgb(111, 132, 254);
+                }
+    
+                .radio-group {
+                    display: flex;
+                    flex-direction: column; /* Ensure radio buttons are stacked */
+                    gap: 10px;
+                }
+    
+                .radio-label {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    font-size: 16px;
+                    color: #333;
+                }
+    
+                .hs-form-field.radio {
+                    width: 20px;
+                    height: 20px;
+                }
             </style>
+            
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-        
+    
             <div class="overlay pt-100 pb-100">
-              <div class="container">
-                 <div class="row">
-                      <div class="col-lg-6 d-flex align-items-center">
-                          <div class="contact-info">
-        
-                              <h2 class="contact-title" style="font-family: Arial, Helvetica, sans-serif;">Contactanos</h2>
-                              <h4 style="font-family: Arial, Helvetica, sans-serif; color: white"> Platiquemos <br>
-                                Nos gustaría saber de ti.</h4>
-                              <ul class="contact-info">
-        
-                                  <li>
-                                    <div class="info-left">
-                                        <i class="fas fa-at"></i>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 d-flex align-items-center">
+                            <div class="contact-info">
+                                <h2 class="contact-title" style="font-family: Arial, Helvetica, sans-serif;">Contactanos</h2>
+                                <h4 style="font-family: Arial, Helvetica, sans-serif; color: white"> Platiquemos <br> Nos gustaría saber de ti.</h4>
+                                <ul class="contact-info">
+                                    <li>
+                                        <div class="info-left">
+                                            <i class="fas fa-at"></i>
+                                        </div>
+                                        <div class="info-right">
+                                            <h4 style="font-family: Arial, Helvetica, sans-serif; color: white">&nbsp;ventas@aamuris.com.mx</h4>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="info-left">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                        </div>
+                                        <div class="info-right">
+                                            <h4 style="font-family: Arial, Helvetica, sans-serif; color: white">Lincoln #4343, Col. San Rafael, 88200, <br /> Nuevo Laredo, Tamaulipas, <br /> Mexico.</h4>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 d-flex align-items-center" style="width:auto">
+                            <div class="contact-form" style="padding-right: 40px;">
+                                <!--Contact Form-->
+                                <!-- <h2>Envianos un mensaje</h2> -->
+    
+                                <form id='contact-form' method='POST'>
+                                    <input type='hidden' name='form-name' value='contactForm' />
+    
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <center><p style=" font-weight: 1000; font-family: Arial, Helvetica, sans-serif;">COTIZA AHORA</p></center>
+
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <input type="text" name="name" class="form-control" id="first-name" placeholder="Nombre completo*" required="required">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <input type="text" name="buisness-name" class="form-control" id="buisness-name" placeholder="Nombre de la empresa*" required="required">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <input type="email" name="email" class="form-control" id="email" placeholder="Email empresarial*" required="required">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <input type="phone" name="phone" class="form-control" id="phone" placeholder="Telefóno*" required="required">
+                                            </div>
+                                        </div>
+                                        
+
+                                        
+
+                                        <div class="col-md-12">
+                                            <my-widget></my-widget>
+                                        </div>
+                                        <!-- <div class="col-md-12">
+                                            <div class="form-group contenteditable-container">
+                                                <div class="form-control contenteditable" contenteditable="true" data-placeholder="Mensaje*" required="required"></div>
+                                            </div>
+                                        </div> -->
+                                        <div class="col-md-12">
+                                            <!--contact button-->
+                                            <button class="btn-big btn btn-bg">
+                                                Enviar <i class="fas fa-arrow-right"></i>
+                                            </button>
+                                        </div>
                                     </div>
-                                    <div  class="info-right">
-                                        <h4 style="font-family: Arial, Helvetica, sans-serif; color: white">&nbsp;ventas@aamuris.com.mx</h4>
-                                    </div>
-                                  </li>
-                                  <li>
-                                    <div class="info-left">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </div>
-                                    <div class="info-right">
-                                        <h4 style="font-family: Arial, Helvetica, sans-serif; color: white">Lincoln #4343, Col. San Rafael, 88200, <br/> Nuevo Laredo, Tamaulipas, <br/> Mexico.</h4>
-                                    </div>
-                                  </li>
-                              </ul>
-                          </div>
-                      </div>
-                      <div class="col-lg-6 d-flex align-items-center" >
-                              <div class="contact-form" >
-                                          <!--Contact Form-->
-                                          Envianos un mensaje
-        
-                                          <form  id='contact-form' method='POST'><input type='hidden' name='form-name' value='contactForm' />
-                                              
-                                            <div class="row">
-                                               
-                                                 <div class="col-md-12">
-                                                    <div class="form-group">
-                                                       <input type="text" name="name" class="form-control" id="first-name" placeholder="Nombre completo*" required="required">
-                                                    </div>
-                                                 </div>
-                                                 <div class="col-md-12">
-                                                    <div class="form-group">
-                                                       <input type="email" name="email" class="form-control" id="email" placeholder="Email*" required="required">
-                                                    </div>
-                                                 </div>
-                                                 <div class="col-md-12">
-                                                    <div class="form-group">
-                                                       <input type="phone" name="phone" class="form-control" id="phone" placeholder="Telefóno*" required="required">
-                                                    </div>
-                                                 </div>
-                                                 <div class="col-md-12">
-                                                    <div class="form-group contenteditable-container">
-                                                        <div class="form-control contenteditable" contenteditable="true" data-placeholder="Mensaje*" required="required"></div>
-                                                    </div>
-                                                </div>
-                                                  <div class="col-md-12">
-                                                      <!--contact button-->
-                                                      <button  class="btn-big btn btn-bg">
-                                                        Enviar <i class="fas fa-arrow-right"></i>
-                                                      </button>
-                                                  </div>
-                                              </div>
-                                          </form>
-                                      </div>
-                      </div>
-                 </div>
-             </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-          </section>
-        </div>
+            </div>
+        </section>
+    </div>
         </div>
       
       <style>

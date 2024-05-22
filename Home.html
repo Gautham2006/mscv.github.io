@@ -1077,7 +1077,20 @@ Championing climate action with our global carbon commitment                    
                 const currentRate = 1 / currentEntry['rate']; // Invert the rate to show MXN per USD
                 const tomorrowRate = 1 / tomorrowEntry['rate']; // Invert the rate to show MXN per USD
                 const rateDisplay = document.getElementById('exchangeRateDisplay');
-                rateDisplay.innerHTML = "<center>Tipo de cambio" + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hoy <strong>" + `${currentRate.toFixed(3)}` + "</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mañana <strong>" + `${tomorrowRate.toFixed(3)}`+"</strong></center>";
+                rateDisplay.innerHTML =  `
+    <center>
+        <div class="exchange-rates">
+            <div class="rate">
+                <span class="label" style="color:white">Hoy:</span>
+                <strong>${currentRate.toFixed(3)}</strong>
+            </div>
+            <div class="rate">
+                <span class="label" style="color:white">Mañana:</span>
+                <strong>${tomorrowRate.toFixed(3)}</strong>
+            </div>
+        </div>
+    </center>
+`;
             } else {
                 const rateDisplay = document.getElementById('exchangeRateDisplay');
                 rateDisplay.textContent = "TIPO DE CAMBIO USD A MXN: No disponible";
@@ -1855,8 +1868,8 @@ Championing climate action with our global carbon commitment                    
                         }
 
                         .navigation {
-                            text-align: center;
-                            padding-top: 30px;
+                            text-align: right;
+                            margin-top: 5px;
                         }
 
                         .next-btn,
@@ -2321,7 +2334,11 @@ Championing climate action with our global carbon commitment                    
                                     <input type='hidden' name='form-name' value='contactForm' />
     
                                     <div class="row">
-    
+                                        <div class="col-md-12">
+                                            <center><p style=" font-weight: 1000; font-family: Arial, Helvetica, sans-serif;">COTIZA AHORA</p></center>
+
+                                        </div>
+
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <input type="text" name="name" class="form-control" id="first-name" placeholder="Nombre completo*" required="required">
@@ -2343,10 +2360,7 @@ Championing climate action with our global carbon commitment                    
                                             </div>
                                         </div>
                                         
-                                        <div class="col-md-12">
-                                            <center><p style="margin-top: 50px; font-weight: 1000; font-family: Arial, Helvetica, sans-serif;">COTIZA AHORA</p></center>
 
-                                        </div>
                                         
 
                                         <div class="col-md-12">
