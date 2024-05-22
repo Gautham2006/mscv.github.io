@@ -1775,119 +1775,106 @@ Championing climate action with our global carbon commitment                    
 
     
     <script>
-                class MyWidget extends HTMLElement {
+        class MyWidget extends HTMLElement {
             constructor() {
                 super();
-                const shadow = this.attachShadow({ mode: 'open' });
-
-                // Initial state
                 this.currentStep = 1;
+                this.formData = JSON.parse(localStorage.getItem('formData')) || {}; // Load stored data from local storage
+                this.attachShadow({ mode: 'open' });
                 this.renderStep();
-
-                // Event listeners for navigation
-                shadow.addEventListener('click', event => {
-                    if (event.target.classList.contains('back-btn')) {
-                        this.currentStep = Math.max(1, this.currentStep - 1);
-                        this.renderStep();
-                    } else if (event.target.classList.contains('next-btn')) {
-                        // You can add validation logic here before proceeding to the next step
-                        this.currentStep = Math.min(8, this.currentStep + 1);
-                        this.renderStep();
-                    }
-                });
             }
 
             renderStep() {
                 this.shadowRoot.innerHTML = `
-                <style>
-                    :host {
-            display: block;
-            font-family: Arial, sans-serif;
-            width: 100%;
-        }
+                    <style>
+                        :host {
+                            display: block;
+                            font-family: Arial, sans-serif;
+                            width: 100%;
+                        }
 
-        .step-content {
-            margin-bottom: 20px;
-        }
+                        .step-content {
+                            margin-bottom: 20px;
+                        }
 
-        .mcq-container {
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            background-color: #f9f9f9;
-            margin-bottom: 20px;
-            margin-top: 20px; /* Adjust margin-top to add space */
-        }
+                        .mcq-container {
+                            padding: 20px;
+                            border: 1px solid #ccc;
+                            border-radius: 8px;
+                            background-color: #f9f9f9;
+                            margin-bottom: 20px;
+                            margin-top: 20px;
+                        }
 
-        .mcq-title {
-            font-size: 20px;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 10px;
-        }
+                        .mcq-title {
+                            font-size: 20px;
+                            font-weight: bold;
+                            color: #333;
+                            margin-bottom: 10px;
+                        }
 
-        .radio-group {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
+                        .radio-group {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 10px;
+                        }
 
-        .radio-label {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 16px;
-            color: #333;
-        }
+                        .radio-label {
+                            display: flex;
+                            align-items: center;
+                            gap: 10px;
+                            font-size: 16px;
+                            color: #333;
+                        }
 
-        .mcq-radio {
-            width: 20px;
-            height: 20px;
-        }
+                        .mcq-radio {
+                            width: 20px;
+                            height: 20px;
+                        }
 
-        .dropdown-select {
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            width: 100%;
-            box-sizing: border-box;
-        }
+                        .dropdown-select {
+                            padding: 10px;
+                            font-size: 16px;
+                            border: 1px solid #ccc;
+                            border-radius: 5px;
+                            width: 100%;
+                            box-sizing: border-box;
+                        }
 
-        .form-group {
-            margin-bottom: 20px;
-        }
+                        .form-group {
+                            margin-bottom: 20px;
+                        }
 
-        .form-control {
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            width: 100%;
-            box-sizing: border-box;
-        }
+                        .form-control {
+                            padding: 10px;
+                            font-size: 16px;
+                            border: 1px solid #ccc;
+                            border-radius: 5px;
+                            width: 100%;
+                            box-sizing: border-box;
+                        }
 
-        .navigation {
-            text-align: right;
-            padding-top: 5px;
-        }
+                        .navigation {
+                            text-align: center;
+                            padding-top: 30px;
+                        }
 
-        .next-btn,
-        .back-btn {
-            padding: 15px 20px;
-            margin: 0 10px;
-            border: none;
-            border-radius: 5px;
-            background-color: #007bff;
-            color: #fff;
-            cursor: pointer;
-            transition: background-color 0.3s ease-in-out;
-        }
+                        .next-btn,
+                        .back-btn {
+                            padding: 15px 20px;
+                            margin: 0 10px;
+                            border: none;
+                            border-radius: 5px;
+                            background-color: #007bff;
+                            color: #fff;
+                            cursor: pointer;
+                            transition: background-color 0.3s ease-in-out;
+                        }
 
-        .next-btn:hover,
-        .back-btn:hover {
-            background-color: #0056b3;
-        }
+                        .next-btn:hover,
+                        .back-btn:hover {
+                            background-color: #0056b3;
+                        }
                     </style>
                     <div class="step-content">
                         ${this.renderStepContent()}
@@ -1897,6 +1884,8 @@ Championing climate action with our global carbon commitment                    
                         ${this.currentStep < 8 ? '<button class="next-btn">Next</button>' : ''}
                     </div>
                 `;
+
+                this.setupEventListeners();
             }
 
             renderStepContent() {
@@ -1907,15 +1896,15 @@ Championing climate action with our global carbon commitment                    
                                 <p class="mcq-title">¿Qué tipo de operación deseas realizar?</p>
                                 <div class="radio-group">
                                     <label class="radio-label">
-                                        <input type="radio" value="Importación" name="step1" class="mcq-radio">
+                                        <input type="radio" value="Importación" name="step1" class="mcq-radio" ${this.formData['step1'] === 'Importación' ? 'checked' : ''}>
                                         Importación
                                     </label>
                                     <label class="radio-label">
-                                        <input type="radio" value="Exportación" name="step1" class="mcq-radio">
+                                        <input type="radio" value="Exportación" name="step1" class="mcq-radio" ${this.formData['step1'] === 'Exportación' ? 'checked' : ''}>
                                         Exportación
                                     </label>
                                     <label class="radio-label">
-                                        <input type="radio" value="Ambas" name="step1" class="mcq-radio">
+                                        <input type="radio" value="Ambas" name="step1" class="mcq-radio" ${this.formData['step1'] === 'Ambas' ? 'checked' : ''}>
                                         Ambas
                                     </label>
                                 </div>
@@ -1927,191 +1916,124 @@ Championing climate action with our global carbon commitment                    
                                 <p class="mcq-title">¿Trabajas como persona física o persona moral?</p>
                                 <div class="radio-group">
                                     <label class="radio-label">
-                                        <input type="radio" value="Persona física" name="step2" class="mcq-radio">
+                                        <input type="radio" value="Persona física" name="step2" class="mcq-radio" ${this.formData['step2'] === 'Persona física' ? 'checked' : ''}>
                                         Persona Física
                                     </label>
                                     <label class="radio-label">
-                                        <input type="radio" value="Persona moral" name="step2" class="mcq-radio">
+                                        <input type="radio" value="Persona moral" name="step2" class="mcq-radio" ${this.formData['step2'] === 'Persona moral' ? 'checked' : ''}>
                                         Persona Moral
                                     </label>
                                 </div>
                             </div>
                         `;
-
                     case 3:
                         return `
-                        <div class="mcq-container">
-                            <p class="mcq-title">¿Qué tipo de operación requieres?</p>
-                                <select class="dropdown-select" name="step2">
-                                    <option value="Importacion">Importación</option>
-                                    <option value="Exportacion">Exportacion</option>
-                                    <option value="Importación y Exportación">Importación y Exportación</option>
-                                    <option value="Otro">Otro</option>
+                            <div class="mcq-container">
+                                <p class="mcq-title">¿Qué tipo de operación requieres?</p>
+                                <select class="dropdown-select" name="step3">
+                                    <option value="Importacion" ${this.formData['step3'] === 'Importacion' ? 'selected' : ''}>Importación</option>
+                                    <option value="Exportacion" ${this.formData['step3'] === 'Exportacion' ? 'selected' : ''}>Exportacion</option>
+                                    <option value="Importación y Exportación" ${this.formData['step3'] === 'Importación y Exportación' ? 'selected' : ''}>Importación y Exportación</option>
+                                    <option value="Otro" ${this.formData['step3'] === 'Otro' ? 'selected' : ''}>Otro</option>
                                 </select>
-                            </div>
                             </div>
                         `;
                     case 4:
                         return `
-                        <div class="mcq-container">
-                            <p class="mcq-title">¿Cuentas con padrón de importadores?</p>
-                                <select class="dropdown-select" name="step2">
-                                    <option value="Sí">Sí</option>
-                                    <option value="No">No</option>
+                            <div class="mcq-container">
+                                <p class="mcq-title">¿Cuentas con padrón de importadores?</p>
+                                <select class="dropdown-select" name="step4">
+                                    <option value="Sí" ${this.formData['step4'] === 'Sí' ? 'selected' : ''}>Sí</option>
+                                    <option value="No" ${this.formData['step4'] === 'No' ? 'selected' : ''}>No</option>
                                 </select>
-                            </div>
                             </div>
                         `;
                     case 5:
                         return `
-                        <div class="mcq-container">
+                            <div class="mcq-container">
                                 <p class="mcq-title">¿Qué mercancía manejas?</p>
                                 <div class="form-group">
-                                    <input type="text" name="¿Que mercancia maneja?" class="form-control" id="¿Que mercancia maneja?" placeholder="" required="required">
+                                    <input type="text" name="step5" class="form-control" placeholder="" required="required" value="${this.formData['step5'] || ''}">
                                 </div>
                             </div>
                         `;
-  
                     case 6:
                         return `
-                        <div class="mcq-container">
+                            <div class="mcq-container">
                                 <p class="mcq-title">¿Que aduanas maneja?</p>
                                 <div class="form-group">
-                                    <input type="text" name="¿Que aduanas maneja?" class="form-control" id="¿Que aduanas maneja?" placeholder="" required="required">
+                                    <input type="text" name="step6" class="form-control" placeholder="" required="required" value="${this.formData['step6'] || ''}">
                                 </div>
                             </div>
                         `;
                     case 7:
                         return `
-                        <div class="mcq-container">
+                            <div class="mcq-container">
                                 <p class="mcq-title">Número de partes que manejas por embarque (Line-ítems)</p>
                                 <div class="form-group">
-                                    <input type="text" name="Número de partes que manejas por embarque (Line-ítems)" class="form-control" id="Número de partes que manejas por embarque (Line-ítems)" placeholder="" required="required">
+                                    <input type="text" name="step7" class="form-control" placeholder="" required="required" value="${this.formData['step7'] || ''}">
                                 </div>
                             </div>
-                        `;                    
+                        `;
                     case 8:
                         return `
-                        <div class="mcq-container">
+                            <div class="mcq-container">
                                 <p class="mcq-title">Comentarios Adicionales</p>
                                 <div class="form-group">
-                                    <textarea type="text" rows = '5' columns = '15' name="Comentarios Adicionales" class="form-control" id="Comentarios Adicionales" placeholder="" required="required"></textarea>
+                                    <textarea type="text" rows="5" columns="15" name="step8" class="form-control" placeholder="" required="required">${this.formData['step8'] || ''}</textarea>
                                 </div>
                             </div>
-                        `;                         
+                        `;
                 }
             }
 
-            
-        }
-       
-        customElements.define('my-widget', MyWidget);
-    //     class MyWidget extends HTMLElement {
-    //         constructor() {
-    //             super();
-    //             const shadow = this.attachShadow({ mode: 'open' });
-    //             shadow.innerHTML = `
-    //                 <style>
-    //                     :host {
-    //                         display: block;
-    //                         width: 100%;
-                            
-                            
-    //                         font-size: 20px;
-    //                     }
-    //                     .container {
-    //                         text-align: center;
-    //                         color: #fff;
-    //                     }
-    //                     .highlight {
-    //                         font-weight: bold;
-    //                     }
-    //                     .line {
-    //                         height: 2px;
-    //                         background-color: #fff;
-    //                         margin: 10px 0;
-    //                     }
-    //                     .mcq-container {
-    //                     padding: 20px;
-    //                     border: 1px solid #ccc;
-    //                     border-radius: 8px;
-    //                     background-color: #f9f9f9;
-    //                     margin-top: 20px;
-    //                 }
-    //                 .mcq-container .form-group {
-    //                     margin-bottom: 20px;
-    //                 }
-    //                 .mcq-container .mcq-title {
-    //                     font-size: 20px;
-    //                     font-weight: bold;
-    //                     color: #333;
-    //                 }
-    //                 .mcq-container .radio-group {
-    //                     display: flex;
-    //                     flex-direction: column;
-    //                     gap: 10px;
-    //                 }
-    //                 .mcq-container .radio-label {
-    //                     display: flex;
-    //                     align-items: center;
-    //                     gap: 10px;
-    //                     font-size: 16px;
-    //                     color: #333;
-    //                 }
-    //                 .mcq-container .mcq-radio {
-    //                     width: 20px;
-    //                     height: 20px;
-    //                 }
+            setupEventListeners() {
+                // Radio buttons
+                const radioButtons = this.shadowRoot.querySelectorAll('.mcq-radio');
+                radioButtons.forEach(button => {
+                    button.addEventListener('change', event => {
+                        this.formData[event.target.name] = event.target.value;
+                        localStorage.setItem('formData', JSON.stringify(this.formData)); // Store data in local storage
+                    });
+                });
 
-    //                 @media (max-width: 768px) {
-    //                     .mcq-container {
-    //                         padding: 10px;
-    //                     }
-    //                     .mcq-container .mcq-title {
-    //                         font-size: 18px;
-    //                     }
-    //                     .mcq-container .radio-label {
-    //                         font-size: 14px;
-    //                     }
-    //                 }
-    //                 </style>
-    //                 <div class="mcq-container">
-    //                     <div class="form-group text-center">
-    //                         <p class="mcq-title">¿Qué tipo de operación deseas realizar?</p>
-    //                         <div class="radio-group">
-    //                             <label for="new-operacion-importacion" class="radio-label">
-    //                                 <input value="Importación" type="radio" name="new-operacion" id="new-operacion-importacion" class="mcq-radio">
-    //                                 Importación
-    //                             </label>
-    //                             <label for="new-operacion-exportacion" class="radio-label">
-    //                                 <input value="Exportación" type="radio" name="new-operacion" id="new-operacion-exportacion" class="mcq-radio">
-    //                                 Exportación
-    //                             </label>
-    //                             <label for="new-operacion-ambas" class="radio-label">
-    //                                 <input type="radio" value="Ambas" name="new-operacion" id="new-operacion-ambas" class="mcq-radio">
-    //                                 Ambas
-    //                             </label>
-    //                         </div>
-    //                     </div>
-    //                     <div class="form-group mt40 text-center">
-    //                         <p class="mcq-title">¿Trabajas como persona física o persona moral?</p>
-    //                         <div class="radio-group">
-    //                             <label for="new-persona-fisica" class="radio-label">
-    //                                 <input type="radio" value="Persona física" name="new-regimen_fiscal" id="new-persona-fisica" class="mcq-radio">
-    //                                 Persona Física
-    //                             </label>
-    //                             <label for="new-persona-moral" class="radio-label">
-    //                                 <input type="radio" value="Persona moral" name="new-regimen_fiscal" id="new-persona-moral" class="mcq-radio">
-    //                                 Persona Moral
-    //                             </label>
-    //                         </div>
-    //                     </div>
-    //                 </div>
-    //             `;
-    //         }
-    //     }
-    
-    //     customElements.define('my-widget', MyWidget);
+                // Dropdowns
+                const dropdowns = this.shadowRoot.querySelectorAll('.dropdown-select');
+                dropdowns.forEach(dropdown => {
+                    dropdown.addEventListener('change', event => {
+                        this.formData[event.target.name] = event.target.value;
+                        localStorage.setItem('formData', JSON.stringify(this.formData)); // Store data in local storage
+                    });
+                });
+
+                // Text inputs and textareas
+                const textInputs = this.shadowRoot.querySelectorAll('.form-control');
+                textInputs.forEach(input => {
+                    input.addEventListener('input', event => {
+                        this.formData[event.target.name] = event.target.value;
+                        localStorage.setItem('formData', JSON.stringify(this.formData)); // Store data in local storage
+                    });
+                });
+
+                const nextButton = this.shadowRoot.querySelector('.next-btn');
+                if (nextButton) {
+                    nextButton.addEventListener('click', () => {
+                        this.currentStep++;
+                        this.renderStep();
+                    });
+                }
+
+                const backButton = this.shadowRoot.querySelector('.back-btn');
+                if (backButton) {
+                    backButton.addEventListener('click', () => {
+                        this.currentStep--;
+                        this.renderStep();
+                    });
+                }
+            }
+        }
+
+        customElements.define('my-widget', MyWidget);
     </script>
     
     <div style="background-color: #00142b;">
@@ -2407,7 +2329,12 @@ Championing climate action with our global carbon commitment                    
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <input type="email" name="email" class="form-control" id="email" placeholder="Email*" required="required">
+                                                <input type="text" name="buisness-name" class="form-control" id="buisness-name" placeholder="Nombre de la empresa*" required="required">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <input type="email" name="email" class="form-control" id="email" placeholder="Email empresarial*" required="required">
                                             </div>
                                         </div>
                                         <div class="col-md-12">
@@ -2415,6 +2342,13 @@ Championing climate action with our global carbon commitment                    
                                                 <input type="phone" name="phone" class="form-control" id="phone" placeholder="Telefóno*" required="required">
                                             </div>
                                         </div>
+                                        
+                                        <div class="col-md-12">
+                                            <center><p style="margin-top: 50px; font-weight: 1000; font-family: Arial, Helvetica, sans-serif;">COTIZA AHORA</p></center>
+
+                                        </div>
+                                        
+
                                         <div class="col-md-12">
                                             <my-widget></my-widget>
                                         </div>
