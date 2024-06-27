@@ -10779,7 +10779,7 @@ p.link-grosvenor a:after {
     height: 100%;
     display: flex;
     flex-direction: column;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid #000000;
     text-decoration: none
 }
 .contentlisting__cardblank {
